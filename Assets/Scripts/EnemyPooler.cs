@@ -34,7 +34,7 @@ public class EnemyPooler : MonoBehaviour
     public ObjectPool<EnemyBehavior> BaseGolemPool { get { return _baseGolemPool; } }
     public ObjectPool<EnemyBehavior> IceGolemPool { get { return _iceGolemPool; } }
     public ObjectPool<EnemyBehavior> FireGolemPool { get { return _fireGolemPool; } }
-    public ObjectPool<EnemyBehavior> LighningGolemPool { get { return _lightninGolemPool; } }
+    public ObjectPool<EnemyBehavior> LightningGolemPool { get { return _lightninGolemPool; } }
 
 
 
@@ -63,8 +63,8 @@ public class EnemyPooler : MonoBehaviour
 
         StartPool(ref _baseGolemPool, CreateBaseGolem,_baseGolemPoolSize,_baseGolemMaxPoolSize);
         StartPool(ref _iceGolemPool, CreateIceGolem,_specialGolemPoolSize,_specialGolemMaxPoolSize);
-        StartPool(ref _baseGolemPool, CreateFireGolem,_specialGolemPoolSize,_specialGolemMaxPoolSize);
-        StartPool(ref _baseGolemPool, CreateLightningGolem,_specialGolemPoolSize,_specialGolemMaxPoolSize);
+        StartPool(ref _fireGolemPool, CreateFireGolem,_specialGolemPoolSize,_specialGolemMaxPoolSize);
+        StartPool(ref _lightninGolemPool, CreateLightningGolem,_specialGolemPoolSize,_specialGolemMaxPoolSize);
 
     }
 
