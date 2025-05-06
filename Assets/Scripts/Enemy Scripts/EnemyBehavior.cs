@@ -24,7 +24,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!_navMesh)
         {
-            Debug.LogError("EnemyBehaviour: No instance of NavMeshAgent Component!");
+            Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
             return;
         }
     }

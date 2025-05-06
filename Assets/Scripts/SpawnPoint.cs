@@ -5,47 +5,48 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-
+    private EnemyBehavior golem;
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(transform.position,1.5f);
     }
-    public void TestSpawn()
-    {
-        Spawn(1);
-    }
+
     public void Spawn(int type)
     {
         switch(type)
         {
+            
             case 1:
             {
-
-                EnemyBehavior basegolem = EnemyPooler.instance.BaseGolemPool.Get();
-                basegolem.transform.position = transform.position;
+                golem = EnemyPooler.instance.BaseGolemPool.Get();
+                golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 break;
             }
 
             case 2:
             {
 
-                EnemyBehavior icegolem = EnemyPooler.instance.IceGolemPool.Get();
-                icegolem.transform.position = transform.position;
+                golem = EnemyPooler.instance.IceGolemPool.Get();
+                golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 break;
             }
             case 3:
             {
-                EnemyBehavior firegolem = EnemyPooler.instance.FireGolemPool.Get();
-                firegolem.transform.position = transform.position;
+                golem = EnemyPooler.instance.FireGolemPool.Get();
+                golem.gameObject.transform.localPosition = transform.localPosition;
                 break;
             }
             case 4:
             {
 
-                EnemyBehavior lightninggolem = EnemyPooler.instance.LightningGolemPool.Get();
-                lightninggolem.transform.position = transform.position;
+                golem = EnemyPooler.instance.LightningGolemPool.Get();
+                golem.gameObject.transform.position = transform.localPosition;
                 break;
             }
+            default:
+                golem = EnemyPooler.instance.BaseGolemPool.Get();
+                golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
+                break;
         }
 
     }
