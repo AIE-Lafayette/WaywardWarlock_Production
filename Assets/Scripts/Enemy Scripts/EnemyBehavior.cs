@@ -17,7 +17,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         _navMesh = GetComponent<NavMeshAgent>();
         
-
     }
 
     private void Start()
@@ -30,9 +29,9 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     
-    public void SetDestination(GameObject obj)
+    public void SetDestination(Transform obj)
     {
-        _navMesh.SetDestination(obj.transform.position);
+        _navMesh.SetDestination(transform.localPosition);
     }
 
 }
