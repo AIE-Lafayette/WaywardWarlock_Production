@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     private EnemyBehavior golem;
-
     public float DistanceToPlayer { get { return _distanceToPlayer; } set { _distanceToPlayer = value; } }
 
     private float _distanceToPlayer;

@@ -16,6 +16,7 @@ public class EnemyPooler : MonoBehaviour
     private EnemyBehavior _iceGolemPrefab;
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
+    public static EnemyPooler instance { get; private set; }
 
     int _baseGolemPoolSize = 100;
     int _baseGolemMaxPoolSize = 300;
@@ -23,7 +24,6 @@ public class EnemyPooler : MonoBehaviour
     int _specialGolemPoolSize = 20;
     int _specialGolemMaxPoolSize = 100;
 
-    public static EnemyPooler instance { get; private set; }
 
     private ObjectPool<EnemyBehavior> _baseGolemPool;
     private ObjectPool<EnemyBehavior> _iceGolemPool;
