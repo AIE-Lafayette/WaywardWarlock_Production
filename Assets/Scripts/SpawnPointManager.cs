@@ -10,7 +10,23 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     [SerializeField]
     Transform _playerPosition;
-    public int[] SetSpawnList { set { _spawnList = value; } }
+
+    [SerializeField]
+    private int _spawnPointLimit = 3;
+
+    [SerializeField]
+    float _timeDelay = 1f;
+
+    public Queue<EnemyType> SetSpawnList 
+    { set 
+        { 
+            if(IsDoneSpawning)
+            {
+                _spawnList = value; 
+                _isDoneSpawning = false; 
+            }
+        } 
+    }
     public bool StopSpawning
     {
         get
@@ -21,34 +37,29 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
         {
             _stopSpawning = value;
             if (value == true && !_isCoroutineRunning)
+            {
+                StopCoroutine(CheckPositions());
                 StartCoroutine(CheckPositions());
-            else if(value == false)
+            }
+            else if (value == false)
                 StopCoroutine(CheckPositions());
             _timer = 0f;
         }
     }
+    public bool IsDoneSpawning { get { return _isDoneSpawning; } }
 
-    [SerializeField]
-    private int _spawnPointLimit= 3;
-    
 
-    private int[] _spawnList;
+    private Queue<EnemyType> _spawnList;
 
     float _timer;
-    float _timeDelay = 1f;
     bool _stopSpawning = false;
+    bool _isDoneSpawning = false;
 
     bool _isCoroutineRunning = false;
 
-    private void Awake()
-    {
-           
-    }
-
 
     private void Start()
-    {
-        
+    { 
         if (_spawnPointList.Count == 0)
             Debug.LogWarning("SpawnManager: No spawn points in the list!");
 
@@ -62,9 +73,10 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
         if (_stopSpawning || _isCoroutineRunning)
         {
             _timer += Time.deltaTime;
-            if(_timer > _timeDelay)
+            if(_timer > _timeDelay || _isDoneSpawning)
             {
-                _timer -= _timeDelay;
+               _timer -= _timeDelay;
+
 
 
 
@@ -100,11 +112,21 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
     
     void SpawnEnemies()
     {
+        if(_spawnList.Count == 0)
+        {
+            _isDoneSpawning = true; 
+            return;
+        }
+
+
+
 
 
 
 
     }
+
+    
 }
 
 public enum EnemyType
