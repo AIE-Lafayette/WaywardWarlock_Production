@@ -32,9 +32,7 @@ public class PlayerController : MonoBehaviour
     
     public Camera _mainCamera;
 
-
     public LayerMask groundLayer;
-
 
     //projectile firing
 
@@ -42,7 +40,10 @@ public class PlayerController : MonoBehaviour
     public float _bulletTimer;
 
     [SerializeField]
-    public GameObject _projectile;
+    public float _bulletSpeed;
+
+    [SerializeField]
+    public GameObject _projectilePrefab;
 
   
 
@@ -62,6 +63,13 @@ public class PlayerController : MonoBehaviour
             {
                 Quaternion lookRotation = Quaternion.LookRotation(_direction);
                 transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+
+                var bullet = Instantiate(_projectilePrefab, _targetPosition, lookRotation);
+                bullet.GetComponent<Rigidbody>().velocity = transform.forward * _bulletSpeed;
+
+
+
+
             }
 
 

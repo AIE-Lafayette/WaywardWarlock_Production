@@ -681,7 +681,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _bulletTimer: 0
-  _projectile: {fileID: 0}
+  _bulletSpeed: 1
+  _projectilePrefab: {fileID: 8869231484300087692, guid: 11fbaf4810f646f4eb65b2641a259227, type: 3}
 --- !u!114 &1894122323
 MonoBehaviour:
   m_ObjectHideFlags: 0
