@@ -45,12 +45,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public GameObject _projectilePrefab;
 
-  
+
+
+    private Transform _meshTransform;
+
+    private float _angle;
+
+    private void Start()
+    {
+        _meshTransform = transform.GetChild(0);
+
+
+
+    }
+
 
 
     void Update()
     {
+        
         ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        Vector3 _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         if(Physics.Raycast(ray, out RaycastHit hit, 100f, groundLayer))
         {
@@ -59,13 +75,14 @@ public class PlayerController : MonoBehaviour
             _direction = _targetPosition - transform.position;
             _direction.y = 0f;
 
+            _angle = Vector3.Angle(hit.point, transform.position);
+
             if (_direction != Vector3.zero)
             {
-                Quaternion lookRotation = Quaternion.LookRotation(_direction);
-                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+                _meshTransform.rotation = Quaternion.Euler(new Vector3(0, _angle));
 
-                var bullet = Instantiate(_projectilePrefab, _targetPosition, lookRotation);
-                bullet.GetComponent<Rigidbody>().velocity = transform.forward * _bulletSpeed;
+                //var bullet = Instantiate(_projectilePrefab, _targetPosition, lookRotation);
+                //bullet.GetComponent<Rigidbody>().velocity = transform.forward * _bulletSpeed;
 
 
 
