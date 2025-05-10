@@ -15,32 +15,32 @@ public class SpawnPoint : MonoBehaviour
         Gizmos.DrawSphere(transform.position,1.5f);
     }
 
-    public void Spawn(int type,Transform player)
+    public void Spawn(EnemyType type,Transform player)
     {
         switch(type)
         {
             
-            case 0:
+            case EnemyType.BASE:
             {
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 break;
             }
 
-            case 1:
+            case EnemyType.ICE:
             {
 
                 golem = EnemyPooler.instance.IceGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 break;
             }
-            case 2:
+            case EnemyType.FIRE:
             {
                 golem = EnemyPooler.instance.FireGolemPool.Get();
                 golem.gameObject.transform.localPosition = transform.localPosition;
                 break;
             }
-            case 3:
+            case EnemyType.LIGHTNING:
             {
 
                 golem = EnemyPooler.instance.LightningGolemPool.Get();

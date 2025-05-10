@@ -70,19 +70,13 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     private void Update()
     {
-        if (_stopSpawning || _isCoroutineRunning)
+        if (_stopSpawning || _isCoroutineRunning || _isDoneSpawning)
         {
             _timer += Time.deltaTime;
-            if(_timer > _timeDelay || _isDoneSpawning)
+            if(_timer > _timeDelay)
             {
                _timer -= _timeDelay;
-
-
-
-
-                
-                
-
+                SpawnEnemies(); 
             }
         }
     }
@@ -112,21 +106,16 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
     
     void SpawnEnemies()
     {
-        if(_spawnList.Count == 0)
+        for (int i = 0; i < _spawnPointLimit; i++)
         {
-            _isDoneSpawning = true; 
-            return;
+            if(_spawnList.Count == 0)
+            {
+                _isDoneSpawning = true;
+                break;
+            }
+            _spawnPointList[i].Spawn(_spawnList.Dequeue(), _playerPosition);
         }
-
-
-
-
-
-
-
     }
-
-    
 }
 
 public enum EnemyType
