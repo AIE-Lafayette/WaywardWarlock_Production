@@ -15,7 +15,7 @@ public class SpawnPoint : MonoBehaviour
         Gizmos.DrawSphere(transform.position,1.5f);
     }
 
-    public void Spawn(EnemyType type,Transform player)
+    public void Spawn(EnemyType type,GameObject player)
     {
         switch(type)
         {
@@ -24,6 +24,7 @@ public class SpawnPoint : MonoBehaviour
             {
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
+                golem.SetTarget = player;
                 break;
             }
 
@@ -32,12 +33,14 @@ public class SpawnPoint : MonoBehaviour
 
                 golem = EnemyPooler.instance.IceGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
+                golem.SetTarget = player;
                 break;
             }
             case EnemyType.FIRE:
             {
                 golem = EnemyPooler.instance.FireGolemPool.Get();
                 golem.gameObject.transform.localPosition = transform.localPosition;
+                golem.SetTarget = player;
                 break;
             }
             case EnemyType.LIGHTNING:
@@ -45,11 +48,13 @@ public class SpawnPoint : MonoBehaviour
 
                 golem = EnemyPooler.instance.LightningGolemPool.Get();
                 golem.gameObject.transform.position = transform.localPosition;
+                    golem.SetTarget = player;
                 break;
             }
             default:
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
+                golem.SetTarget = player;
                 break;
         }
 

@@ -7,6 +7,10 @@ using UnityEngine.Pool;
 public class EnemyBehavior : MonoBehaviour
 {
 
+    public GameObject SetTarget { set { _target = value; } }
+
+    private GameObject _target;
+
     private NavMeshAgent _navMesh;
 
     private ObjectPool<EnemyBehavior> _pool;
@@ -26,12 +30,15 @@ public class EnemyBehavior : MonoBehaviour
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
             return;
         }
+
     }
 
-    
-    public void SetDestination(Transform obj)
+    private void Update()
     {
-        _navMesh.SetDestination(transform.localPosition);
+        if(_target != null)
+        {
+            _navMesh.SetDestination(_target.transform.position);
+        }
     }
 
 }

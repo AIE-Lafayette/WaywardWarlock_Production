@@ -9,7 +9,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
     private List<SpawnPoint> _spawnPointList;
 
     [SerializeField]
-    Transform _playerPosition;
+    GameObject _player;
 
     [SerializeField]
     private int _spawnPointLimit = 3;
@@ -36,13 +36,6 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
         set
         {
             _stopSpawning = value;
-            if (value == true && !_isCoroutineRunning)
-            {
-                StopCoroutine(CheckPositions());
-                StartCoroutine(CheckPositions());
-            }
-            else if (value == false)
-                StopCoroutine(CheckPositions());
             _timer = 0f;
         }
     }
@@ -53,25 +46,25 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     float _timer;
     bool _stopSpawning = false;
-    bool _isDoneSpawning = false;
-
-    bool _isCoroutineRunning = false;
-
+    bool _isDoneSpawning = true;
 
     private void Start()
     { 
         if (_spawnPointList.Count == 0)
             Debug.LogWarning("SpawnManager: No spawn points in the list!");
 
-        if (_playerPosition == null)
-            Debug.LogWarning("SpawnManager: No Transform set!");
-        StartCoroutine(CheckPositions());
+        if (_player == null)
+            Debug.LogWarning("SpawnManager: No GameObject set!");
+        
+        
     }
 
     private void Update()
     {
-        if (_stopSpawning || _isCoroutineRunning || _isDoneSpawning)
+        if (!_stopSpawning || !_isDoneSpawning)
         {
+            CheckPositions();
+
             _timer += Time.deltaTime;
             if(_timer > _timeDelay)
             {
@@ -89,20 +82,16 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
         else return 0;
     }
     
-    //Sorts the array every five seconds
-    IEnumerator CheckPositions()
+
+
+    void CheckPositions()
     {
-        _isCoroutineRunning = true;
         foreach (SpawnPoint point in _spawnPointList)
         {
-            point.DistanceToPlayer = Vector3.Distance(point.transform.position, _playerPosition.position);
+            point.DistanceToPlayer = Vector3.Distance(point.transform.position, _player.transform.position);
         }
         _spawnPointList.Sort(Compare);
-
-        _isCoroutineRunning = false;
-        yield return new WaitForSeconds(5f);
     }
-
     
     void SpawnEnemies()
     {
@@ -113,7 +102,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
                 _isDoneSpawning = true;
                 break;
             }
-            _spawnPointList[i].Spawn(_spawnList.Dequeue(), _playerPosition);
+            _spawnPointList[i].Spawn(_spawnList.Dequeue(), _player);
         }
     }
 }

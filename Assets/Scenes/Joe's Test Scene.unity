@@ -443,6 +443,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb9d335264e2eb42bfb9241c87af3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &874187261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874187263}
+  - component: {fileID: 874187262}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &874187262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874187261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a7c6fda2a789647840f0d4643d9e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnManager: {fileID: 1081460163}
+--- !u!4 &874187263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874187261}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -80.37302, y: 98.956276, z: 10.695726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &977243238 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1486418139539536166, guid: 2ca97c5508c554f42b3e6a5cc2eea6a5, type: 3}
@@ -572,6 +617,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1081460163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
+  m_PrefabInstance: {fileID: 4608794501149247077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147f44b4109e94e428a73fb53ad07f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1271645303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,7 +713,7 @@ Transform:
   m_GameObject: {fileID: 1299179628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.7, y: -50.3, z: -11.088875}
+  m_LocalPosition: {x: 0, y: 1.201, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1067,13 +1123,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895837560}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33656126, y: -0, z: -0, w: 0.94166166}
-  m_LocalPosition: {x: 0, y: 11.25, z: -11.35}
+  m_LocalRotation: {x: 0.13032639, y: 0.69717735, z: -0.13298862, w: 0.69229543}
+  m_LocalPosition: {x: -145.57, y: 74.88, z: 1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 39.335, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.462, y: 90.374, z: -0.149}
 --- !u!114 &1895837564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,10 +1362,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPointManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3949113045281995531, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1299179628}
     - target: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
       propertyPath: _playerPosition
       value: 
-      objectReference: {fileID: 1299179629}
+      objectReference: {fileID: 1299179628}
     - target: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
       propertyPath: _spawnPointList.Array.size
       value: 8
@@ -1370,3 +1434,4 @@ SceneRoots:
   - {fileID: 1299179629}
   - {fileID: 4608794501149247077}
   - {fileID: 1532241960}
+  - {fileID: 874187263}
