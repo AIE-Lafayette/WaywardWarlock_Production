@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckAmountEnemies();
+
     }
 
     void CheckAmountEnemies()
