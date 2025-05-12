@@ -6,62 +6,47 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-  
-    [SerializeField]
-    public float _bulletTimer;
-    [SerializeField]
-    public float _bulletSpeed;
-    [SerializeField]
-    public GameObject _projectilePrefab;
+
+
     [SerializeField]
     private InputActionReference _move;
     [SerializeField]
     public float _playerSpeed;
+    [SerializeField]
+    private LayerMask _layerMask;
 
+    
     private Vector3 _moveDirection;
     private Vector3 _playerVelocity;
     private Transform _meshTransform;
-    private float _angle;
-    public Camera _mainCamera;
-
     private void Start()
     {
         _meshTransform = transform.GetChild(0);
-
-
-
+        
     }
-
-
 
     void Update()
     {
-        
-       
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray,out RaycastHit raycastHit, float.MaxValue,_layerMask))
+        {
+            Vector3 mousePosition = raycastHit.point;
 
-        Vector3 _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePosition - transform.position;
+            direction.y = 0f;
 
+            if(direction != Vector3.zero)
+            {
+                
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                _meshTransform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+            }
 
-        //var bullet = Instantiate(_projectilePrefab, _targetPosition, lookRotation);
-        //bullet.GetComponent<Rigidbody>().velocity = transform.forward * _bulletSpeed;
-
-
-
-      
-
-       
-
-        
-
-
-
-
+        }
 
         _moveDirection = new Vector3(_move.action.ReadValue<Vector2>().x, 0,_move.action.ReadValue<Vector2>().y);
         _playerVelocity = _moveDirection * _playerSpeed * Time.deltaTime;
-        _meshTransform.Translate(_playerVelocity, Space.Self);
-
-
+        transform.Translate(_playerVelocity, Space.Self);
 
     }
 
