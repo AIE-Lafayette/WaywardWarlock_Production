@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     private Bullet _bulletPrefab;
     [SerializeField]
     private GameObject _bulletOffset;
+    [SerializeField]
+    private GameObject _meshObject;
 
 
     public ShotType SetShotType 
@@ -58,8 +60,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 _shootingtimer -= _delay;
 
-                Instantiate(_bulletPrefab, _bulletOffset.transform.position, _bulletOffset.transform.rotation);
-
+                Bullet bullet = Instantiate(_bulletPrefab,_bulletOffset.transform.position, Quaternion.identity);
+                Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+                Direction.y = 0;
+                bullet.SetDirection = Direction;
 
             }
        }
@@ -70,10 +74,10 @@ public class PlayerAttack : MonoBehaviour
 
         }
     }
-
+    
     private void OnCollisionStay(Collision collision)
     {
-        
+       //collects 
     }
 
     void ShootSpecial()
@@ -107,7 +111,7 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-
+    
 }
 
 

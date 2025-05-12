@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 6798200427690302844}
   - component: {fileID: 6203341471187024789}
   - component: {fileID: 1405519979545951317}
+  - component: {fileID: 7090852582363534483}
   m_Layer: 0
   m_Name: Player_PF
   m_TagString: Untagged
@@ -233,8 +234,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 0.5
+  _iceDelay: 1
+  _fireDelay: 1
+  _lightningDelay: 1
   _bulletPrefab: {fileID: 0}
   _bulletOffset: {fileID: 0}
+--- !u!54 &7090852582363534483
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218450933699985572}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!1 &4312605692128134284
 GameObject:
   m_ObjectHideFlags: 0

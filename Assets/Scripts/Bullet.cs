@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    public float _speed;
+    [SerializeField]
+    public float _damage;
+
+    public Vector3 SetDirection { set { _direction = value; } }
+
+    private Vector3 _direction;
+
+    
+
     void Start()
     {
-        
+            
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.Self);
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
         
+       
+        if(collision.gameObject.tag == "Enemy" )
+        {
+            Debug.Log("Enemy Collision");
+            HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
+            health.RemoveHealth(_damage);
+        }
     }
 }

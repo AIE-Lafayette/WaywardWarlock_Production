@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5419548110053535916}
   - component: {fileID: 3510868910748800314}
+  - component: {fileID: 3819988905537081718}
   m_Layer: 0
   m_Name: BasicBullet_pf
   m_TagString: Untagged
@@ -150,3 +151,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c53eaa883cb8dd42a6c1ef168065451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 5
+  _damage: 0
+--- !u!54 &3819988905537081718
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904906218547623740}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
