@@ -15,7 +15,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
     private int _spawnPointLimit = 3;
 
     [SerializeField]
-    float _timeDelay = 1f;
+    float _timeDelay = 10.0f;
 
     public Queue<EnemyType> SetSpawnList 
     { set 
@@ -44,7 +44,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     private Queue<EnemyType> _spawnList;
 
-    float _timer;
+    float _timer = 0;
     bool _stopSpawning = false;
     bool _isDoneSpawning = true;
 
@@ -61,17 +61,18 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     private void Update()
     {
-        if (!_stopSpawning || !_isDoneSpawning)
-        {
-            CheckPositions();
+        if (_stopSpawning || _isDoneSpawning)
+            return;
 
-            _timer += Time.deltaTime;
-            if(_timer > _timeDelay)
-            {
+        CheckPositions();
+
+        _timer += Time.deltaTime;
+        if(_timer >= _timeDelay)
+        {
                _timer -= _timeDelay;
                 SpawnEnemies(); 
-            }
         }
+        
     }
 
     //Compares spawn points to check for smallest distance

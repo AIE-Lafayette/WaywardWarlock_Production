@@ -17,6 +17,14 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
     public static EnemyPooler instance { get; private set; }
+    
+    public int AllActive 
+    { get 
+      { 
+        return _baseGolemPool.CountActive + _iceGolemPool.CountActive + _fireGolemPool.CountActive + _lightningGolemPool.CountActive; 
+      } 
+    }
+
 
     int _baseGolemPoolSize = 100;
     int _baseGolemMaxPoolSize = 300;
@@ -109,12 +117,6 @@ public class EnemyPooler : MonoBehaviour
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
-        IHealth objecthealth = pooledObject.GetComponent<IHealth>();
-        if(objecthealth != null)
-        {
-            objecthealth.ResetHealth();
-        }
-
         pooledObject.gameObject.SetActive(false);
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8527189516208672327}
   - component: {fileID: 8831195918605992478}
   - component: {fileID: 4300345856230055358}
+  - component: {fileID: 8641931326045032333}
   m_Layer: 0
   m_Name: Base_Golem
   m_TagString: Enemy
@@ -69,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367cb89f2fadb4a478196f2ed812b99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!114 &4300345856230055358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +85,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 2
   _maxHealth: 2
+--- !u!54 &8641931326045032333
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539134561162517176}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!1 &6308957533365728566
 GameObject:
   m_ObjectHideFlags: 0

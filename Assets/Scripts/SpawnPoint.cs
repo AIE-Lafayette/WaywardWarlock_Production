@@ -48,7 +48,7 @@ public class SpawnPoint : MonoBehaviour
 
                 golem = EnemyPooler.instance.LightningGolemPool.Get();
                 golem.gameObject.transform.position = transform.localPosition;
-                    golem.SetTarget = player;
+                golem.SetTarget = player;
                 break;
             }
             default:
