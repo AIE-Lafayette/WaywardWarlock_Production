@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
             Debug.Log("Enemy Collision");
             HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
             health.RemoveHealth(_damage);
+            
         }
     }
 }
