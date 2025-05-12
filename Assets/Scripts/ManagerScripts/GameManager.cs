@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
-    int _amountToSpawn = 80;
+    int _amountToSpawn = 100;
     int _maxEnemiesOnScreen = 50;
     int _killCount;
     float _basicGolemPercentage = .85f;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     }    
     void MakeQueue()
     {
-        
+       
         int basicGolems = (int)(_amountToSpawn * _basicGolemPercentage);
         int specialGolems = _amountToSpawn - basicGolems;
 
@@ -92,6 +92,12 @@ public class GameManager : MonoBehaviour
         }
 
         ShuffleList<EnemyType>(tempList);
+
+        //Do this so you never get a scecial golem on start
+        for (int i = 0; i < 10; i++)
+        {
+            tempList.Insert(0, EnemyType.BASE);
+        }
 
         //Add to the Queue
         foreach (EnemyType type in tempList)
