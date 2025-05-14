@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.VR;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -14,8 +14,6 @@ public class PlayerAttack : MonoBehaviour
     float _fireDelay = 1;
     [SerializeField]
     float _lightningDelay = 1;
-    [SerializeField]
-    private Bullet _bulletPrefab;
     [SerializeField]
     private GameObject _bulletOffset;
     [SerializeField]
@@ -39,13 +37,6 @@ public class PlayerAttack : MonoBehaviour
     {
         
 
-        if(!_bulletPrefab)
-        {
-            Debug.LogError("PlayerAttack: No bullet prefab set!");
-            return;
-        }
-
-
     }
 
     // Update is called once per frame
@@ -60,10 +51,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 _shootingtimer -= _delay;
 
-                Bullet bullet = Instantiate(_bulletPrefab,_bulletOffset.transform.position, Quaternion.identity);
-                Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
-                Direction.y = 0;
-                bullet.SetDirection = Direction;
+
+                ShootBasic();
+                
+               // Instantiate(_basicBulletPrefab, _bulletOffset.transform.position, Quaternion.identity);
+                
 
             }
        }
@@ -74,11 +66,28 @@ public class PlayerAttack : MonoBehaviour
 
         }
     }
+
+    
+
+
+
     
     private void OnCollisionStay(Collision collision)
     {
        //collects 
     }
+
+
+    void ShootBasic()
+    {
+        Bullet bullet = BulletPool.instance.BasicBulletPool.Get();
+        bullet.transform.position = _bulletOffset.transform.position;
+        Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+        Direction.y = 0;
+        bullet.SetDirection = Direction;
+
+    }
+
 
     void ShootSpecial()
     {
@@ -107,6 +116,7 @@ public class PlayerAttack : MonoBehaviour
             {
                     break;
             }
+          
         }
 
     }

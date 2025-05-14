@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-           
+          
     }
 
     // Update is called once per frame
@@ -40,9 +40,10 @@ public class Bullet : MonoBehaviour
             Debug.Log("Enemy Collision");
             HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
             health.RemoveHealth(_damage);
-            
-        _pool.Release(this);
-       
+            _pool.Release(this);
+
+
         }
+        
     }
 }

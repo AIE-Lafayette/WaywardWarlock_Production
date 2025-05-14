@@ -22,10 +22,10 @@ public class BulletPool : MonoBehaviour
     private ObjectPool<Bullet> _lightningPool;
     private ObjectPool<Bullet> _icePool;
 
-    public ObjectPool<Bullet> BasicBullet { get { return _basicPool; } }
-    public ObjectPool<Bullet> FireBullet { get { return _firePool; } }
-    public ObjectPool<Bullet> LightningBullet { get { return _lightningPool; } }
-    public ObjectPool<Bullet> IceBullet { get { return _icePool; } }
+    public ObjectPool<Bullet> BasicBulletPool { get { return _basicPool; } }
+    public ObjectPool<Bullet> FireBulletPool { get { return _firePool; } }
+    public ObjectPool<Bullet> LightningBulletPool { get { return _lightningPool; } }
+    public ObjectPool<Bullet> IceBulletPool { get { return _icePool; } }
 
 
     private int _maxPoolSize = 100;
@@ -33,12 +33,20 @@ public class BulletPool : MonoBehaviour
 
     private int _maxSpecialSize = 100;
 
-    //  IObjectPool<Bullet> m_Pool;
+   
 
 
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
 
         StartPool(ref _basicPool, CreateBasicBullet, _defaultCapacity, _maxPoolSize);
         StartPool(ref _icePool, CreateIceBullet, _defaultCapacity, _maxSpecialSize);
@@ -46,6 +54,8 @@ public class BulletPool : MonoBehaviour
         StartPool(ref _firePool, CreateFireBullet, _defaultCapacity, _maxSpecialSize);
 
     }
+
+   
 
     void StartPool(ref ObjectPool<Bullet> pool, Func<Bullet> createFunction, int initsize, int maxsize)
     {
