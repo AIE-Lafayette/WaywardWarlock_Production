@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private SpawnPointManager _spawnManager;
+    
 
     public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     void CheckAmountEnemies()
     {
-        if (EnemyPooler.instance.AllActive >= _maxEnemiesOnScreen)
+        if (EnemyPooler.instance.AllActiveCount >= _maxEnemiesOnScreen)
         {
             if (_spawnManager.StopSpawning != true)
                 _spawnManager.StopSpawning = true;

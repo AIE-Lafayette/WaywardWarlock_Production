@@ -17,14 +17,15 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
     public static EnemyPooler instance { get; private set; }
-    
-    public int AllActive 
+    private List<EnemyBehavior> _activeList;
+    public int AllActiveCount 
     { get 
       { 
         return _baseGolemPool.CountActive + _iceGolemPool.CountActive + _fireGolemPool.CountActive + _lightningGolemPool.CountActive; 
       } 
     }
 
+    public List<EnemyBehavior> ActiveList { get { return _activeList; } }
 
     int _baseGolemPoolSize = 100;
     int _baseGolemMaxPoolSize = 300;
@@ -76,6 +77,13 @@ public class EnemyPooler : MonoBehaviour
 
     }
 
+    public void StopAllActive()
+    {
+        foreach (EnemyBehavior enemy in _activeList)
+        {
+            enemy.CanMove = false;
+        }
+    }
 
     #region Pool Functions
     void StartPool(ref ObjectPool<EnemyBehavior> pool, Func<EnemyBehavior> createFunction,int initsize,int maxsize)
@@ -113,11 +121,13 @@ public class EnemyPooler : MonoBehaviour
     private void OnGetFromPool(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(true);
+        _activeList.Add(pooledObject);
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
+        _activeList.Remove(pooledObject);
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)
