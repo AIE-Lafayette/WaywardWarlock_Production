@@ -57,6 +57,7 @@ public class EnemyPooler : MonoBehaviour
         {
             instance = this;
         }
+        _activeList = new List<EnemyBehavior>();
 
         if (!_baseGolemPrefab)
             Debug.LogError("EnemyPooler: Base Golem prefab missing!");
@@ -121,13 +122,13 @@ public class EnemyPooler : MonoBehaviour
     private void OnGetFromPool(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(true);
-        _activeList.Add(pooledObject);
+        EnemyPooler.instance.ActiveList.Add(pooledObject);
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
-        _activeList.Remove(pooledObject);
+        EnemyPooler.instance.ActiveList.Add(pooledObject);
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)
