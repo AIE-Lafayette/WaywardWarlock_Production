@@ -6,14 +6,12 @@ using UnityEngine.AI;
 public class PlayerAttack : MonoBehaviour
 {
 
+
     [SerializeField]
+    float _baseDelay = .5f;
+
     float _delay = .5f;
-    [SerializeField]
-    float _iceDelay = 1;
-    [SerializeField]
-    float _fireDelay = 1;
-    [SerializeField]
-    float _lightningDelay = 1;
+   
     [SerializeField]
     private GameObject _bulletOffset;
     [SerializeField]
@@ -27,7 +25,8 @@ public class PlayerAttack : MonoBehaviour
             _specialActive = true;
         } 
     }
-    public float SetSpecialTimer { set { _specialTimeLeft = value; } }
+    
+  
     
     float _specialTimeLeft;
     float _shootingtimer;
@@ -42,29 +41,22 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(!_specialActive)
+       _shootingtimer += Time.deltaTime;
+        if (_specialActive)
+            _specialTimeLeft -= Time.deltaTime;
+       if(_shootingtimer > _delay)
        {
-            _shootingtimer += Time.deltaTime;
-
-
-            if(_shootingtimer > _delay)
+           _shootingtimer -= _delay;
+            if(_specialTimeLeft <= 0 && _specialActive == true)
             {
-                _shootingtimer -= _delay;
-
-
-                ShootBasic();
-                
-               // Instantiate(_basicBulletPrefab, _bulletOffset.transform.position, Quaternion.identity);
-                
-
+                _specialTimeLeft = 0;
+                _shotType = ShotType.BASIC;
+                _specialActive = false;
+                _delay = _baseDelay;
             }
+            Shoot();
        }
-        else
-        {
-
-            ShootSpecial();
-
-        }
+   
     }
 
     
@@ -74,48 +66,42 @@ public class PlayerAttack : MonoBehaviour
     
     private void OnCollisionStay(Collision collision)
     {
-       //collects 
+      
     }
 
-
-    void ShootBasic()
+    void ShootBullet(Bullet bullet)
     {
-        Bullet bullet = BulletPool.instance.BasicBulletPool.Get();
         bullet.transform.position = _bulletOffset.transform.position;
         Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
         Direction.y = 0;
         bullet.SetDirection = Direction;
-
     }
-
-
-    void ShootSpecial()
+    
+    void Shoot()
     {
         switch (_shotType)
         {
+            case ShotType.BASIC:
+                {
+        
+                    ShootBullet(BulletPool.instance.BasicBulletPool.Get());     
+                     break;
+                 }
             case ShotType.ICE:
                 {
-                    _specialTimeLeft -= Time.deltaTime;
-                    _shootingtimer += Time.deltaTime;
-                    if (_specialTimeLeft <= 0)
-                        _specialActive = false;
-
-                    if(_shootingtimer > _iceDelay)
-                    {
-                        _shootingtimer -= _iceDelay;
-                       
-                    }
-
-                    break;
+                    ShootBullet(BulletPool.instance.IceBulletPool.Get());
+                  break;
                 }
             case ShotType.FIRE:
-            {
+                {
+                    ShootBullet(BulletPool.instance.FireBulletPool.Get());
                     break;
-            }
+                }
             case ShotType.LIGHTNING:
-            {
+                {
+                    ShootBullet(BulletPool.instance.LightningBulletPool.Get());
                     break;
-            }
+                }
           
         }
 
@@ -128,7 +114,8 @@ public class PlayerAttack : MonoBehaviour
 
 public enum ShotType
 {
-    ICE = 0,
+    BASIC = 0,
+    ICE,
     FIRE,
     LIGHTNING
 }
