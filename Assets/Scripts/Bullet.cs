@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
@@ -12,14 +13,13 @@ public class Bullet : MonoBehaviour
     public float _damage;
 
     public Vector3 SetDirection { set { _direction = value; } }
-
+    public ObjectPool<Bullet> Pool { set { _pool = value; } }
+    private ObjectPool<Bullet> _pool;
     private Vector3 _direction;
-
-    
 
     void Start()
     {
-            
+           
     }
 
     // Update is called once per frame
@@ -41,6 +41,8 @@ public class Bullet : MonoBehaviour
             HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
             health.RemoveHealth(_damage);
             
+        _pool.Release(this);
+       
         }
     }
 }

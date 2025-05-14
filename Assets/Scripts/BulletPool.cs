@@ -14,12 +14,14 @@ public class BulletPool : MonoBehaviour
     private Bullet _lightningBullet;
     [SerializeField]
     private Bullet _iceBullet;
+    public static BulletPool instance { get; private set; }
+
 
     private ObjectPool<Bullet> _basicPool;
     private ObjectPool<Bullet> _firePool;
     private ObjectPool<Bullet> _lightningPool;
     private ObjectPool<Bullet> _icePool;
-    
+
     public ObjectPool<Bullet> BasicBullet { get { return _basicPool; } }
     public ObjectPool<Bullet> FireBullet { get { return _firePool; } }
     public ObjectPool<Bullet> LightningBullet { get { return _lightningPool; } }
@@ -31,29 +33,52 @@ public class BulletPool : MonoBehaviour
 
     private int _maxSpecialSize = 100;
 
-    IObjectPool<Bullet> m_Pool;
-    
-    
+    //  IObjectPool<Bullet> m_Pool;
+
+
 
     private void Awake()
     {
 
         StartPool(ref _basicPool, CreateBasicBullet, _defaultCapacity, _maxPoolSize);
+        StartPool(ref _icePool, CreateIceBullet, _defaultCapacity, _maxSpecialSize);
+        StartPool(ref _lightningPool, CreateLightningBullet, _defaultCapacity, _maxSpecialSize);
+        StartPool(ref _firePool, CreateFireBullet, _defaultCapacity, _maxSpecialSize);
 
     }
-    
+
     void StartPool(ref ObjectPool<Bullet> pool, Func<Bullet> createFunction, int initsize, int maxsize)
     {
         pool = new ObjectPool<Bullet>(createFunction, OnTakeFromPool, OnReturnedToPool, OnDestroyObject, false, initsize, maxsize);
-    }    
+    }
 
     Bullet CreateBasicBullet()
     {
         Bullet bullet = Instantiate(_basicBullet);
-        
+        bullet.Pool = _basicPool;
+        return bullet;
     }
 
+    Bullet CreateFireBullet()
+    {
+        Bullet bullet = Instantiate(_fireBullet);
+        bullet.Pool = _firePool;
+        return bullet;
+    }
 
+    Bullet CreateLightningBullet()
+    {
+        Bullet bullet = Instantiate(_lightningBullet);
+        bullet.Pool = _lightningPool;
+        return bullet;
+    }
+
+    Bullet CreateIceBullet()
+    {
+        Bullet bullet = Instantiate(_iceBullet);
+        bullet.Pool = _icePool;
+        return bullet;
+    }
 
    
 
@@ -74,8 +99,5 @@ public class BulletPool : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
+   
 }
