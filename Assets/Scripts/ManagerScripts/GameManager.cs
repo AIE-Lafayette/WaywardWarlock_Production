@@ -8,17 +8,20 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private SpawnPointManager _spawnManager;
-    
+    [SerializeField]
+    int _maxEnemiesOnScreen = 50;
 
     public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
 
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
-    int _amountToSpawn = 100;
-    int _maxEnemiesOnScreen = 50;
+    int _incrementAmount = 5;
+    int _amountToSpawn = 10;
     int _killCount;
-    float _basicGolemPercentage = .85f;
+    float _basicGolemPercentage = 1;
     int _specialTypes = 3;
+    float _waveTimer = 0;
+    float _waveDelay = 10;
 
     private void Start()
     {
@@ -43,13 +46,40 @@ public class GameManager : MonoBehaviour
        
     }
 
-
+    public void AddKill()
+    {
+        _killCount += 1;
+    }
     private void Update()
     {
         CheckAmountEnemies();
+        UpdateAmount();
 
     }
+    void UpdateAmount()
+    { 
+        if(_spawnManager.IsDoneSpawning)
+        {
+            _waveTimer += Time.deltaTime;
+            if(_waveTimer >= _waveDelay)
+            {
+                _waveTimer = 0;
+                _amountToSpawn += _incrementAmount;
 
+                if(_amountToSpawn >= 20)
+                {
+                    _basicGolemPercentage = 1;
+                }
+                else
+                {
+                    _basicGolemPercentage = .85f;
+                }
+
+                MakeQueue();
+                _spawnManager.SetSpawnList = _spawnList;
+            }
+        }
+    }
     void CheckAmountEnemies()
     {
         if (EnemyPooler.instance.AllActiveCount >= _maxEnemiesOnScreen)
@@ -95,11 +125,6 @@ public class GameManager : MonoBehaviour
 
         ShuffleList<EnemyType>(tempList);
 
-        //Do this so you never get a scecial golem on start
-        for (int i = 0; i < 10; i++)
-        {
-            tempList.Insert(0, EnemyType.BASE);
-        }
 
         //Add to the Queue
         foreach (EnemyType type in tempList)

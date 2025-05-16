@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
 public class EnemyBehavior : MonoBehaviour
@@ -9,11 +10,11 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float _damage = 1;
 
-
+    public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
     public ObjectPool<EnemyBehavior> Pool { set { _pool = value; } }
 
-
+    
     private HealthComponent _health;
     private GameObject _target;
     private NavMeshAgent _navMesh;
@@ -59,7 +60,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if(_health.Health == 0)
         {
-            OnDeath();
+            OnEnemyDeath.Invoke();
         }
 
     }
@@ -93,10 +94,8 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    void OnDeath()
+    public void Return()
     {
-        _health.ResetHealth();
-        GameManager.instance.KillCount += 1;
         _pool.Release(this);
     }
 }
