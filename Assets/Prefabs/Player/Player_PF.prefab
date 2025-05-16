@@ -150,6 +150,9 @@ GameObject:
   - component: {fileID: 6203341471187024789}
   - component: {fileID: 1405519979545951317}
   - component: {fileID: 7090852582363534483}
+  - component: {fileID: 1417986852158063382}
+  - component: {fileID: 1392927266343313732}
+  - component: {fileID: 7606316538776977517}
   m_Layer: 0
   m_Name: Player_PF
   m_TagString: Untagged
@@ -366,6 +369,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &1417986852158063382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218450933699985572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c90279d47dd551469b345adc5d7ccaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 20
+  _maxHealth: 20
+--- !u!114 &1392927266343313732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218450933699985572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeaf92598b3743f42b763cfa81103e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!208 &7606316538776977517
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218450933699985572}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.43, y: 1, z: 0.43}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4312605692128134284
 GameObject:
   m_ObjectHideFlags: 0
