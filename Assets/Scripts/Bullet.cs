@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     public ObjectPool<Bullet> Pool { set { _pool = value; } }
     private ObjectPool<Bullet> _pool;
     private Vector3 _direction;
+    int _boundLimit = 30;
 
     void Start()
     {
@@ -28,9 +29,19 @@ public class Bullet : MonoBehaviour
         
         transform.Translate(_direction * _speed * Time.deltaTime, Space.Self);
 
-
+        DestroyWhenOffScreen();
     }
 
+    void DestroyWhenOffScreen()
+    {
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+
+        if( screenPosition.x < -_boundLimit || screenPosition.x > Camera.main.pixelWidth +_boundLimit || screenPosition.y < -_boundLimit || screenPosition.y > Camera.main.pixelHeight + _boundLimit)
+        {
+            _pool.Release(this);
+        }
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         

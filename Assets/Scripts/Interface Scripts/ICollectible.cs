@@ -7,6 +7,8 @@ public interface ICollectible
 {
     float Delay { get; }
     float Time { get; }
+    float Damage { get; }
+
     ShotType BulletType { get; }
 
 

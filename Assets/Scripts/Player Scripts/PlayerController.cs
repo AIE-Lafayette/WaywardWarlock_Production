@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour
 
 
         _moveDirection = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
-        _playerVelocity = _moveDirection * _playerSpeed * Time.deltaTime;
+        _playerVelocity = _moveDirection.normalized * _playerSpeed;
 
     }
 
     void Update()
     {
-        transform.Translate(_playerVelocity, Space.Self);
+        transform.Translate(_playerVelocity * Time.deltaTime, Space.Self);
 
         if (_angleTwords != Vector3.zero)
         {

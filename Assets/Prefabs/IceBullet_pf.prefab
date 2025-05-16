@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4057120388961073122, guid: 822b932ceea295042989dfe855cc5434, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 107029d021aa5ac45a2f4664d8dbab28, type: 2}
     - target: {fileID: 5419548110053535916, guid: 822b932ceea295042989dfe855cc5434, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904906218547623740, guid: 822b932ceea295042989dfe855cc5434, type: 3}
       propertyPath: m_Name
-      value: BasicBullet_pf
+      value: IceBullet_pf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

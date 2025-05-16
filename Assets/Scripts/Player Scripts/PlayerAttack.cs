@@ -32,12 +32,12 @@ public class PlayerAttack : MonoBehaviour
     float _shootingtimer;
     private ShotType _shotType;
     private bool _specialActive = false;
-    void Start()
+
+    private void Start()
     {
-        
-
+        _shotType = new ShotType();
+        _shotType = ShotType.BASIC;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -66,7 +66,18 @@ public class PlayerAttack : MonoBehaviour
     
     private void OnCollisionStay(Collision collision)
     {
-      
+        //checks first if special is active or not
+
+        ICollectible item = collision.gameObject.GetComponent<ICollectible>();
+        if (item != null)
+        {
+            if(!_specialActive)
+            {
+                SetShotType = item.BulletType;
+                _delay = item.Delay;
+                _specialTimeLeft = item.Time;
+            }
+        }
     }
 
     void ShootBullet(Bullet bullet)
@@ -83,12 +94,13 @@ public class PlayerAttack : MonoBehaviour
         {
             case ShotType.BASIC:
                 {
-        
+
                     ShootBullet(BulletPool.instance.BasicBulletPool.Get());     
                      break;
                  }
             case ShotType.ICE:
                 {
+                    //_shootingtimer += Time.deltaTime;
                     ShootBullet(BulletPool.instance.IceBulletPool.Get());
                   break;
                 }
