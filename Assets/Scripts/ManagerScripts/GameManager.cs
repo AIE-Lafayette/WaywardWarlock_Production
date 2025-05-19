@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         CheckAmountEnemies();
         UpdateAmount();
+       
 
     }
     void UpdateAmount()
@@ -84,13 +85,13 @@ public class GameManager : MonoBehaviour
     {
         if (EnemyPooler.instance.AllActiveCount >= _maxEnemiesOnScreen)
         {
-            if (_spawnManager.StopSpawning != true)
-                _spawnManager.StopSpawning = true;
+            if (_spawnManager.ScreenFull != true)
+                _spawnManager.ScreenFull = true;
         }
         else
         {
-            if (_spawnManager.StopSpawning != false)
-                _spawnManager.StopSpawning = false;
+            if (_spawnManager.ScreenFull != false)
+                _spawnManager.ScreenFull = false;
         }
     }    
     void MakeQueue()

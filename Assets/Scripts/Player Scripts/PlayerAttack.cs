@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,9 +26,9 @@ public class PlayerAttack : MonoBehaviour
             _specialActive = true;
         } 
     }
-    
-  
-    
+
+
+    bool _isDead = false;
     float _specialTimeLeft;
     float _shootingtimer;
     private ShotType _shotType;
@@ -82,10 +83,14 @@ public class PlayerAttack : MonoBehaviour
 
     void ShootBullet(Bullet bullet)
     {
+        if(!_isDead)
+        {
+
         bullet.transform.position = _bulletOffset.transform.position;
         Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
         Direction.y = 0;
         bullet.SetDirection = Direction;
+        }
     }
     
     void Shoot()
@@ -117,6 +122,12 @@ public class PlayerAttack : MonoBehaviour
           
         }
 
+    }
+
+
+    public void StopShooting()
+    {
+        _isDead = true;
     }
 
     

@@ -82,7 +82,7 @@ public class EnemyPooler : MonoBehaviour
     {
         foreach (EnemyBehavior enemy in _activeList)
         {
-            enemy.CanMove = false;
+            enemy.StopMovement = true;
         }
     }
 

@@ -24,7 +24,7 @@ public class EnemyBehavior : MonoBehaviour
     private float _timer;
     private float _delay = 1.5f;
 
-    public bool CanMove { set { _navMesh.isStopped = value; } }
+    public bool StopMovement { set { _navMesh.isStopped = value; } }
 
     private void Awake()
     {
@@ -78,7 +78,6 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         HitPlayer(collision);
@@ -94,6 +93,12 @@ public class EnemyBehavior : MonoBehaviour
                 HitPlayer(collision);
             }
         }
+    }
+
+
+    public void DropItem()
+    {
+        
     }
 
     public void Return()

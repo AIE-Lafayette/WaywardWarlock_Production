@@ -28,6 +28,13 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
             }
         } 
     }
+    public bool ScreenFull { get { return _screenFull; } set { _screenFull = value; } }
+
+    public void DisableSpawning()
+    {
+        _stopSpawning = true;
+
+    }
     public bool StopSpawning
     {
         get
@@ -44,7 +51,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
 
     private Queue<EnemyType> _spawnList;
-
+    bool _screenFull = false;
     float _timer = 0;
     bool _stopSpawning = false;
     bool _isDoneSpawning = true;
@@ -62,7 +69,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     private void Update()
     {
-        if (_stopSpawning || _isDoneSpawning)
+        if (_stopSpawning || _isDoneSpawning || _screenFull)
             return;
 
         CheckPositions();
