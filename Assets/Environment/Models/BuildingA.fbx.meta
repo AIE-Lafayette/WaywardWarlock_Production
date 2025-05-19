@@ -24,11 +24,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: StonePlatform
     second: {fileID: 2100000, guid: b9790e7a4cd800c4fb86c15d753222ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: f791c6f5a8a6a9542b250d317bf97d58, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
