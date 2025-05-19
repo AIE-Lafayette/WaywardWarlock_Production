@@ -19,6 +19,7 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _target;
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
+    private bool _killed = false;
 
     private float _timer;
     private float _delay = 1.5f;
@@ -58,9 +59,10 @@ public class EnemyBehavior : MonoBehaviour
         }
 
 
-        if(_health.Health == 0)
+        if(_health.Health == 0 && !_killed)
         {
-            OnEnemyDeath.Invoke();
+            _killed = true;
+            Return();
         }
 
     }

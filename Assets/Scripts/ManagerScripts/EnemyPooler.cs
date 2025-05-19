@@ -89,7 +89,7 @@ public class EnemyPooler : MonoBehaviour
     #region Pool Functions
     void StartPool(ref ObjectPool<EnemyBehavior> pool, Func<EnemyBehavior> createFunction,int initsize,int maxsize)
     {
-        pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,false,initsize,maxsize);
+        pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,true,initsize,maxsize);
     }
 
 
@@ -128,7 +128,7 @@ public class EnemyPooler : MonoBehaviour
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
-        EnemyPooler.instance.ActiveList.Add(pooledObject);
+        EnemyPooler.instance.ActiveList.Remove(pooledObject);
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)
