@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject _playerObject;
     [SerializeField]
     private SpawnPointManager _spawnManager;
     [SerializeField]
@@ -14,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _incrementAmount = 5;
     public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
+    public float TimeElapsed { get { return _timeElapsed; } }
+
 
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
@@ -22,7 +28,7 @@ public class GameManager : MonoBehaviour
     float _basicGolemPercentage = 1;
     int _specialTypes = 3;
     float _waveTimer = 0;
-
+    float _timeElapsed;
     private void Start()
     {
         if (instance != null && instance != this)
@@ -52,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        _timeElapsed += Time.deltaTime;
         CheckAmountEnemies();
         UpdateAmount();
 
@@ -134,7 +141,6 @@ public class GameManager : MonoBehaviour
 
 
     }
-
     void ShuffleList<T>(List<T> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -146,5 +152,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void ExitApplication()
+    {
+        Application.Quit();
+    }
 
 }
