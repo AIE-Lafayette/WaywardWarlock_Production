@@ -24,7 +24,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
             {
                 _spawnList = value; 
                 _isDoneSpawning = false;
-                Debug.Log("New Wave");
+                
             }
         } 
     }
@@ -102,7 +102,6 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
             if(_spawnList.Count == 0)
             {
                 _isDoneSpawning = true;
-                Debug.Log("Finished Spawning");
                 break;
             }
             _spawnPointList[i].Spawn(_spawnList.Dequeue(), _player);

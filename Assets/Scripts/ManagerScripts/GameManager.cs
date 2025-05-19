@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -53,7 +52,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //CheckAmountEnemies();
+        CheckAmountEnemies();
         UpdateAmount();
 
     }
