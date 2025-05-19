@@ -122,6 +122,7 @@ public class EnemyPooler : MonoBehaviour
     private void OnGetFromPool(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(true);
+        pooledObject.IsKilled = false;
         EnemyPooler.instance.ActiveList.Add(pooledObject);
     }
 

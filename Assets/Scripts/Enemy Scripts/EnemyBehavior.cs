@@ -13,7 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
     public ObjectPool<EnemyBehavior> Pool { set { _pool = value; } }
-
+    public bool IsKilled { get { return _killed; } set { _killed = value; } }
     
     private HealthComponent _health;
     private GameObject _target;
@@ -59,10 +59,10 @@ public class EnemyBehavior : MonoBehaviour
         }
 
 
-        if(_health.Health == 0 && !_killed)
+        if(_health.Health <= 0 && !_killed)
         {
             _killed = true;
-            Return();
+            OnEnemyDeath.Invoke();
         }
 
     }

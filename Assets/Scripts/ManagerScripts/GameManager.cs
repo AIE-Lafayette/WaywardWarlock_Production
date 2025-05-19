@@ -9,19 +9,20 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private SpawnPointManager _spawnManager;
     [SerializeField]
-    int _maxEnemiesOnScreen = 50;
-
+    private int _maxEnemiesOnScreen = 50;
+    [SerializeField]
+    private float _waveDelay = 10;
+    [SerializeField]
+    private int _incrementAmount = 5;
     public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
 
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
-    int _incrementAmount = 5;
     int _amountToSpawn = 10;
     int _killCount;
     float _basicGolemPercentage = 1;
     int _specialTypes = 3;
     float _waveTimer = 0;
-    float _waveDelay = 10;
 
     private void Start()
     {
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        CheckAmountEnemies();
+        //CheckAmountEnemies();
         UpdateAmount();
 
     }
@@ -63,12 +64,12 @@ public class GameManager : MonoBehaviour
             _waveTimer += Time.deltaTime;
             if(_waveTimer >= _waveDelay)
             {
-                _waveTimer = 0;
+                _waveTimer -= _waveDelay;
                 _amountToSpawn += _incrementAmount;
 
-                if(_amountToSpawn >= 20)
+                if(_amountToSpawn <= 20)
                 {
-                    _basicGolemPercentage = 1;
+                    _basicGolemPercentage = 1.0f;
                 }
                 else
                 {
@@ -105,7 +106,7 @@ public class GameManager : MonoBehaviour
         List<EnemyType> tempList = new List<EnemyType>();
 
         //Add basic Enemys
-        for(int i = 0; i < _amountToSpawn; i++)
+        for(int i = 0; i < basicGolems; i++)
         {
             tempList.Add(EnemyType.BASE);
         }
@@ -125,12 +126,14 @@ public class GameManager : MonoBehaviour
 
         ShuffleList<EnemyType>(tempList);
 
-
+        _spawnList.Clear();
         //Add to the Queue
         foreach (EnemyType type in tempList)
         {
             _spawnList.Enqueue(type);
         }
+
+
     }
 
     void ShuffleList<T>(List<T> list)

@@ -20,7 +20,7 @@ public class HealthComponent : MonoBehaviour, IHealth
     public void RemoveHealth(float amount)
     {
         _health = (_health - amount < 0) ? _health = 0 : _health -= amount;
-        Debug.Log("Health Removed");
+        
     }
 
     public void ResetHealth()

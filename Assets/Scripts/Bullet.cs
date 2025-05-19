@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
        
         if(collision.gameObject.tag == "Enemy" )
         {
-            Debug.Log("Enemy Collision");
+           
             HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
             health.RemoveHealth(_damage);
             _pool.Release(this);
