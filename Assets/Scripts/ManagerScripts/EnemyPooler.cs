@@ -17,14 +17,15 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
     public static EnemyPooler instance { get; private set; }
-    
-    public int AllActive 
+    private List<EnemyBehavior> _activeList;
+    public int AllActiveCount 
     { get 
       { 
         return _baseGolemPool.CountActive + _iceGolemPool.CountActive + _fireGolemPool.CountActive + _lightningGolemPool.CountActive; 
       } 
     }
 
+    public List<EnemyBehavior> ActiveList { get { return _activeList; } }
 
     int _baseGolemPoolSize = 100;
     int _baseGolemMaxPoolSize = 300;
@@ -56,6 +57,7 @@ public class EnemyPooler : MonoBehaviour
         {
             instance = this;
         }
+        _activeList = new List<EnemyBehavior>();
 
         if (!_baseGolemPrefab)
             Debug.LogError("EnemyPooler: Base Golem prefab missing!");
@@ -76,11 +78,18 @@ public class EnemyPooler : MonoBehaviour
 
     }
 
+    public void StopAllActive()
+    {
+        foreach (EnemyBehavior enemy in _activeList)
+        {
+            enemy.CanMove = false;
+        }
+    }
 
     #region Pool Functions
     void StartPool(ref ObjectPool<EnemyBehavior> pool, Func<EnemyBehavior> createFunction,int initsize,int maxsize)
     {
-        pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,false,initsize,maxsize);
+        pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,true,initsize,maxsize);
     }
 
 
@@ -113,11 +122,13 @@ public class EnemyPooler : MonoBehaviour
     private void OnGetFromPool(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(true);
+        EnemyPooler.instance.ActiveList.Add(pooledObject);
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
+        EnemyPooler.instance.ActiveList.Remove(pooledObject);
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
 public class EnemyBehavior : MonoBehaviour
@@ -9,19 +10,21 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float _damage = 1;
 
-
+    public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
     public ObjectPool<EnemyBehavior> Pool { set { _pool = value; } }
 
-
+    
     private HealthComponent _health;
     private GameObject _target;
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
+    private bool _killed = false;
 
     private float _timer;
     private float _delay = 1.5f;
 
+    public bool CanMove { set { _navMesh.isStopped = value; } }
 
     private void Awake()
     {
@@ -56,9 +59,10 @@ public class EnemyBehavior : MonoBehaviour
         }
 
 
-        if(_health.Health == 0)
+        if(_health.Health == 0 && !_killed)
         {
-            OnDeath();
+            _killed = true;
+            Return();
         }
 
     }
@@ -74,24 +78,26 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         HitPlayer(collision);
     }
     private void OnCollisionStay(Collision collision)
     {
-        _timer += Time.deltaTime;
-        if(_timer > _delay)
+        if(!_navMesh.isStopped)
         {
-            _timer -= _delay;
-            HitPlayer(collision);
+            _timer += Time.deltaTime;
+            if(_timer > _delay)
+            {
+                _timer -= _delay;
+                HitPlayer(collision);
+            }
         }
     }
 
-    void OnDeath()
+    public void Return()
     {
-        _health.ResetHealth();
-        GameManager.instance.KillCount += 1;
         _pool.Release(this);
     }
 }
