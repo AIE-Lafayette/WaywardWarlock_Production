@@ -105,7 +105,6 @@ public class EnemyBehavior : MonoBehaviour
     public void DropItem()
     {
         Instantiate(_itemDrop, transform.position, Quaternion.identity);
-        Debug.Log("Drop should be dropping");
 
     }
 

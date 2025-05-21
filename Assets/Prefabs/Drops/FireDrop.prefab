@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _delay: 0
-  _time: 0
-  _damage: 0
+  _delay: 0.1
+  _time: 5
+  _damage: 2
 --- !u!136 &1651555361014610776
 CapsuleCollider:
   m_ObjectHideFlags: 0

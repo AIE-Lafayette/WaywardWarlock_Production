@@ -77,6 +77,7 @@ public class PlayerAttack : MonoBehaviour
                 SetShotType = item.BulletType;
                 _delay = item.Delay;
                 _specialTimeLeft = item.Time;
+                Destroy(collision.gameObject);
             }
         }
     }
@@ -105,12 +106,12 @@ public class PlayerAttack : MonoBehaviour
                  }
             case ShotType.ICE:
                 {
-                    //_shootingtimer += Time.deltaTime;
                     ShootBullet(BulletPool.instance.IceBulletPool.Get());
                   break;
                 }
             case ShotType.FIRE:
                 {
+                  
                     ShootBullet(BulletPool.instance.FireBulletPool.Get());
                     break;
                 }
