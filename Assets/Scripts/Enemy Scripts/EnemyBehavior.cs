@@ -105,7 +105,10 @@ public class EnemyBehavior : MonoBehaviour
 
     public void DropItem()
     {
-        Instantiate(_itemDrop, transform.position, Quaternion.identity);
+        if(_itemDrop)
+        {
+            Instantiate(_itemDrop, transform.position, Quaternion.identity);
+        }
 
     }
 
