@@ -11,7 +11,7 @@ public class HealthComponent : MonoBehaviour, IHealth
     private float _maxHealth;
 
     public float Health { get { return _health; } }
-
+    public float MaxHealth { get { return _maxHealth; } }
     public void AddHealth(float amount)
     {
         _health = (_health + amount > _maxHealth) ? _health = _maxHealth : _health += amount;

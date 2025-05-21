@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private int _specialKillAmount = 150;
+    [SerializeField]
+    GameObject _playerObject;
     [SerializeField]
     private SpawnPointManager _spawnManager;
     [SerializeField]
@@ -13,16 +19,36 @@ public class GameManager : MonoBehaviour
     private float _waveDelay = 10;
     [SerializeField]
     private int _incrementAmount = 5;
-    public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
+    public int SpecialKillAmount { get { return _specialKillAmount; } }
+    public int KillCount 
+    {
+        get 
+        {
+            if (_killCount >= _specialKillAmount)
+                return _specialKillAmount;
+            else
+                return _killCount;
+        } 
+        set 
+        { 
+            _killCount += Mathf.Abs(value); 
+            _totalKillCount += Mathf.Abs(value); 
+        } 
+    }
+    public int TotalKillCount { get { return _totalKillCount; } }
 
+    public float TimeElapsed { get { return _timeElapsed; } }
+
+    
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
     int _amountToSpawn = 10;
+    int _totalKillCount;
     int _killCount;
     float _basicGolemPercentage = 1;
     int _specialTypes = 3;
     float _waveTimer = 0;
-
+    float _timeElapsed;
     private void Start()
     {
         if (instance != null && instance != this)
@@ -45,13 +71,18 @@ public class GameManager : MonoBehaviour
         _spawnManager.SetSpawnList = _spawnList;
        
     }
-
+    public void ResetKillCount()
+    {
+        _killCount = 0;
+    }
     public void AddKill()
     {
         _killCount += 1;
+        _totalKillCount += 1;
     }
     private void Update()
     {
+        _timeElapsed += Time.deltaTime;
         CheckAmountEnemies();
         UpdateAmount();
        
@@ -135,7 +166,6 @@ public class GameManager : MonoBehaviour
 
 
     }
-
     void ShuffleList<T>(List<T> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -147,5 +177,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void ExitApplication()
+    {
+        Application.Quit();
+    }
 
 }

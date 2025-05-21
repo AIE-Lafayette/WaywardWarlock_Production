@@ -18,7 +18,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject _meshObject;
 
-
+    public float SpecialTimeLeft { get { return _specialTimeLeft; } }
+    public bool SpecialActive { get { return _specialActive; } }
+    
     public ShotType SetShotType 
     { set 
         { 

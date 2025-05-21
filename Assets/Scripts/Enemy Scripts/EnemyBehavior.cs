@@ -68,6 +68,7 @@ public class EnemyBehavior : MonoBehaviour
         if (_health.Health <= 0 && !_killed)
         {
             _killed = true;
+            GameManager.instance.AddKill();
             OnEnemyDeath.Invoke();
         }
 
