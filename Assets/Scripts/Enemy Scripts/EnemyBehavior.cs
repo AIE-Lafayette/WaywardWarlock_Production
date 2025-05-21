@@ -51,7 +51,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if(_pool == null)
         {
-            Debug.LogError("EnemyBehavior: Object Pool is null!");
+            Debug.LogWarning("EnemyBehavior: Object Pool is null!");
             return;
         }
     }
@@ -69,7 +69,16 @@ public class EnemyBehavior : MonoBehaviour
         {
             _killed = true;
             GameManager.instance.AddKill();
-            OnEnemyDeath.Invoke();
+            if(_pool != null)
+            {
+               OnEnemyDeath.Invoke();
+            }
+            else
+            {
+                DropItem();
+                
+                Destroy(gameObject);
+            }
         }
 
     }
