@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private int _specialKillAmount = 150;
+    [SerializeField]
     GameObject _playerObject;
     [SerializeField]
     private SpawnPointManager _spawnManager;
@@ -17,13 +19,31 @@ public class GameManager : MonoBehaviour
     private float _waveDelay = 10;
     [SerializeField]
     private int _incrementAmount = 5;
-    public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
+    public int SpecialKillAmount { get { return _specialKillAmount; } }
+    public int KillCount 
+    {
+        get 
+        {
+            if (_killCount >= _specialKillAmount)
+                return _specialKillAmount;
+            else
+                return _killCount;
+        } 
+        set 
+        { 
+            _killCount += Mathf.Abs(value); 
+            _totalKillCount += Mathf.Abs(value); 
+        } 
+    }
+    public int TotalKillCount { get { return _totalKillCount; } }
+
     public float TimeElapsed { get { return _timeElapsed; } }
 
-
+    
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
     int _amountToSpawn = 10;
+    int _totalKillCount;
     int _killCount;
     float _basicGolemPercentage = 1;
     int _specialTypes = 3;
@@ -51,10 +71,14 @@ public class GameManager : MonoBehaviour
         _spawnManager.SetSpawnList = _spawnList;
        
     }
-
+    public void ResetKillCount()
+    {
+        _killCount = 0;
+    }
     public void AddKill()
     {
         _killCount += 1;
+        _totalKillCount += 1;
     }
     private void Update()
     {
