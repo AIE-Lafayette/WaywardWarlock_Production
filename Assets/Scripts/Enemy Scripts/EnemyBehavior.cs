@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -9,6 +10,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField]
     private float _damage = 1;
+    [SerializeField]
+    private GameObject _itemDrop;
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
@@ -20,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
     private bool _killed = false;
+ 
 
     private float _timer;
     private float _delay = 1.5f;
@@ -30,6 +34,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         _navMesh = GetComponent<NavMeshAgent>();
         _health = GetComponent<HealthComponent>();
+        
     }
 
     private void Start()
@@ -57,9 +62,10 @@ public class EnemyBehavior : MonoBehaviour
         {
             _navMesh.SetDestination(_target.transform.position);
         }
-
-
-        if(_health.Health <= 0 && !_killed)
+  
+       
+      
+        if (_health.Health <= 0 && !_killed)
         {
             _killed = true;
             OnEnemyDeath.Invoke();
@@ -98,7 +104,9 @@ public class EnemyBehavior : MonoBehaviour
 
     public void DropItem()
     {
-        
+        Instantiate(_itemDrop, transform.position, Quaternion.identity);
+        Debug.Log("Drop should be dropping");
+
     }
 
     public void Return()

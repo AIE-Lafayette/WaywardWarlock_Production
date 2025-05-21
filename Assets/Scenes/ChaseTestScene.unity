@@ -463,6 +463,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &581134502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 432016384925098333, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_Name
+      value: Lightning_Golem_pfv
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.751927
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.5648327
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103760866213026705, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651429675153390075, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+      propertyPath: _itemDrop
+      value: 
+      objectReference: {fileID: 4384354880692841144, guid: f280b278772c55147ad867108e91f669, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+--- !u!114 &813334455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+  m_PrefabInstance: {fileID: 1785499133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367cb89f2fadb4a478196f2ed812b99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123388782
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +933,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: _itemDrop
+      value: 
+      objectReference: {fileID: 4384354880692841144, guid: f280b278772c55147ad867108e91f669, type: 3}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 813334455}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DropItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: EnemyBehavior, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1109,3 +1213,4 @@ SceneRoots:
   - {fileID: 5326344459120548}
   - {fileID: 8484001030527110179}
   - {fileID: 628451902464947427}
+  - {fileID: 581134502}

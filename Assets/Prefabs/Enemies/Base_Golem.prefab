@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  _itemDrop: {fileID: 169484258579003133, guid: 98ca06806c4ac3c4b9ed21e72c415fad, type: 3}
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
@@ -89,6 +90,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8831195918605992478}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
         m_MethodName: Return
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8831195918605992478}
+        m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
+        m_MethodName: DropItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
