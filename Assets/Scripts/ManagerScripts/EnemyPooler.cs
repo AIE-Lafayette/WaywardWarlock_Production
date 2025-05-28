@@ -18,6 +18,8 @@ public class EnemyPooler : MonoBehaviour
     private EnemyBehavior _lightningGolemPrefab;
     public static EnemyPooler instance { get; private set; }
     private List<EnemyBehavior> _activeList;
+
+    public List<EnemyBehavior> ActiveList { get { return _activeList; } }
     public int AllActiveCount 
     { get 
       { 
@@ -25,7 +27,6 @@ public class EnemyPooler : MonoBehaviour
       } 
     }
 
-    public List<EnemyBehavior> ActiveList { get { return _activeList; } }
 
     int _baseGolemPoolSize = 100;
     int _baseGolemMaxPoolSize = 300;
