@@ -13,6 +13,8 @@ public class EnemyBehavior : MonoBehaviour
     private float _damage = 1;
     [SerializeField]
     private GameObject _itemDrop;
+    [SerializeField]
+    private VisualEffect _forbiddenSpellEffect;
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
@@ -76,6 +78,14 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
+
+    public void SpecialDeath()
+    {
+        _navMesh.isStopped = true;
+        Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
+        Return();
+
+    }
     void HitPlayer(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -117,6 +127,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Return()
     {
+        _navMesh.isStopped = false;
         _pool.Release(this);
     }
 }
