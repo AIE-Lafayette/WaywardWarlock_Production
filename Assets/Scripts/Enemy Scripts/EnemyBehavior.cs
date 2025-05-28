@@ -14,9 +14,6 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private GameObject _itemDrop;
 
-    [SerializeField]
-    private VisualEffect _effect;
-
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
     public ObjectPool<EnemyBehavior> Pool { set { _pool = value; } }
