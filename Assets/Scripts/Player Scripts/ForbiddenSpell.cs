@@ -5,33 +5,28 @@ using UnityEngine.Pool;
 
 public class ForbiddenSpell : MonoBehaviour
 {
+    [SerializeField]
+    GameManager _manager;
+
+    [SerializeField]
     EnemyPooler _pool;
-    GameManager _manger;
-
-    private void Awake()
-    {
-        _pool = EnemyPooler.instance;
-        _manger = GameManager.instance;
-    }
-
-
-
-    private void Update()
-    {
-        SpecialAttack();
-    }
+  
+    public bool _specialActive = false;
+    
+    
 
     public void SpecialAttack()
     {
-       if(_manger.KillCount >= 5)
+       if(_manager.KillCount >= _manager.SpecialKillAmount)
         {
-            foreach (EnemyBehavior enemy in _pool.ActiveList)
-            {
-                enemy.StopMovement = true;
-            }
+            _specialActive = true;
+            Debug.Log("Doing Special Attack");
+            
         }
         
     }
+
+    
 
 
 
