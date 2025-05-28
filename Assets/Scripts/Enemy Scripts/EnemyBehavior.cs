@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.Pool;
+using UnityEngine.VFX;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EnemyBehavior : MonoBehaviour
     private float _damage = 1;
     [SerializeField]
     private GameObject _itemDrop;
+    [SerializeField]
+    private VisualEffect _forbiddenSpellEffect;
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
@@ -23,7 +26,7 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
     private bool _killed = false;
- 
+    
 
     private float _timer;
     private float _delay = 1.5f;
@@ -39,6 +42,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
+        
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
@@ -54,6 +58,7 @@ public class EnemyBehavior : MonoBehaviour
             Debug.LogError("EnemyBehavior: Object Pool is null!");
             return;
         }
+       
     }
 
     private void Update()
@@ -71,6 +76,14 @@ public class EnemyBehavior : MonoBehaviour
             GameManager.instance.AddKill();
             OnEnemyDeath.Invoke();
         }
+
+    }
+
+    public void SpecialDeath()
+    {
+        _navMesh.isStopped = true;
+        Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
+        Return();
 
     }
     void HitPlayer(Collision collision)
@@ -114,6 +127,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Return()
     {
+        _navMesh.isStopped = false;
         _pool.Release(this);
     }
 }
