@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: PillarRuined
+      name: lambert21
     second: {fileID: 2100000, guid: b58061941bdb21a4e8048a781d2edc77, type: 2}
   materials:
     materialImportMode: 2

@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: SBAlt2
+    second: {fileID: 2100000, guid: b0fac5c20b370164689b89f9438518a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: StoneBrick
     second: {fileID: 2100000, guid: d2cae05075db08745afc813b35916216, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: StoneBrickEnd
-    second: {fileID: 2100000, guid: adac25fdb0bb4e44db5d23f8bac786a1, type: 2}
+      name: StoneBrickAlt
+    second: {fileID: 2100000, guid: 326de0907767008468c3e52b9934e11b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
