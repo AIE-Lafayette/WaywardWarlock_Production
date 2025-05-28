@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.VFX;
 
 public class ForbiddenSpell : MonoBehaviour
 {
@@ -13,8 +14,7 @@ public class ForbiddenSpell : MonoBehaviour
 
 
 
-    private ObjectPool<ForbiddenSpell> _pool;
-    public ObjectPool<ForbiddenSpell> Pool { set { _pool = value; } }
+    
 
     public void SpecialAttack()
     {

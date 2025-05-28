@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8397091267993253865}
   - component: {fileID: 5164620923552359125}
   - component: {fileID: 2751512710035367949}
+  - component: {fileID: 394189418222133775}
   m_Layer: 0
   m_Name: ForbiddenMagicAttack
   m_TagString: Untagged
@@ -335,3 +336,15 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &394189418222133775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978074160539364263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3576ab1d0689310418407cf2a5791154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
