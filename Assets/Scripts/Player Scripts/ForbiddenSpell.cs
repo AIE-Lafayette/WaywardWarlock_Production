@@ -9,20 +9,25 @@ public class ForbiddenSpell : MonoBehaviour
     GameManager _manager;
 
     [SerializeField]
-    EnemyPooler _pool;
-  
-    public bool _specialActive = false;
-    
-    
+    EnemyPooler _serializedPool;
+
+
+
+    private ObjectPool<ForbiddenSpell> _pool;
+    public ObjectPool<ForbiddenSpell> Pool { set { _pool = value; } }
 
     public void SpecialAttack()
     {
        if(_manager.KillCount >= _manager.SpecialKillAmount)
-        {
-            _specialActive = true;
-            Debug.Log("Doing Special Attack");
-            
-        }
+       {
+            List<EnemyBehavior> Enemies = EnemyPooler.instance.ActiveList;
+            int count = Enemies.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Enemies[i].SpecialDeath();
+            }
+            _manager.ResetKillCount();
+       }
         
     }
 

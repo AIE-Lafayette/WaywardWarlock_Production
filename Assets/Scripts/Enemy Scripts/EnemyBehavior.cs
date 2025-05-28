@@ -76,12 +76,13 @@ public class EnemyBehavior : MonoBehaviour
             GameManager.instance.AddKill();
             if(_pool != null)
             {
+               EnemyPooler.instance.ActiveList.Remove(this);
                OnEnemyDeath.Invoke();
             }
             else
             {
                 DropItem();
-                
+                EnemyPooler.instance.ActiveList.Remove(this);
                 Destroy(gameObject);
             }
         }
@@ -91,8 +92,9 @@ public class EnemyBehavior : MonoBehaviour
     public void SpecialDeath()
     {
         _navMesh.isStopped = true;
+        EnemyPooler.instance.ActiveList.Remove(this);
         Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
-        Return();
+        OnEnemyDeath.Invoke();
 
     }
     void HitPlayer(Collision collision)
