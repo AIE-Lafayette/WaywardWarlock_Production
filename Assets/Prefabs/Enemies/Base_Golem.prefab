@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _itemDrop: {fileID: 0}
+  _effect: {fileID: 8926484042661614526, guid: 4ebff35a5cc4bf5499e1f920b0d9b109, type: 3}
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
