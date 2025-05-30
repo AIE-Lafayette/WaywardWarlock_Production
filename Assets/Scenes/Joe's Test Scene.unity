@@ -1782,8 +1782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338040639b22a514a9b406a819005d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1412040603}
-  _serializedPool: {fileID: 555466369}
 --- !u!114 &1747436283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1486418139539536166, guid: 2ca97c5508c554f42b3e6a5cc2eea6a5, type: 3}

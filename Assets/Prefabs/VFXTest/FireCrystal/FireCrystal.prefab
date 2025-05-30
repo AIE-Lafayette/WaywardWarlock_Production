@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2345911938571139875}
   - component: {fileID: 7555409129461358894}
   - component: {fileID: 3850375990952059995}
+  - component: {fileID: 8641316571552760433}
   m_Layer: 0
   m_Name: FireCrystal
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.476, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7285191454307480804}
   - {fileID: 8331254879609697350}
@@ -74,6 +75,19 @@ MonoBehaviour:
   _delay: 0.5
   _time: 10
   _damage: 2
+--- !u!114 &8641316571552760433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822164784440643385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f657b6d42bbc44189cb64caadf3d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 60
 --- !u!1 &7566595322547659269
 GameObject:
   m_ObjectHideFlags: 0
