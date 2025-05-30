@@ -6,27 +6,17 @@ using UnityEngine.VFX;
 
 public class ForbiddenSpell : MonoBehaviour
 {
-    [SerializeField]
-    GameManager _manager;
-
-    [SerializeField]
-    EnemyPooler _serializedPool;
-
-
-
-    
-
     public void SpecialAttack()
     {
-       if(_manager.KillCount >= _manager.SpecialKillAmount)
+       if(GameManager.instance.KillCount >= GameManager.instance.SpecialKillAmount)
        {
-            List<EnemyBehavior> Enemies = EnemyPooler.instance.ActiveList;
-            int count = Enemies.Count;
-            for (int i = 0; i < count; i++)
+            foreach (EnemyBehavior enemy in EnemyPooler.instance.ActiveList)
             {
-                Enemies[i].SpecialDeath();
+                enemy.SpecialDeath();
+                GameManager.instance.AddToTotalKill();
             }
-            _manager.ResetKillCount();
+            GameManager.instance.ResetKillCount();
+            EnemyPooler.instance.ActiveList.Clear();
        }
         
     }
