@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
         _spawnManager.SetSpawnList = _spawnList;
        
     }
+
+    public void AddToTotalKill()
+    {
+        _totalKillCount += 1;
+    }
     public void ResetKillCount()
     {
         _killCount = 0;

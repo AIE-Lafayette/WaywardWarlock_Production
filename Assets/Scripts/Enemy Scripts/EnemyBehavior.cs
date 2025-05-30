@@ -92,7 +92,6 @@ public class EnemyBehavior : MonoBehaviour
     public void SpecialDeath()
     {
         _navMesh.isStopped = true;
-        EnemyPooler.instance.ActiveList.Remove(this);
         Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
         OnEnemyDeath.Invoke();
 
