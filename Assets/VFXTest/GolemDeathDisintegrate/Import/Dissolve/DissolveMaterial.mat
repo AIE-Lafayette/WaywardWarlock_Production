@@ -62,7 +62,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 0
-    - _CutoffHeight: 3.58
+    - _CutoffHeight: 3.3
     - _DstBlend: 1
     - _Edge_Width: 0.1
     - _NoiseScale: 57.68
