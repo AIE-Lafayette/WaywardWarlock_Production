@@ -124,13 +124,12 @@ public class EnemyPooler : MonoBehaviour
     {
         pooledObject.gameObject.SetActive(true);
         pooledObject.IsKilled = false;
-        EnemyPooler.instance.ActiveList.Add(pooledObject);
+        
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
-        EnemyPooler.instance.ActiveList.Remove(pooledObject);
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)

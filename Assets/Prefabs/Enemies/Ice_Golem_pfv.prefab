@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _itemDrop
       value: 
-      objectReference: {fileID: 4875084788658405084, guid: 498b8f0b22717804490a19b5c90fd8d8, type: 3}
+      objectReference: {fileID: 2610279631357280732, guid: f3c2bac60474e3a47b9531d2449160da, type: 3}
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.size
       value: 3

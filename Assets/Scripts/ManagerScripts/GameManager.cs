@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     int _specialTypes = 3;
     float _waveTimer = 0;
     float _timeElapsed;
-    private void Start()
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
+    }
+    private void Start()
+    {
         _spawnList = new Queue<EnemyType>();
         if (_spawnManager == null)
         {

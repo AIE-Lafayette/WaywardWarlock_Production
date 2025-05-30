@@ -55,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if(_pool == null)
         {
-            Debug.LogError("EnemyBehavior: Object Pool is null!");
+            Debug.LogWarning("EnemyBehavior: Object Pool is null!");
             return;
         }
        
@@ -74,7 +74,17 @@ public class EnemyBehavior : MonoBehaviour
         {
             _killed = true;
             GameManager.instance.AddKill();
-            OnEnemyDeath.Invoke();
+            if(_pool != null)
+            {
+               EnemyPooler.instance.ActiveList.Remove(this);
+               OnEnemyDeath.Invoke();
+            }
+            else
+            {
+                DropItem();
+                EnemyPooler.instance.ActiveList.Remove(this);
+                Destroy(gameObject);
+            }
         }
 
     }
@@ -82,8 +92,9 @@ public class EnemyBehavior : MonoBehaviour
     public void SpecialDeath()
     {
         _navMesh.isStopped = true;
+        EnemyPooler.instance.ActiveList.Remove(this);
         Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
-        Return();
+        OnEnemyDeath.Invoke();
 
     }
     void HitPlayer(Collision collision)
