@@ -7,27 +7,28 @@ using UnityEngine.VFX;
 public class SpecialSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _time;
+    public float _time;
 
 
     public ObjectPool<SpecialSpell> Pool { set { _pool = value; } }
     private ObjectPool<SpecialSpell> _pool;
 
-    private void Update()
+     void Start()
     {
-        ReleaseOverTime();
+        
     }
 
 
-    void ReleaseOverTime()
+    void Update()
     {
-        if(_time - Time.deltaTime <= 0)
-        {
+        _time -= Time.deltaTime;
+
+        if (_time <= 0)
             _pool.Release(this);
-        }
     }
 
 
+   
 
 
 
