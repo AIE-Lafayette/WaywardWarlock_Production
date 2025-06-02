@@ -26,10 +26,8 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
     private bool _killed = false;
-    private float _deathAnimationDelay = 2.0f;
 
     private float _timer;
-    private float _deathTimer;
     private float _delay = 1.5f;
 
     public bool StopMovement { set { _navMesh.isStopped = value; } }
@@ -67,7 +65,10 @@ public class EnemyBehavior : MonoBehaviour
         if(_target != null)
         {
             _navMesh.SetDestination(_target.transform.position);
-            _navMesh.transform.LookAt(_target.transform);
+            if(_health.Health != 0)
+            {
+                _navMesh.transform.LookAt(_target.transform);
+            }
         }
     }
     public void Death()
