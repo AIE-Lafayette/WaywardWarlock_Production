@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 8831195918605992478}
   - component: {fileID: 4300345856230055358}
   - component: {fileID: 8641931326045032333}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 2724128750222177936}
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   m_Layer: 0
   m_Name: Base_Golem
   m_TagString: Enemy
@@ -29,11 +33,19 @@ Transform:
   m_GameObject: {fileID: 3539134561162517176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0.961, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 329105414385626818}
+=======
+  m_LocalPosition: {x: 0, y: 0.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3682790637160151706}
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &8527189516208672327
@@ -55,7 +67,11 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
+<<<<<<< HEAD
   m_BaseOffset: 1
+=======
+  m_BaseOffset: 0
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8831195918605992478
@@ -71,6 +87,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+<<<<<<< HEAD
+=======
+  _itemDrop: {fileID: 0}
+  _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  OnEnemyDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4300345856230055358}
+        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
+        m_MethodName: ResetHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8831195918605992478}
+        m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
+        m_MethodName: Return
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8831195918605992478}
+        m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
+        m_MethodName: DropItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 --- !u!114 &4300345856230055358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,12 +172,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+<<<<<<< HEAD
 --- !u!1 &6308957533365728566
 GameObject:
+=======
+--- !u!114 &2724128750222177936
+MonoBehaviour:
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 329105414385626818}
@@ -197,12 +263,103 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &488328017332944195
+=======
+  m_GameObject: {fileID: 3539134561162517176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075fb71eb9f41f94585c05e487d15cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3787914241708514673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8230169760299966580}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8337281878950535038, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d5137b4972e4f94295a56082f3d2bcc, type: 2}
+    - target: {fileID: 919132149155446097, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_Name
+      value: GolemBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fe6479c4b49d1d6458becfba9b8ea8e5, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6351657557528327383}
+  m_SourcePrefab: {fileID: 100100000, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+--- !u!4 &3682790637160151706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+  m_PrefabInstance: {fileID: 3787914241708514673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4057802908012437536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+  m_PrefabInstance: {fileID: 3787914241708514673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6351657557528327383
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6308957533365728566}
+=======
+  m_GameObject: {fileID: 4057802908012437536}
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -215,7 +372,14 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+=======
+  m_Radius: 1.46
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.11, z: 0}
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")

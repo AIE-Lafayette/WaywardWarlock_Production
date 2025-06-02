@@ -25,6 +25,10 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+<<<<<<< HEAD
+=======
+                EnemyPooler.instance.ActiveList.Add(golem);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                 break;
             }
 
@@ -34,6 +38,10 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.IceGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+<<<<<<< HEAD
+=======
+                EnemyPooler.instance.ActiveList.Add(golem);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                 break;
             }
             case EnemyType.FIRE:
@@ -41,6 +49,10 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.FireGolemPool.Get();
                 golem.gameObject.transform.localPosition = transform.localPosition;
                 golem.SetTarget = player;
+<<<<<<< HEAD
+=======
+                EnemyPooler.instance.ActiveList.Add(golem);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                 break;
             }
             case EnemyType.LIGHTNING:
@@ -49,12 +61,20 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.LightningGolemPool.Get();
                 golem.gameObject.transform.position = transform.localPosition;
                 golem.SetTarget = player;
+<<<<<<< HEAD
+=======
+                EnemyPooler.instance.ActiveList.Add(golem);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                 break;
             }
             default:
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+<<<<<<< HEAD
+=======
+                EnemyPooler.instance.ActiveList.Add(golem);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                 break;
         }
 

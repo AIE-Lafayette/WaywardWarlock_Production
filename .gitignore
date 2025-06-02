@@ -70,6 +70,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
+<<<<<<< HEAD
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Scenes/Joe's Test Scene.unity.meta
+=======
+
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")

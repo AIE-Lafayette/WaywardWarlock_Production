@@ -17,8 +17,15 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
     public static EnemyPooler instance { get; private set; }
+<<<<<<< HEAD
     
     public int AllActive 
+=======
+    private List<EnemyBehavior> _activeList;
+
+    public List<EnemyBehavior> ActiveList { get { return _activeList; } }
+    public int AllActiveCount 
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     { get 
       { 
         return _baseGolemPool.CountActive + _iceGolemPool.CountActive + _fireGolemPool.CountActive + _lightningGolemPool.CountActive; 
@@ -56,6 +63,10 @@ public class EnemyPooler : MonoBehaviour
         {
             instance = this;
         }
+<<<<<<< HEAD
+=======
+        _activeList = new List<EnemyBehavior>();
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 
         if (!_baseGolemPrefab)
             Debug.LogError("EnemyPooler: Base Golem prefab missing!");
@@ -76,11 +87,25 @@ public class EnemyPooler : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
+=======
+    public void StopAllActive()
+    {
+        foreach (EnemyBehavior enemy in _activeList)
+        {
+            enemy.StopMovement = true;
+        }
+    }
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 
     #region Pool Functions
     void StartPool(ref ObjectPool<EnemyBehavior> pool, Func<EnemyBehavior> createFunction,int initsize,int maxsize)
     {
+<<<<<<< HEAD
         pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,false,initsize,maxsize);
+=======
+        pool = new ObjectPool<EnemyBehavior>(createFunction, OnGetFromPool, OnRelease, OnDestroyPoolObject,true,initsize,maxsize);
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     }
 
 
@@ -113,6 +138,11 @@ public class EnemyPooler : MonoBehaviour
     private void OnGetFromPool(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(true);
+<<<<<<< HEAD
+=======
+        pooledObject.IsKilled = false;
+        
+>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
