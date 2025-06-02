@@ -67,32 +67,12 @@ public class EnemyBehavior : MonoBehaviour
         if(_target != null)
         {
             _navMesh.SetDestination(_target.transform.position);
+            _navMesh.transform.LookAt(_target.transform);
         }
-  
-       
-      
-        //if (_health.Health <= 0 && !_killed)
-        //{
-        //    if(_pool != null && _deathTimer >= _deathAnimationDelay)
-        //    {
-                
-        //        _killed = true;
-        //        GameManager.instance.AddKill();
-        //        EnemyPooler.instance.ActiveList.Remove(this);
-        //        OnEnemyDeath.Invoke();
-        //    }
-        //    else
-        //    {
-        //        DropItem();
-        //        EnemyPooler.instance.ActiveList.Remove(this);
-        //        Destroy(gameObject);
-        //    }
-        //}
-
     }
     public void Death()
     {
-        if (_pool != null && _deathTimer >= _deathAnimationDelay)
+        if (_pool != null)
         {
 
             _killed = true;

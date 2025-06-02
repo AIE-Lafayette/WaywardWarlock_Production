@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4300345856230055358}
   - component: {fileID: 8641931326045032333}
   - component: {fileID: 2724128750222177936}
-  - component: {fileID: 4912260873024257853}
   m_Layer: 0
   m_Name: Base_Golem
   m_TagString: Enemy
@@ -167,29 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075fb71eb9f41f94585c05e487d15cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &4912260873024257853
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3539134561162517176}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.39
-  m_Height: 2.28
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.02, z: 0}
 --- !u!1001 &3787914241708514673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,10 +229,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6351657557528327383}
   m_SourcePrefab: {fileID: 100100000, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
 --- !u!4 &3682790637160151706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
   m_PrefabInstance: {fileID: 3787914241708514673}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4057802908012437536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+  m_PrefabInstance: {fileID: 3787914241708514673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6351657557528327383
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057802908012437536}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.46
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.11, z: 0}

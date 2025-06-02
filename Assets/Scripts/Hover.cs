@@ -9,6 +9,7 @@ public class Hover : MonoBehaviour
     float _rotationSpeed = 30;
     Transform _mesh;
     Vector3 _center;
+    Tween _heightTween;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,19 @@ public class Hover : MonoBehaviour
         if(_mesh)
         {
             
-            _mesh.DOMoveY(1, .5f).SetEase(Ease.InOutSine).SetLoops(-1,LoopType.Yoyo);
+            _heightTween = _mesh.DOMoveY(1, .5f).SetEase(Ease.InOutSine).SetLoops(-1,LoopType.Yoyo);
         }
     }
 
     private void Update()
     {
+
         _mesh.RotateAround(_center, new Vector3(0, 1, 0), _rotationSpeed * Time.deltaTime);
+        
+    }
+
+    private void OnDestroy()
+    {
+        _heightTween.Kill(false);
     }
 }

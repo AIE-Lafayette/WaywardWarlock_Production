@@ -12,12 +12,10 @@ public class EnemyAnimationStateController : MonoBehaviour
     EnemyBehavior _enemyBehavior;
     Collider _collider;
 
-    float _delay = 3;
-    float _timer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        _collider = GetComponent<Collider>();
+        _collider = GetComponentInChildren<Collider>();
         _enemyBehavior = GetComponent<EnemyBehavior>();
         _animator = GetComponentInChildren<Animator>();
         _agent = GetComponent<NavMeshAgent>();
@@ -28,30 +26,37 @@ public class EnemyAnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimationState();
+    }
+
+    void AnimationState()
+    {
+        _animator.SetFloat("Speed", _agent.speed);
         if (_animator.GetBool("Attack") == true)
             _animator.SetTrigger("Attack");
-        
-        if(_healthComponent.Health == 0)
+
+        if (_healthComponent.Health == 0)
         {
-            _timer += Time.deltaTime;
-            if(_animator.GetBool("IdleWalk") == true)
-                _animator.SetTrigger("IdleWalk");
-            if(_animator.GetBool("Death") == false)
-                _animator.SetTrigger("Death");
+            if (_animator.GetBool("IdleWalk") == true)
+                _animator.SetBool("IdleWalk", false);
+            if (_animator.GetBool("Death") == false)
+                _animator.SetBool("Death", true);
             _agent.isStopped = true;
             _collider.enabled = false;
-            if(_timer >= _delay)
+
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("GolemDeath") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 _collider.enabled = true;
+
                 _enemyBehavior.Death();
+
             }
         }
         else
         {
             if (_animator.GetBool("IdleWalk") == false)
-                _animator.SetTrigger("IdleWalk");
+                _animator.SetBool("IdleWalk", true);
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
