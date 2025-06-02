@@ -7,24 +7,35 @@ using UnityEngine.VFX;
 public class SpecialSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _time;
+    float _delay = 5;
 
-
+    private VisualEffect _effect;
+    public bool SetReturn { set { _returned = value; } }
     public ObjectPool<SpecialSpell> Pool { set { _pool = value; } }
     private ObjectPool<SpecialSpell> _pool;
 
+    bool _returned = false;
+    float _timer;
+
      void Start()
-    {
+     { 
+        _effect = GetComponent<VisualEffect>();
         
-    }
+     }
 
 
     void Update()
     {
-        _time -= Time.deltaTime;
+        if(!_returned)
+        {
+            _timer += Time.deltaTime;
 
-        if (_time <= 0)
-            _pool.Release(this);
+            if(_timer >= _delay)
+            {
+                _timer = 0;
+                _pool.Release(this);
+            }
+        }
     }
 
 

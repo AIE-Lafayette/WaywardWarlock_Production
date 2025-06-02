@@ -10,7 +10,8 @@ public class ForbiddenSpell : MonoBehaviour
    
     void SpawnSpecial(EnemyBehavior enemy)
     {
-        EffectsPool.instance.EffectPool.Get().transform.position = enemy.transform.position;
+       SpecialSpell spell = EffectsPool.instance.BeamPool.Get();
+        spell.gameObject.transform.position = enemy.transform.position;
     }
 
     public void SpecialAttack()
@@ -19,7 +20,6 @@ public class ForbiddenSpell : MonoBehaviour
        {
             foreach (EnemyBehavior enemy in EnemyPooler.instance.ActiveList)
             {
-                SpawnSpecial(enemy);
                 enemy.SpecialDeath();
                 GameManager.instance.AddToTotalKill();
             }

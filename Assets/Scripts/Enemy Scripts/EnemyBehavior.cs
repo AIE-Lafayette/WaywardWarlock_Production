@@ -91,7 +91,7 @@ public class EnemyBehavior : MonoBehaviour
     public void SpecialDeath()
     {
         _navMesh.isStopped = true;
-       // Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
+        EffectsPool.instance.BeamPool.Get().transform.position = transform.position;
         OnEnemyDeath.Invoke();
 
     }

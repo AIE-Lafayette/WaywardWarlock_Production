@@ -9,7 +9,7 @@ public class EffectsPool : MonoBehaviour
 {
     [SerializeField]
     private SpecialSpell _forbiddenEffect;
-    public ObjectPool<SpecialSpell> EffectPool {get { return _effectsPool; }}
+    public ObjectPool<SpecialSpell> BeamPool {get { return _effectsPool; }}
     public static EffectsPool instance { get; private set; }
    
     private ObjectPool<SpecialSpell> _effectsPool;
@@ -45,17 +45,19 @@ public class EffectsPool : MonoBehaviour
     void OnTakeFromPool(SpecialSpell spell)
     {
         spell.gameObject.SetActive(true);
+        spell.SetReturn = false;
     }
 
     void OnReturnedToPool(SpecialSpell spell)
     {
         spell.gameObject.SetActive(false);
+        spell.SetReturn = true;
     }
 
      void OnDestroyEffect(SpecialSpell spell)
-    {
+     {
         Destroy(spell.gameObject);
-    }
+     }
 
 
 
