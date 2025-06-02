@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System;
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,13 +18,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject _meshObject;
 
-<<<<<<< HEAD
-
-=======
     public float SpecialTimeLeft { get { return _specialTimeLeft; } }
     public bool SpecialActive { get { return _specialActive; } }
     
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     public ShotType SetShotType 
     { set 
         { 
@@ -35,15 +28,9 @@ public class PlayerAttack : MonoBehaviour
             _specialActive = true;
         } 
     }
-<<<<<<< HEAD
-    
-  
-    
-=======
 
 
     bool _isDead = false;
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     float _specialTimeLeft;
     float _shootingtimer;
     private ShotType _shotType;
@@ -92,30 +79,21 @@ public class PlayerAttack : MonoBehaviour
                 SetShotType = item.BulletType;
                 _delay = item.Delay;
                 _specialTimeLeft = item.Time;
-<<<<<<< HEAD
-=======
                 Destroy(collision.gameObject);
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
             }
         }
     }
 
     void ShootBullet(Bullet bullet)
     {
-<<<<<<< HEAD
-=======
         if(!_isDead)
         {
 
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         bullet.transform.position = _bulletOffset.transform.position;
         Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
         Direction.y = 0;
         bullet.SetDirection = Direction;
-<<<<<<< HEAD
-=======
         }
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     }
     
     void Shoot()
@@ -130,19 +108,12 @@ public class PlayerAttack : MonoBehaviour
                  }
             case ShotType.ICE:
                 {
-<<<<<<< HEAD
-                    //_shootingtimer += Time.deltaTime;
-=======
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                     ShootBullet(BulletPool.instance.IceBulletPool.Get());
                   break;
                 }
             case ShotType.FIRE:
                 {
-<<<<<<< HEAD
-=======
                   
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
                     ShootBullet(BulletPool.instance.FireBulletPool.Get());
                     break;
                 }
@@ -156,15 +127,12 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-<<<<<<< HEAD
-=======
 
     public void StopShooting()
     {
         _isDead = true;
     }
 
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     
 }
 

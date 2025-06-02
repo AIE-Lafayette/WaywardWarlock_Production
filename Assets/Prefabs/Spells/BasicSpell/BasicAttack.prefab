@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
---- !u!1 &169484258579003133
-========
 --- !u!1 &2049943990161523676
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,45 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  - component: {fileID: 2301794243457431202}
-  - component: {fileID: 1175586463279116673}
-  m_Layer: 0
-  m_Name: FireDrop
-========
   - component: {fileID: 756901603128782736}
   - component: {fileID: 5567102176282442127}
+  - component: {fileID: 5936490550169911779}
   m_Layer: 0
   m_Name: BasicAttack
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
---- !u!4 &2301794243457431202
-========
 --- !u!4 &756901603128782736
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_GameObject: {fileID: 169484258579003133}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6209032, y: -3.5265787, z: 5.9856153}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2580094279795418514}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1175586463279116673
-========
   m_GameObject: {fileID: 2049943990161523676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -62,25 +35,11 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5567102176282442127
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_GameObject: {fileID: 169484258579003133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1aacae692fff140b8aa92defd2a109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 2
-  _delay: 0
-  _time: 0
-  _damage: 0
---- !u!1 &8722827888302749850
-========
   m_GameObject: {fileID: 2049943990161523676}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -89,8 +48,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _damage: 1
+--- !u!54 &5936490550169911779
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049943990161523676}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8825920446542009298
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,48 +83,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  - component: {fileID: 2580094279795418514}
-  - component: {fileID: 5660412472321245508}
-  - component: {fileID: 1714104839275748251}
-  - component: {fileID: 2628946384453188900}
-  m_Layer: 0
-  m_Name: Sphere
-========
   - component: {fileID: 7282958482849264058}
   - component: {fileID: 7044995668149105938}
   - component: {fileID: 285174624633138474}
+  - component: {fileID: 3565786467573559632}
   m_Layer: 0
   m_Name: BasicAttackVFX
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
---- !u!4 &2580094279795418514
-========
 --- !u!4 &7282958482849264058
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_GameObject: {fileID: 8722827888302749850}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2301794243457431202}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5660412472321245508
-MeshFilter:
-========
   m_GameObject: {fileID: 8825920446542009298}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -151,17 +111,10 @@ MeshFilter:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &7044995668149105938
 VisualEffect:
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_GameObject: {fileID: 8722827888302749850}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1714104839275748251
-MeshRenderer:
-========
   m_GameObject: {fileID: 8825920446542009298}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: b0d2444fcda8aa44fa1f59330af7f390, type: 3}
@@ -197,16 +150,11 @@ MeshRenderer:
 --- !u!73398921 &285174624633138474
 VFXRenderer:
   serializedVersion: 1
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_GameObject: {fileID: 8722827888302749850}
-========
   m_GameObject: {fileID: 8825920446542009298}
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -239,15 +187,13 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<<< HEAD:Assets/Prefabs/Drops/FireDrop.prefab
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2628946384453188900
-SphereCollider:
+--- !u!136 &3565786467573559632
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8722827888302749850}
+  m_GameObject: {fileID: 8825920446542009298}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -259,8 +205,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
-========
->>>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack"):Assets/Prefabs/Spells/BasicSpell/BasicAttack.prefab

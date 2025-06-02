@@ -23,12 +23,6 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
             if(IsDoneSpawning)
             {
                 _spawnList = value; 
-<<<<<<< HEAD
-                _isDoneSpawning = false; 
-            }
-        } 
-    }
-=======
                 _isDoneSpawning = false;
                 
             }
@@ -41,7 +35,6 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
         _stopSpawning = true;
 
     }
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     public bool StopSpawning
     {
         get
@@ -58,11 +51,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
 
     private Queue<EnemyType> _spawnList;
-<<<<<<< HEAD
-
-=======
     bool _screenFull = false;
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     float _timer = 0;
     bool _stopSpawning = false;
     bool _isDoneSpawning = true;
@@ -80,11 +69,7 @@ public class SpawnPointManager : MonoBehaviour, IComparer<SpawnPoint>
 
     private void Update()
     {
-<<<<<<< HEAD
-        if (_stopSpawning || _isDoneSpawning)
-=======
         if (_stopSpawning || _isDoneSpawning || _screenFull)
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
             return;
 
         CheckPositions();

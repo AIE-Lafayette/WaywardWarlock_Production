@@ -4,11 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - Enemy
-=======
   - Ground
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
   layers:
   - Default
   - TransparentFX

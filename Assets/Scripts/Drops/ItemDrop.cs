@@ -24,12 +24,8 @@ public class ItemDrop : MonoBehaviour, ICollectible
     public float Damage { get { return _damage; } }
 
     public ShotType BulletType { get { return _type; } }
-<<<<<<< HEAD
-}
-=======
 
 
 
  
 }
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")

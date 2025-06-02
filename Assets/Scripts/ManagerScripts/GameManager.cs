@@ -1,33 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-<<<<<<< HEAD
-using UnityEditor.ShaderKeywordFilter;
-using UnityEngine;
-=======
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-<<<<<<< HEAD
-    private SpawnPointManager _spawnManager;
-
-    public int KillCount { get { return _killCount; } set { _killCount += Mathf.Abs(value); } }
-
-    private Queue<EnemyType> _spawnList;
-    public static GameManager instance;
-    int _amountToSpawn = 100;
-    int _maxEnemiesOnScreen = 50;
-    int _killCount;
-    float _basicGolemPercentage = .85f;
-    int _specialTypes = 3;
-
-    private void Start()
-=======
     private int _specialKillAmount = 150;
     [SerializeField]
     GameObject _playerObject;
@@ -70,7 +50,6 @@ public class GameManager : MonoBehaviour
     float _waveTimer = 0;
     float _timeElapsed;
     private void Awake()
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     {
         if (instance != null && instance != this)
         {
@@ -80,13 +59,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-<<<<<<< HEAD
-
-=======
     }
     private void Start()
     {
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         _spawnList = new Queue<EnemyType>();
         if (_spawnManager == null)
         {
@@ -99,26 +74,6 @@ public class GameManager : MonoBehaviour
        
     }
 
-<<<<<<< HEAD
-
-    private void Update()
-    {
-        CheckAmountEnemies();
-
-    }
-
-    void CheckAmountEnemies()
-    {
-        if (EnemyPooler.instance.AllActive >= _maxEnemiesOnScreen)
-        {
-            if (_spawnManager.StopSpawning != true)
-                _spawnManager.StopSpawning = true;
-        }
-        else
-        {
-            if (_spawnManager.StopSpawning != false)
-                _spawnManager.StopSpawning = false;
-=======
     public void AddToTotalKill()
     {
         _totalKillCount += 1;
@@ -181,7 +136,6 @@ public class GameManager : MonoBehaviour
                 if (_spawnManager.ScreenFull != false)
                     _spawnManager.ScreenFull = false;
             }
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         }
     }    
     void MakeQueue()
@@ -190,30 +144,18 @@ public class GameManager : MonoBehaviour
         int basicGolems = (int)(_amountToSpawn * _basicGolemPercentage);
         int specialGolems = _amountToSpawn - basicGolems;
 
-<<<<<<< HEAD
-        int amoutPerSpecial = specialGolems / _specialTypes;
-=======
         int amountPerSpecial = specialGolems / _specialTypes;
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         int remainder = specialGolems % _specialTypes;
 
         List<EnemyType> tempList = new List<EnemyType>();
 
         //Add basic Enemys
-<<<<<<< HEAD
-        for(int i = 0; i < _amountToSpawn; i++)
-=======
         for(int i = 0; i < basicGolems; i++)
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         {
             tempList.Add(EnemyType.BASE);
         }
         //Add Special Enemies
-<<<<<<< HEAD
-        for (int i = 0; i < amoutPerSpecial; i++)
-=======
         for (int i = 0; i < amountPerSpecial; i++)
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         {
             tempList.Add(EnemyType.FIRE);
             tempList.Add(EnemyType.ICE);
@@ -228,29 +170,15 @@ public class GameManager : MonoBehaviour
 
         ShuffleList<EnemyType>(tempList);
 
-<<<<<<< HEAD
-        //Do this so you never get a scecial golem on start
-        for (int i = 0; i < 10; i++)
-        {
-            tempList.Insert(0, EnemyType.BASE);
-        }
-
-=======
         _spawnList.Clear();
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
         //Add to the Queue
         foreach (EnemyType type in tempList)
         {
             _spawnList.Enqueue(type);
         }
-<<<<<<< HEAD
-    }
-
-=======
 
 
     }
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
     void ShuffleList<T>(List<T> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -263,8 +191,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-<<<<<<< HEAD
-=======
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -278,5 +204,4 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
->>>>>>> parent of 055ffb5 (Revert "Merge branch 'Dev' into Jack")
 }
