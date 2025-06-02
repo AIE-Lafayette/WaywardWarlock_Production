@@ -26,9 +26,10 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
     private bool _killed = false;
-    
+    private float _deathAnimationDelay = 2.0f;
 
     private float _timer;
+    private float _deathTimer;
     private float _delay = 1.5f;
 
     public bool StopMovement { set { _navMesh.isStopped = value; } }
@@ -58,7 +59,7 @@ public class EnemyBehavior : MonoBehaviour
             Debug.LogWarning("EnemyBehavior: Object Pool is null!");
             return;
         }
-       
+        
     }
 
     private void Update()
@@ -66,27 +67,25 @@ public class EnemyBehavior : MonoBehaviour
         if(_target != null)
         {
             _navMesh.SetDestination(_target.transform.position);
+            _navMesh.transform.LookAt(_target.transform);
         }
-  
-       
-      
-        if (_health.Health <= 0 && !_killed)
+    }
+    public void Death()
+    {
+        if (_pool != null)
         {
+
             _killed = true;
             GameManager.instance.AddKill();
-            if(_pool != null)
-            {
-               EnemyPooler.instance.ActiveList.Remove(this);
-               OnEnemyDeath.Invoke();
-            }
-            else
-            {
-                DropItem();
-                EnemyPooler.instance.ActiveList.Remove(this);
-                Destroy(gameObject);
-            }
+            EnemyPooler.instance.ActiveList.Remove(this);
+            OnEnemyDeath.Invoke();
         }
-
+        else
+        {
+            DropItem();
+            EnemyPooler.instance.ActiveList.Remove(this);
+            Destroy(gameObject);
+        }
     }
 
     public void SpecialDeath()
