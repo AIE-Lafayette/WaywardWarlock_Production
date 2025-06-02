@@ -1786,7 +1786,7 @@
     "m_StageCapability": 3,
     "m_Value": {
         "x": -0.18000000715255738,
-        "y": 1.0
+        "y": 0.8399999737739563
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -1993,7 +1993,7 @@
         "x"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
