@@ -25,6 +25,7 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+                EnemyPooler.instance.ActiveList.Add(golem);
                 break;
             }
 
@@ -34,6 +35,7 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.IceGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+                EnemyPooler.instance.ActiveList.Add(golem);
                 break;
             }
             case EnemyType.FIRE:
@@ -41,6 +43,7 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.FireGolemPool.Get();
                 golem.gameObject.transform.localPosition = transform.localPosition;
                 golem.SetTarget = player;
+                EnemyPooler.instance.ActiveList.Add(golem);
                 break;
             }
             case EnemyType.LIGHTNING:
@@ -49,12 +52,14 @@ public class SpawnPoint : MonoBehaviour
                 golem = EnemyPooler.instance.LightningGolemPool.Get();
                 golem.gameObject.transform.position = transform.localPosition;
                 golem.SetTarget = player;
+                EnemyPooler.instance.ActiveList.Add(golem);
                 break;
             }
             default:
                 golem = EnemyPooler.instance.BaseGolemPool.Get();
                 golem.gameObject.transform.localPosition = gameObject.transform.localPosition;
                 golem.SetTarget = player;
+                EnemyPooler.instance.ActiveList.Add(golem);
                 break;
         }
 
