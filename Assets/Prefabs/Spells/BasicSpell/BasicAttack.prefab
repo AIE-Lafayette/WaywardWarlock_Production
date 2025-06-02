@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 756901603128782736}
   - component: {fileID: 5567102176282442127}
-  - component: {fileID: 5936490550169911779}
   m_Layer: 0
   m_Name: BasicAttack
   m_TagString: Untagged
@@ -48,33 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _damage: 1
---- !u!54 &5936490550169911779
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049943990161523676}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &8825920446542009298
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +58,6 @@ GameObject:
   - component: {fileID: 7282958482849264058}
   - component: {fileID: 7044995668149105938}
   - component: {fileID: 285174624633138474}
-  - component: {fileID: 3565786467573559632}
   m_Layer: 0
   m_Name: BasicAttackVFX
   m_TagString: Untagged
@@ -187,26 +158,3 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3565786467573559632
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825920446542009298}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
