@@ -47,7 +47,6 @@ public class EnemyAnimationStateController : MonoBehaviour
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("GolemDeath") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 _collider.enabled = true;
-
                 _enemyBehavior.Death();
 
             }
