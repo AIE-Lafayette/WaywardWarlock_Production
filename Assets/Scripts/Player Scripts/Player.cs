@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
 
     public UnityEvent OnPlayerDeath;
-    public UnityEvent SpecialAttack;
 
    
     private HealthComponent _health;
@@ -25,9 +24,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-
-
         if(_health.Health == 0 && !_isDead)
         {
             _isDead = true;
