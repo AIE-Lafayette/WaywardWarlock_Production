@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -67,7 +68,10 @@ public class EnemyBehavior : MonoBehaviour
             _navMesh.SetDestination(_target.transform.position);
             if(_health.Health != 0)
             {
-                _navMesh.transform.LookAt(_target.transform);
+                Vector3 direction = _target.transform.position - transform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = targetRotation;
+               
             }
         }
     }
@@ -96,7 +100,7 @@ public class EnemyBehavior : MonoBehaviour
         OnEnemyDeath.Invoke();
 
     }
-    void HitPlayer(Collision collision)
+    void HitPlayer(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -108,31 +112,30 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        HitPlayer(collision);
+        HitPlayer(other);
     }
-    private void OnCollisionStay(Collision collision)
+
+    private void OnTriggerStay(Collider other)
     {
-        if(!_navMesh.isStopped)
+        if (!_navMesh.isStopped)
         {
             _timer += Time.deltaTime;
-            if(_timer > _delay)
+            if (_timer > _delay)
             {
                 _timer -= _delay;
-                HitPlayer(collision);
+                HitPlayer(other);
             }
         }
     }
-
-
     public void DropItem()
     {
         if(_itemDrop)
         {
             Instantiate(_itemDrop, transform.position, Quaternion.identity);
         }
-
     }
 
     public void Return()

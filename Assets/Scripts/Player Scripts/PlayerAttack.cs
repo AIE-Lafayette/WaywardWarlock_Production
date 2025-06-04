@@ -61,12 +61,6 @@ public class PlayerAttack : MonoBehaviour
        }
    
     }
-
-    
-
-
-
-    
     private void OnCollisionStay(Collision collision)
     {
         //checks first if special is active or not
@@ -132,8 +126,6 @@ public class PlayerAttack : MonoBehaviour
     {
         _isDead = true;
     }
-
-    
 }
 
 
