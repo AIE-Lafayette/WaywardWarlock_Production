@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7282958482849264058}
   - component: {fileID: 7044995668149105938}
   - component: {fileID: 285174624633138474}
-  - component: {fileID: 3565786467573559632}
+  - component: {fileID: 8556846603792930882}
   m_Layer: 6
   m_Name: BasicAttackVFX
   m_TagString: Untagged
@@ -104,8 +104,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.54, y: 0.54, z: 0.54}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 756901603128782736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,8 +187,8 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3565786467573559632
-CapsuleCollider:
+--- !u!135 &8556846603792930882
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -205,8 +205,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 3
+  m_Radius: 1.26
   m_Center: {x: 0, y: 0, z: 0}
