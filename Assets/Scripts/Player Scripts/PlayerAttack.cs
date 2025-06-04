@@ -61,6 +61,20 @@ public class PlayerAttack : MonoBehaviour
        }
    
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollectible item = other.gameObject.GetComponent<ICollectible>();
+        if (item != null)
+        {
+            if (!_specialActive)
+            {
+                SetShotType = item.BulletType;
+                _delay = item.Delay;
+                _specialTimeLeft = item.Time;
+                Destroy(other.gameObject);
+            }
+        }
+    }
     private void OnCollisionStay(Collision collision)
     {
         //checks first if special is active or not
