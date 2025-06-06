@@ -443,6 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb9d335264e2eb42bfb9241c87af3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &302753956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5287022087087933054, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+  m_PrefabInstance: {fileID: 1249119896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &350050027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1000,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_LayerOverridePriority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1245921440684315974, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e6287ca673016241bc7e4003984abbc, type: 2}
     - target: {fileID: 1392927266343313732, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.size
       value: 10
@@ -1276,6 +1285,10 @@ PrefabInstance:
       propertyPath: SpecialAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1405519979545951317, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _meshObject
+      value: 
+      objectReference: {fileID: 302753956}
     - target: {fileID: 1491025345076381745, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1312,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 4017544616886860085, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c73f9c6ae5d1dbc428ff07312647c0f6, type: 2}
     - target: {fileID: 4218450933699985572, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: m_Name
       value: Player_PF
