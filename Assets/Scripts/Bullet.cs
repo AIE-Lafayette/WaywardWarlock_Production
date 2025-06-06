@@ -42,17 +42,14 @@ public class Bullet : MonoBehaviour
         }
 
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy" )
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-           
             HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
             health.RemoveHealth(_damage);
             _pool.Release(this);
-
-
         }
-        
     }
 }
