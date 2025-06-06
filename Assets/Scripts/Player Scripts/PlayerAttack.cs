@@ -61,12 +61,20 @@ public class PlayerAttack : MonoBehaviour
        }
    
     }
-
-    
-
-
-
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollectible item = other.gameObject.GetComponent<ICollectible>();
+        if (item != null)
+        {
+            if (!_specialActive)
+            {
+                SetShotType = item.BulletType;
+                _delay = item.Delay;
+                _specialTimeLeft = item.Time;
+                Destroy(other.gameObject);
+            }
+        }
+    }
     private void OnCollisionStay(Collision collision)
     {
         //checks first if special is active or not
@@ -88,11 +96,12 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!_isDead)
         {
-
-        bullet.transform.position = _bulletOffset.transform.position;
-        Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
-        Direction.y = 0;
-        bullet.SetDirection = Direction;
+            float Angle = Vector3.Angle(_meshObject.transform.position, _bulletOffset.transform.position);
+            bullet.transform.position = _bulletOffset.transform.position;
+            Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, Angle, 0));
+            Direction.y = 0;
+            bullet.SetDirection = Direction;
         }
     }
     
@@ -132,8 +141,6 @@ public class PlayerAttack : MonoBehaviour
     {
         _isDead = true;
     }
-
-    
 }
 
 

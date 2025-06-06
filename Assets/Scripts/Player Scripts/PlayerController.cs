@@ -10,70 +10,72 @@ public class PlayerController : MonoBehaviour
     public float _playerSpeed;
     [SerializeField]
     private LayerMask _layerMask;
+    [SerializeField]
+    public float _fallSpeed;
+
 
     bool _isDead = false;
-    private Vector3 _angleTwords;
+    private Vector3 _angle;
     private Vector3 _moveDirection;
     private Vector3 _playerVelocity;
     private Transform _meshTransform;
     private ForbiddenSpell _forbiddenSpell;
+    private CharacterController _playerController;
+    
     
 
     private void Start()
     {
         _forbiddenSpell = GetComponent<ForbiddenSpell>();
+        _playerController = GetComponent<CharacterController>();
         _meshTransform = transform.GetChild(0);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-
-
         _moveDirection = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
         _playerVelocity = _moveDirection.normalized * _playerSpeed;
-
     }
 
     void Update()
     {
-        
-        transform.Translate(_playerVelocity * Time.deltaTime, Space.Self);
-
-        if (_angleTwords != Vector3.zero)
+        _playerController.Move(_playerVelocity * Time.deltaTime);
+        CheckGround();
+        if (_angle != Vector3.zero)
         {
 
-            Quaternion lookRotation = Quaternion.LookRotation(_angleTwords);
+            Quaternion lookRotation = Quaternion.LookRotation(_angle);
             _meshTransform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
         }
-
     }
-
+ 
 
     public void LookController(InputAction.CallbackContext context)
     {
-
         if(_isDead == false)
         {
-
-        Vector3 lookPosition = new Vector3(context.action.ReadValue<Vector2>().x, 0, context.action.ReadValue<Vector2>().y) + transform.position;
-
-        _angleTwords = lookPosition - transform.position;
+            Vector3 lookPosition = new Vector3(context.action.ReadValue<Vector2>().x, 0, context.action.ReadValue<Vector2>().y) + transform.position;
+            _angle = lookPosition - transform.position;
         }
-        
-
     }
-
     public void LookMouse(InputAction.CallbackContext context)
     {
         Ray ray = Camera.main.ScreenPointToRay(context.action.ReadValue<Vector2>());
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, _layerMask) && _isDead == false)
+        if (Physics.Raycast(ray, out RaycastHit Hit, float.MaxValue, _layerMask) && _isDead == false)
         {
-            Vector3 mousePosition = raycastHit.point;
-
-            _angleTwords = mousePosition - transform.position;
-            _angleTwords.y = 0f;
+            Vector3 mousePosition = Hit.point;
+            _angle = mousePosition - transform.position;
+            _angle.y = 0f;
         }
     }
-   public void FreezePlayer()
+    private void CheckGround()
+    {
+        if(_playerController.isGrounded == false)
+        {
+            _playerController.Move(-transform.up * _fallSpeed * Time.deltaTime);
+        }
+
+    }
+    public void FreezePlayer()
     {
         _playerSpeed = 0;
         _playerVelocity = new Vector3 ( 0,0,0);
@@ -82,7 +84,8 @@ public class PlayerController : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
-        _forbiddenSpell.SpecialAttack();
+        if (_isDead == false)
+            _forbiddenSpell.SpecialAttack();
 
     }
 
