@@ -8,16 +8,16 @@ using UnityEngine.VFX;
 public class EffectsPool : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _forbiddenEffect;
-    public ObjectPool<GameObject> EffectPool {get { return _effectsPool; }}
+    private SpecialSpell _forbiddenEffect;
+    public ObjectPool<SpecialSpell> BeamPool {get { return _effectsPool; }}
     public static EffectsPool instance { get; private set; }
    
-    private ObjectPool<GameObject> _effectsPool;
+    private ObjectPool<SpecialSpell> _effectsPool;
     private int _maxPoolSize = 60;
     private int _defaultPoolSize = 20;
 
 
-    public void Awake()
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -30,31 +30,34 @@ public class EffectsPool : MonoBehaviour
         StartPool(ref _effectsPool, CreateEffect, _defaultPoolSize, _maxPoolSize);
     }
 
-    void StartPool(ref ObjectPool<GameObject> pool, Func<GameObject> createFunction, int initsize, int maxsize)
+    void StartPool(ref ObjectPool<SpecialSpell> pool, Func<SpecialSpell> createFunction, int initsize, int maxsize)
     {
-        pool = new ObjectPool<GameObject>(createFunction, OnTakeFromPool, OnReturnedToPool, OnDestroyEffect, false, initsize, maxsize);
+        pool = new ObjectPool<SpecialSpell>(CreateEffect, OnTakeFromPool, OnReturnedToPool, OnDestroyEffect, false, initsize, maxsize);
     }
 
-    GameObject CreateEffect()
+    SpecialSpell CreateEffect()
     {
-       GameObject spell = Instantiate(_forbiddenEffect, transform.position, Quaternion.identity);
+       SpecialSpell spell = Instantiate(_forbiddenEffect, transform.position, Quaternion.identity);
+        spell.Pool = _effectsPool;
         return spell;
     }
 
-    void OnTakeFromPool(GameObject spell)
+    void OnTakeFromPool(SpecialSpell spell)
     {
         spell.gameObject.SetActive(true);
+        spell.SetReturn = false;
     }
 
-    void OnReturnedToPool(GameObject spell)
+    void OnReturnedToPool(SpecialSpell spell)
     {
         spell.gameObject.SetActive(false);
+        spell.SetReturn = true;
     }
 
-    private void OnDestroyEffect(GameObject spell)
-    {
+     void OnDestroyEffect(SpecialSpell spell)
+     {
         Destroy(spell.gameObject);
-    }
+     }
 
 
 
