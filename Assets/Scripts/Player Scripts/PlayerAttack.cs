@@ -96,11 +96,12 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!_isDead)
         {
-
-        bullet.transform.position = _bulletOffset.transform.position;
-        Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
-        Direction.y = 0;
-        bullet.SetDirection = Direction;
+            float Angle = Vector3.Angle(_meshObject.transform.position, _bulletOffset.transform.position);
+            bullet.transform.position = _bulletOffset.transform.position;
+            Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, Angle, 0));
+            Direction.y = 0;
+            bullet.SetDirection = Direction;
         }
     }
     
