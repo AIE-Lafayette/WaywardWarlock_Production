@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightning_Golem_pfv
       objectReference: {fileID: 0}
+    - target: {fileID: 4097529791727009267, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a5cfe3b4a8a72f46bd9aef20208c443, type: 2}
     - target: {fileID: 4300345856230055358, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _health
       value: 3
@@ -83,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _itemDrop
       value: 
-      objectReference: {fileID: 1148878752086927332, guid: 06e50ab2f8a9f45408bed2cd484b67db, type: 3}
+      objectReference: {fileID: 1617426950848616429, guid: 9e62a75fd9dce654ab318b5557ce6268, type: 3}
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.size
       value: 3

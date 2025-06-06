@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice_Golem_pfv
       objectReference: {fileID: 0}
+    - target: {fileID: 4097529791727009267, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16a1ec3c517cdeb409fc0df0d8550193, type: 2}
     - target: {fileID: 4300345856230055358, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _health
       value: 6
@@ -75,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _itemDrop
       value: 
-      objectReference: {fileID: 4875084788658405084, guid: 498b8f0b22717804490a19b5c90fd8d8, type: 3}
+      objectReference: {fileID: 2610279631357280732, guid: f3c2bac60474e3a47b9531d2449160da, type: 3}
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: OnEnemyDeath.m_PersistentCalls.m_Calls.Array.size
       value: 3

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     int _specialTypes = 3;
     float _waveTimer = 0;
     float _timeElapsed;
-    private void Start()
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
+    }
+    private void Start()
+    {
         _spawnList = new Queue<EnemyType>();
         if (_spawnManager == null)
         {
@@ -70,6 +72,11 @@ public class GameManager : MonoBehaviour
 
         _spawnManager.SetSpawnList = _spawnList;
        
+    }
+
+    public void AddToTotalKill()
+    {
+        _totalKillCount += 1;
     }
     public void ResetKillCount()
     {
@@ -89,7 +96,10 @@ public class GameManager : MonoBehaviour
 
     }
     void UpdateAmount()
-    { 
+    {
+        if (_spawnManager == null)
+            return;
+
         if(_spawnManager.IsDoneSpawning)
         {
             _waveTimer += Time.deltaTime;
@@ -114,15 +124,18 @@ public class GameManager : MonoBehaviour
     }
     void CheckAmountEnemies()
     {
-        if (EnemyPooler.instance.AllActiveCount >= _maxEnemiesOnScreen)
+        if(EnemyPooler.instance != null)
         {
-            if (_spawnManager.ScreenFull != true)
-                _spawnManager.ScreenFull = true;
-        }
-        else
-        {
-            if (_spawnManager.ScreenFull != false)
-                _spawnManager.ScreenFull = false;
+            if (EnemyPooler.instance.AllActiveCount >= _maxEnemiesOnScreen)
+            {
+                if (_spawnManager.ScreenFull != true)
+                    _spawnManager.ScreenFull = true;
+            }
+            else
+            {
+                if (_spawnManager.ScreenFull != false)
+                    _spawnManager.ScreenFull = false;
+            }
         }
     }    
     void MakeQueue()
@@ -131,7 +144,7 @@ public class GameManager : MonoBehaviour
         int basicGolems = (int)(_amountToSpawn * _basicGolemPercentage);
         int specialGolems = _amountToSpawn - basicGolems;
 
-        int amoutPerSpecial = specialGolems / _specialTypes;
+        int amountPerSpecial = specialGolems / _specialTypes;
         int remainder = specialGolems % _specialTypes;
 
         List<EnemyType> tempList = new List<EnemyType>();
@@ -142,7 +155,7 @@ public class GameManager : MonoBehaviour
             tempList.Add(EnemyType.BASE);
         }
         //Add Special Enemies
-        for (int i = 0; i < amoutPerSpecial; i++)
+        for (int i = 0; i < amountPerSpecial; i++)
         {
             tempList.Add(EnemyType.FIRE);
             tempList.Add(EnemyType.ICE);
@@ -181,6 +194,10 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ExitApplication()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.Pool;
+using UnityEngine.VFX;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EnemyBehavior : MonoBehaviour
     private float _damage = 1;
     [SerializeField]
     private GameObject _itemDrop;
+    [SerializeField]
+    private VisualEffect _forbiddenSpellEffect;
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
@@ -23,7 +26,6 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMesh;
     private ObjectPool<EnemyBehavior> _pool;
     private bool _killed = false;
- 
 
     private float _timer;
     private float _delay = 1.5f;
@@ -39,6 +41,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
+        
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
@@ -51,9 +54,10 @@ public class EnemyBehavior : MonoBehaviour
         }
         if(_pool == null)
         {
-            Debug.LogError("EnemyBehavior: Object Pool is null!");
+            Debug.LogWarning("EnemyBehavior: Object Pool is null!");
             return;
         }
+        
     }
 
     private void Update()
@@ -61,16 +65,35 @@ public class EnemyBehavior : MonoBehaviour
         if(_target != null)
         {
             _navMesh.SetDestination(_target.transform.position);
+            if(_health.Health != 0)
+            {
+                _navMesh.transform.LookAt(_target.transform);
+            }
         }
-  
-       
-      
-        if (_health.Health <= 0 && !_killed)
+    }
+    public void Death()
+    {
+        if (_pool != null)
         {
+
             _killed = true;
             GameManager.instance.AddKill();
+            EnemyPooler.instance.ActiveList.Remove(this);
             OnEnemyDeath.Invoke();
         }
+        else
+        {
+            DropItem();
+            EnemyPooler.instance.ActiveList.Remove(this);
+            Destroy(gameObject);
+        }
+    }
+
+    public void SpecialDeath()
+    {
+        _navMesh.isStopped = true;
+        Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
+        OnEnemyDeath.Invoke();
 
     }
     void HitPlayer(Collision collision)
@@ -114,6 +137,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Return()
     {
+        _navMesh.isStopped = false;
         _pool.Release(this);
     }
 }

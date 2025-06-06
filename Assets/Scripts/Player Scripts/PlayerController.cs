@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDirection;
     private Vector3 _playerVelocity;
     private Transform _meshTransform;
+    private ForbiddenSpell _forbiddenSpell;
+    
+
     private void Start()
     {
+        _forbiddenSpell = GetComponent<ForbiddenSpell>();
         _meshTransform = transform.GetChild(0);
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -74,6 +78,12 @@ public class PlayerController : MonoBehaviour
         _playerSpeed = 0;
         _playerVelocity = new Vector3 ( 0,0,0);
         _isDead = true;
+    }
+
+    public void Fire(InputAction.CallbackContext context)
+    {
+        _forbiddenSpell.SpecialAttack();
+
     }
 
 }
