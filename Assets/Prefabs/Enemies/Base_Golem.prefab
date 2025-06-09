@@ -47,7 +47,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 0
   m_AngularSpeed: 120
@@ -222,10 +222,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolemBase
       objectReference: {fileID: 0}
+    - target: {fileID: 1995542573800306126, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a79586ab398329448b96250f5c8e8a8, type: 2}
     - target: {fileID: 5866666021909216657, guid: fe53a11ff01e8b34c8d987c95b0d5938, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: fe6479c4b49d1d6458becfba9b8ea8e5, type: 2}
+      objectReference: {fileID: 9100000, guid: 6edf973dc95220d4db71ae1f83b10057, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

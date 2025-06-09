@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3395934617912797375, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 991992a39c8460a4b940d564b2c6f581, type: 2}
     - target: {fileID: 3539134561162517176, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: m_Name
       value: Fire_Golem_pfv
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8527189516208672327, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
       propertyPath: _damage
