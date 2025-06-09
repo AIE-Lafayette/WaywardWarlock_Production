@@ -66,6 +66,7 @@ public class BulletPool : MonoBehaviour
     {
         Bullet bullet = Instantiate(_basicBullet);
         bullet.Pool = _basicPool;
+        bullet.ShotType = ShotType.BASIC;
         return bullet;
     }
 
@@ -73,6 +74,7 @@ public class BulletPool : MonoBehaviour
     {
         Bullet bullet = Instantiate(_fireBullet);
         bullet.Pool = _firePool;
+        bullet.ShotType = ShotType.FIRE;
         return bullet;
     }
 
@@ -80,6 +82,7 @@ public class BulletPool : MonoBehaviour
     {
         Bullet bullet = Instantiate(_lightningBullet);
         bullet.Pool = _lightningPool;
+        bullet.ShotType = ShotType.LIGHTNING;
         return bullet;
     }
 
@@ -87,6 +90,7 @@ public class BulletPool : MonoBehaviour
     {
         Bullet bullet = Instantiate(_iceBullet);
         bullet.Pool = _icePool;
+        bullet.ShotType = ShotType.ICE;
         return bullet;
     }
 

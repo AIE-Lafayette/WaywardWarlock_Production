@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 745
     y: -190
     width: 2631
-    height: 5220
+    height: 5184
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1257,7 +1257,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":1.0,"z":15.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":20.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -3303,7 +3303,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":4.900000095367432,"y":4.900000095367432,"z":15.0}'
+      m_SerializableObject: '{"x":4.900000095367432,"y":4.900000095367432,"z":20.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -5239,7 +5239,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":5.0,"y":5.0,"z":15.0}'
+      m_SerializableObject: '{"x":5.0,"y":5.0,"z":20.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -7183,7 +7183,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":5.199999809265137,"y":5.199999809265137,"z":15.0}'
+      m_SerializableObject: '{"x":5.199999809265137,"y":5.199999809265137,"z":20.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -9739,7 +9739,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":6.0,"y":6.0,"z":15.0}'
+      m_SerializableObject: '{"x":6.0,"y":6.0,"z":20.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
