@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7761575985581554220
+--- !u!1 &8505229347853267435
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4179126068764214090}
-  - component: {fileID: 6840312761014597341}
+  - component: {fileID: 3712398712563702753}
+  - component: {fileID: 1002527713660240859}
   m_Layer: 0
-  m_Name: EnemyPooler_pf
+  m_Name: EffectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4179126068764214090
+--- !u!4 &3712398712563702753
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761575985581554220}
+  m_GameObject: {fileID: 8505229347853267435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 0}
+  m_LocalPosition: {x: -11.96549, y: 4.32948, z: 2.050603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6840312761014597341
+--- !u!114 &1002527713660240859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761575985581554220}
+  m_GameObject: {fileID: 8505229347853267435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c75bd3bb9234c4b4480ce2f487ffda24, type: 3}
+  m_Script: {fileID: 11500000, guid: 34ecf2aef77a13c48b871e298db29c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseGolemPrefab: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
-  _fireGolemPrefab: {fileID: 2464003702758866481, guid: 55833d1d09e419546822fffe3bf9f63f, type: 3}
-  _iceGolemPrefab: {fileID: 4346537657108536614, guid: 17e9aed91cd8ecc469b4bd3bf5e215f8, type: 3}
-  _lightningGolemPrefab: {fileID: -2427024598347010082, guid: 37e8455cb0411bf43a978d304e388776, type: 3}
+  _forbiddenEffect: {fileID: 394189418222133775, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
