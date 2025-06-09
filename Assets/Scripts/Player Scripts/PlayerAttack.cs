@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject _meshObject;
 
+    
+
     public float SpecialTimeLeft { get { return _specialTimeLeft; } }
     public bool SpecialActive { get { return _specialActive; } }
     
@@ -96,12 +98,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!_isDead)
         {
-            float Angle = Vector3.Angle(_meshObject.transform.position, _bulletOffset.transform.position);
             bullet.transform.position = _bulletOffset.transform.position;
             Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
-            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, Angle, 0));
             Direction.y = 0;
             bullet.SetDirection = Direction;
+            bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
         }
     }
     
@@ -114,7 +115,7 @@ public class PlayerAttack : MonoBehaviour
 
                     ShootBullet(BulletPool.instance.BasicBulletPool.Get());     
                      break;
-                 }
+                }
             case ShotType.ICE:
                 {
                     ShootBullet(BulletPool.instance.IceBulletPool.Get());

@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  _delay: 2
+  _delay: 1.5
   _time: 10
   _damage: 5
 --- !u!114 &7664023894056198775
