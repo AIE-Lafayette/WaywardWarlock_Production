@@ -748,9 +748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _basicBullet: {fileID: 5567102176282442127, guid: 5d5a4c967583cae468aa6191ffced7a8, type: 3}
-  _fireBullet: {fileID: 0}
-  _lightningBullet: {fileID: 0}
-  _iceBullet: {fileID: 3368921467294204276, guid: 46d13d6fb2574e94c9ca594fcd11b36b, type: 3}
+  _fireBullet: {fileID: 5567102176282442127, guid: 2e5d265574b7e2f42922781f15c031b1, type: 3}
+  _lightningBullet: {fileID: 5567102176282442127, guid: 6225220c9b87ca448996d51754e63a39, type: 3}
+  _iceBullet: {fileID: 3368921467294204276, guid: 80fefccf8def44847acd60f3b20d9a41, type: 3}
 --- !u!4 &658782246
 Transform:
   m_ObjectHideFlags: 0
