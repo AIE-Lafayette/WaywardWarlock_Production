@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EarthGolemCrystalGlow
+  m_Name: FireGolemCrystalGlow
   m_Shader: {fileID: -6465566751694194690, guid: 1b07e06229b21c84fa448902de923453, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -58,7 +58,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 0
-    - _GlowPower: 1
+    - _GlowPower: 0.62
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 1
@@ -67,5 +67,5 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _CrystalGlowColor: {r: 0.09985762, g: 1.9245284, b: 0.6917764, a: 1}
+    - _CrystalGlowColor: {r: 0.08566329, g: 0.80679816, b: 0, a: 1}
   m_BuildTextureStacks: []

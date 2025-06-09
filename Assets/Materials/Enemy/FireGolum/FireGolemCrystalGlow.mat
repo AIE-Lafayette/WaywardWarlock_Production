@@ -58,7 +58,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 0
-    - _GlowPower: 1
+    - _GlowPower: 0.62
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 1
@@ -67,5 +67,5 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _CrystalGlowColor: {r: 1.8301886, g: 0.25241062, b: 0.18129227, a: 1}
+    - _CrystalGlowColor: {r: 1.5887072, g: 0.015722973, b: 0, a: 1}
   m_BuildTextureStacks: []
