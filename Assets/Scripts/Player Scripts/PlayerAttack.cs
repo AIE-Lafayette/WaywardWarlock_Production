@@ -109,6 +109,24 @@ public class PlayerAttack : MonoBehaviour
             bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
         }
     }
+
+    void ShootLightningBullet(Bullet bullet)
+    {
+        if (!_isDead)
+        {
+            bullet.transform.position = _bulletOffset.transform.position;
+            Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+            if (bullet.ShotType == ShotType.ICE)
+            {
+                bullet.transform.position = new Vector3(bullet.transform.position.x, 0.2f, bullet.transform.position.z);
+            }
+            Direction.y = 0;
+            bullet.SetDirection = Direction;
+            bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
+        }
+
+
+    }
     
     void Shoot()
     {

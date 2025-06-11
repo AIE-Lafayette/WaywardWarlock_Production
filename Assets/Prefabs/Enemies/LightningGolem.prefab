@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8391450533442852136}
   - component: {fileID: -6467127368688253967}
   - component: {fileID: -4735299925525587199}
+  - component: {fileID: -3879489996913193619}
   m_Layer: 0
-  m_Name: LGolem
+  m_Name: LightningGolem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,11 +73,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _itemDrop: {fileID: 0}
+  _itemDrop: {fileID: 1617426950848616429, guid: 9e62a75fd9dce654ab318b5557ce6268, type: 3}
   _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  _isLightningGolem: 1
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8391450533442852136}
+        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
+        m_MethodName: ResetHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
         m_MethodName: Return
@@ -92,18 +106,6 @@ MonoBehaviour:
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
         m_MethodName: DropItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8391450533442852136}
-        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
-        m_MethodName: ResetHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,6 +168,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-3879489996913193619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553164430476411918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92a8ce3b8bca6a47866874232d62f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _redMaterial: {fileID: 2100000, guid: d7cf88188916a4d4ca63a98de3aec627, type: 2}
+  _flashDuration: 0.4
 --- !u!1001 &4379115486384152209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,15 +192,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.625143
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1621857
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5756569
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -192,15 +208,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239398134047874328, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -214,9 +230,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1308854390523552211, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308854390523552211, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308854390523552211, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308854390523552211, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308854390523552211, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1907532440097048482, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_Name
       value: ThunderGolemBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428148266544239665, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428148266544239665, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428148266544239665, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428148266544239665, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3672423509088122128, guid: c761126eba69c384b8a27b9b0545c0c3, type: 3}
       propertyPath: m_Avatar

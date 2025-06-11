@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Transform _meshTransform;
     private ForbiddenSpell _forbiddenSpell;
     private CharacterController _playerController;
-    
+    private bool _gamePaused;
     
 
     private void Start()
@@ -48,10 +48,26 @@ public class PlayerController : MonoBehaviour
         }
     }
  
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        if(!GameManager.instance.GamePaused)
+        {
+            Time.timeScale = 0;
+            GameManager.instance.GamePaused = true;
+            UIManager.instance.TogglePauseUI(true);
+        }    
+        else
+        {
+            Time.timeScale = 1.0f;
+            GameManager.instance.GamePaused = false;
+            UIManager.instance.TogglePauseUI(false);
+        }
+        
+    }
 
     public void LookController(InputAction.CallbackContext context)
     {
-        if(_isDead == false)
+        if(!_isDead && !GameManager.instance.GamePaused)
         {
             Vector3 lookPosition = new Vector3(context.action.ReadValue<Vector2>().x, 0, context.action.ReadValue<Vector2>().y) + transform.position;
             _angle = lookPosition - transform.position;
@@ -59,12 +75,15 @@ public class PlayerController : MonoBehaviour
     }
     public void LookMouse(InputAction.CallbackContext context)
     {
-        Ray ray = Camera.main.ScreenPointToRay(context.action.ReadValue<Vector2>());
-        if (Physics.Raycast(ray, out RaycastHit Hit, float.MaxValue, _layerMask) && _isDead == false)
+        if(!_isDead && !GameManager.instance.GamePaused)
         {
-            Vector3 mousePosition = Hit.point;
-            _angle = mousePosition - transform.position;
-            _angle.y = 0f;
+            Ray ray = Camera.main.ScreenPointToRay(context.action.ReadValue<Vector2>());
+            if (Physics.Raycast(ray, out RaycastHit Hit, float.MaxValue, _layerMask) && _isDead == false)
+            {
+                Vector3 mousePosition = Hit.point;
+                _angle = mousePosition - transform.position;
+                _angle.y = 0f;
+            }
         }
     }
     private void CheckGround()
