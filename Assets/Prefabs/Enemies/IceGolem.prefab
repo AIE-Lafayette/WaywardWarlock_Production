@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceGolem
       objectReference: {fileID: 0}
+    - target: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+      propertyPath: _itemDrop
+      value: 
+      objectReference: {fileID: 2610279631357280732, guid: f3c2bac60474e3a47b9531d2449160da, type: 3}
     - target: {fileID: 4354882864643779751, guid: 175365176b63be347ae1c6a785aef310, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8906886709353156352, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+      propertyPath: _redMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d7cf88188916a4d4ca63a98de3aec627, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
