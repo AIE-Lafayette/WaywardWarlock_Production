@@ -59,9 +59,4 @@ public class EffectsPool : MonoBehaviour
         Destroy(spell.gameObject);
      }
 
-
-
-
-
-
 }

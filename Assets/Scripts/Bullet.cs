@@ -65,17 +65,22 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
+        if (collision.gameObject.CompareTag("Enemy") && health && health.Health != 0)
         {
             if(_bulletType != ShotType.ICE)
             {
-                HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
+                DamageFlash damageEffect = collision.gameObject.GetComponent<DamageFlash>();
+                if (damageEffect != null)
+                    damageEffect.PlayerDamageEffect();
                 health.RemoveHealth(_damage);
                 _pool.Release(this);
             }
             else
             {
-                HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
+                DamageFlash damageEffect = collision.gameObject.GetComponent<DamageFlash>();
+                if (damageEffect != null)
+                    damageEffect.PlayerDamageEffect();
                 health.RemoveHealth(_damage);
                
             }

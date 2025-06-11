@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireGolemCrystalGlow
+  m_Name: EarthGolemCrystalMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 1b07e06229b21c84fa448902de923453, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
