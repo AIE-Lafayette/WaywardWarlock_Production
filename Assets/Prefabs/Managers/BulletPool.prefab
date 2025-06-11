@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8656cdd8f92c7459fa8693e60973e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _basicBullet: {fileID: 3510868910748800314, guid: 822b932ceea295042989dfe855cc5434, type: 3}
-  _fireBullet: {fileID: 744050152692612928, guid: d073427e91246aa44bcff8b566c06288, type: 3}
-  _lightningBullet: {fileID: 4849767063620096822, guid: 60ccca306e76ff045893ad2af6a4a8b1, type: 3}
-  _iceBullet: {fileID: 7599346378248492304, guid: c7697f30d25cfa44abc0163a000fbfbe, type: 3}
+  _basicBullet: {fileID: 5567102176282442127, guid: 5d5a4c967583cae468aa6191ffced7a8, type: 3}
+  _fireBullet: {fileID: 7387425635600264659, guid: 7adc0314181b956428568352d65ee66f, type: 3}
+  _lightningBullet: {fileID: 5262024932742466712, guid: ced2cc3870b15e543932d439e185b89f, type: 3}
+  _iceBullet: {fileID: 3368921467294204276, guid: 80fefccf8def44847acd60f3b20d9a41, type: 3}
