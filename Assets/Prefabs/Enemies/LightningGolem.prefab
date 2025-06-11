@@ -73,11 +73,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _itemDrop: {fileID: 0}
+  _itemDrop: {fileID: 1617426950848616429, guid: 9e62a75fd9dce654ab318b5557ce6268, type: 3}
   _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  _isLightningGolem: 1
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8391450533442852136}
+        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
+        m_MethodName: ResetHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
         m_MethodName: Return
@@ -93,18 +106,6 @@ MonoBehaviour:
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
         m_MethodName: DropItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8391450533442852136}
-        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
-        m_MethodName: ResetHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

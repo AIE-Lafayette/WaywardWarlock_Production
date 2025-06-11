@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -16,6 +17,11 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _itemDrop;
     [SerializeField]
     private VisualEffect _forbiddenSpellEffect;
+
+    [SerializeField]
+    private bool _isLightningGolem;
+
+    public bool IsLightningGolem { get { return _isLightningGolem; } }
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }

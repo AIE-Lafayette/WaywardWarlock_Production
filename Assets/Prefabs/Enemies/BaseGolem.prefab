@@ -75,6 +75,7 @@ MonoBehaviour:
   _damage: 1
   _itemDrop: {fileID: 0}
   _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  _isLightningGolem: 0
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
@@ -179,9 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92a8ce3b8bca6a47866874232d62f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _redMaterial: {fileID: 2100000, guid: d7cf88188916a4d4ca63a98de3aec627, type: 2}
+  _redMaterial: {fileID: 2100000, guid: ec5a3460bf993be43be4a7199e04935b, type: 2}
   _flashDuration: 0.4
-  _fadeDuration: 0.3
 --- !u!1001 &7906348807226004829
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -86,5 +86,10 @@ public class Bullet : MonoBehaviour
             }
             
         }
+
+        if(collision.gameObject.tag == "Environment")
+        {
+            _pool.Release(this);
+        }
     }
 }
