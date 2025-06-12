@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireGolem
       objectReference: {fileID: 0}
+    - target: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+      propertyPath: _itemDrop
+      value: 
+      objectReference: {fileID: 2822164784440643385, guid: 41e2e8c7bc5f74f4d958ef2e9c1a12b8, type: 3}
     - target: {fileID: 4354882864643779751, guid: 175365176b63be347ae1c6a785aef310, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
