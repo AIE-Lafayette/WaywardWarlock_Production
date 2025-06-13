@@ -99,12 +99,26 @@ public class BulletPool : MonoBehaviour
     void OnTakeFromPool(Bullet bullet)
     {
         bullet.gameObject.SetActive(true);
+        TrailRenderer trail = bullet.GetComponentInChildren<TrailRenderer>();
+        if (trail != null)
+        {
+            trail.Clear();
+            trail.enabled = false;
+            trail.enabled = true;
+        }
     }
 
 
     void OnReturnedToPool(Bullet bullet)
     {
         bullet.gameObject.SetActive(false);
+        TrailRenderer trail = bullet.GetComponentInChildren<TrailRenderer>();
+        if (trail != null)
+        {
+            trail.Clear();
+            trail.enabled = false;
+            trail.enabled = true;
+        }
     }
 
     private void OnDestroyObject(Bullet bullet)
