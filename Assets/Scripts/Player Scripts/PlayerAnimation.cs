@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     Animator _animator;
     HealthComponent _healthComponent;
+    CharacterController _controller;
     void Start()
     {
         _animator = GetComponentInChildren<Animator>();
@@ -34,10 +35,8 @@ public class PlayerAnimation : MonoBehaviour
             }
             else
             {
-                if (_animator.GetBool("IdleWalk") == false)
-                {
-                    _animator.SetBool("IdleWalk", true);
-                }
+                _animator.SetFloat("IdleWalk", 1);
+
             }
         }
 
