@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7555409129461358894}
   - component: {fileID: 3850375990952059995}
   - component: {fileID: 8641316571552760433}
+  - component: {fileID: -7305802364015689444}
   m_Layer: 0
   m_Name: FireCrystal
   m_TagString: Untagged
@@ -88,6 +89,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 60
+--- !u!114 &-7305802364015689444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822164784440643385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13097ded5d8ec5643b9df98c5ebdf76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeTillDelete: 5
+  _delay: 5
 --- !u!1 &7566595322547659269
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7975988814422631458}
   - component: {fileID: 3400896176176509616}
   - component: {fileID: 5691874041554046049}
+  - component: {fileID: -4102065722751176165}
   m_Layer: 0
   m_Name: LightningCrystal
   m_TagString: Untagged
@@ -88,6 +89,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 60
+--- !u!114 &-4102065722751176165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617426950848616429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13097ded5d8ec5643b9df98c5ebdf76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeTillDelete: 5
 --- !u!1 &6616637150460786182
 GameObject:
   m_ObjectHideFlags: 0

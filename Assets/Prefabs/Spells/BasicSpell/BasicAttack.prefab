@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 40
   _damage: 1
+  _iceBulletDecay: 0
 --- !u!54 &5936490550169911779
 Rigidbody:
   m_ObjectHideFlags: 0
