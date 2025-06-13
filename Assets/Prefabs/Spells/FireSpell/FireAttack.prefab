@@ -312,5 +312,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 70
-  _damage: 2
+  _damage: 3
   _iceBulletDecay: 0
