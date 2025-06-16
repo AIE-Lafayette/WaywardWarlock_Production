@@ -26,11 +26,15 @@ public class PlayerAnimation : MonoBehaviour
 
     void Animation()
     {
-        _velocity = (transform.position - _previousPosition) / Time.deltaTime;
+        Vector3 newVelocity = (transform.position - _previousPosition) / Time.deltaTime;
+        _velocity = Vector3.Lerp(_velocity, newVelocity, 0.015f); 
 
         _previousPosition = transform.position;
-        Debug.Log(_velocity.normalized.magnitude);
-        _animator.SetFloat("Speed", _velocity.normalized.magnitude);
+
+        Debug.Log(_velocity.normalized.magnitude); 
+
+        float speed = _velocity.magnitude;
+        _animator.SetFloat("Speed", speed);
 
         if (_healthComponent.Health <= 0)
         {
