@@ -11,7 +11,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _healthComponent = GetComponent<HealthComponent>();
-        _animator.SetFloat("Speed", 1f);
+        _controller = GetComponent<CharacterController>();
+        _animator.SetFloat("Speed", _controller.velocity.normalized.magnitude);
     }
 
     void Update()
@@ -21,7 +22,9 @@ public class PlayerAnimation : MonoBehaviour
 
     void Animation()
     {
-        _animator.SetFloat("Speed", 1f);
+    
+         
+        
 
         if (_healthComponent.Health <= 0)
         {
@@ -33,10 +36,11 @@ public class PlayerAnimation : MonoBehaviour
             {
                 _animator.SetBool("ForbiddenSpell", false);
             }
+            _animator.SetBool("WeyDeath", true);
         }
         else
         {
-            if(_animator.GetCurrentAnimatorStateInfo(0).IsName("ForbiddenSpell") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if(_animator.GetCurrentAnimatorStateInfo(0).IsName("ForbiddenSpell") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f )
             {
                 _animator.SetBool("IdleWalk", true);
             }
