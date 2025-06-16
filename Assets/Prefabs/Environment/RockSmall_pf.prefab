@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b02ca1736f5643c47ad2086b3816f8c8, type: 3}
       propertyPath: m_Name
-      value: RockSmall (3)
+      value: RockSmall_pf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b02ca1736f5643c47ad2086b3816f8c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4738981173143612714}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b02ca1736f5643c47ad2086b3816f8c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5023925733898908279}
   m_SourcePrefab: {fileID: 100100000, guid: b02ca1736f5643c47ad2086b3816f8c8, type: 3}
 --- !u!1 &8852039560396122950 stripped
 GameObject:
@@ -85,6 +88,22 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.6
-  m_Height: 1.2
+  m_Height: 2.2
   m_Direction: 1
   m_Center: {x: -0.2966702, y: 0.2879889, z: 0.036062002}
+--- !u!208 &5023925733898908279
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852039560396122950}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.50200003, y: 0.335, z: 0.50200003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.29700002, y: 0.28800002, z: 0.036000002}
+  m_TimeToStationary: 0.5

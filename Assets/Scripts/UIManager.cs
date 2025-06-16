@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
 
     public void SetKillCountText()
     {
-        _killCountText.text = _gameManager.TotalKillCount.ToString();
+        _killCountText.text = "Score: " + _gameManager.TotalKillCount.ToString();
     }
     // Start is called before the first frame update
     void Start()
@@ -104,7 +104,7 @@ public class UIManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(GameManager.instance.TimeElapsed / 60);
         int seconds = Mathf.FloorToInt(GameManager.instance.TimeElapsed % 60);
 
-        _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
         _healthBar.value = _playerHealth.Health;
         _specialBar.value = _gameManager.KillCount;
     }
