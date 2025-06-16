@@ -1282,6 +1282,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.12
       objectReference: {fileID: 0}
+    - target: {fileID: 2682810685568176942, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _forbiddenSpell.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682810685568176942, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _forbiddenSpell.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1739081000}
+    - target: {fileID: 2682810685568176942, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _forbiddenSpell.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSpecial
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682810685568176942, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _forbiddenSpell.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682810685568176942, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: _forbiddenSpell.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3424280136780327762, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 10
@@ -2034,6 +2054,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 333b8619a1077d34fafc5bc8da8dc71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1739081000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5137208395392001264, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+  m_PrefabInstance: {fileID: 1249119896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739080979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a5667e4cf21da449bafc8cf359608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1747436283 stripped

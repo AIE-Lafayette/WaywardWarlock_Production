@@ -23,23 +23,31 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator.SetFloat("Speed", 1f);
 
-       if(_healthComponent.Health == 0 )
+        if (_healthComponent.Health <= 0)
         {
             if (_animator.GetBool("IdleWalk") == true)
             {
-              _animator.SetBool("IdleWalk", false);
+                _animator.SetBool("IdleWalk", false);
             }
             if (_animator.GetBool("ForbiddenSpell") == true)
             {
                 _animator.SetBool("ForbiddenSpell", false);
             }
-            else
+        }
+        else
+        {
+            if(_animator.GetCurrentAnimatorStateInfo(0).IsName("ForbiddenSpell") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                _animator.SetFloat("IdleWalk", 1);
-
+                _animator.SetBool("IdleWalk", true);
             }
         }
+        
 
 
+    }
+
+    public void SetSpecial()
+    {
+        _animator.SetBool("ForbiddenSpell", true);
     }
 }
