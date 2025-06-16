@@ -2299,6 +2299,10 @@ PrefabInstance:
       propertyPath: _basicBullet
       value: 
       objectReference: {fileID: 3770539764678703077, guid: 838aa53eaa11e4b4783176cb50ea26c4, type: 3}
+    - target: {fileID: 1602173506564795493, guid: b16f9910d5474b6478a22ff5f3716de8, type: 3}
+      propertyPath: _lightningBullet
+      value: 
+      objectReference: {fileID: 5262024932742466712, guid: ced2cc3870b15e543932d439e185b89f, type: 3}
     - target: {fileID: 4206286858333021093, guid: b16f9910d5474b6478a22ff5f3716de8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
