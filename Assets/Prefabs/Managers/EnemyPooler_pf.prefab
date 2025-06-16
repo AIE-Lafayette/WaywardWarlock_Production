@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75bd3bb9234c4b4480ce2f487ffda24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseGolemPrefab: {fileID: 8831195918605992478, guid: 46ac2ce1c8b6c444aaee295fad993f5a, type: 3}
-  _fireGolemPrefab: {fileID: 2953919357631126084, guid: b02f936f02943d54faf126507d0a9043, type: 3}
-  _iceGolemPrefab: {fileID: 3477314849777059636, guid: 1c514e736965b4946863991d61391dea, type: 3}
-  _lightningGolemPrefab: {fileID: 5651429675153390075, guid: d39211eb942a9fa4193384dab397b107, type: 3}
+  _baseGolemPrefab: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+  _fireGolemPrefab: {fileID: 2464003702758866481, guid: 55833d1d09e419546822fffe3bf9f63f, type: 3}
+  _iceGolemPrefab: {fileID: 4346537657108536614, guid: 17e9aed91cd8ecc469b4bd3bf5e215f8, type: 3}
+  _lightningGolemPrefab: {fileID: -2427024598347010082, guid: 37e8455cb0411bf43a978d304e388776, type: 3}

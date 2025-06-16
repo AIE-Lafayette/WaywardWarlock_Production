@@ -29,9 +29,29 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider _spellDecayBar;
 
+    [SerializeField]
+    private GameObject _pauseUI;
+
+    public void TogglePauseUI(bool toggle)
+    {
+        _pauseUI.gameObject.SetActive(toggle);
+    }
 
 
+    public static UIManager instance { get; private set; }
     
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     public void SetKillCountText()
     {
         _killCountText.text = _gameManager.TotalKillCount.ToString();
