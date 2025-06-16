@@ -6,7 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     Animator _animator;
     HealthComponent _healthComponent;
-    CharacterController _controller;
+   
     public Vector3 _velocity;
     public Vector3 _previousPosition;
 
@@ -14,7 +14,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _healthComponent = GetComponent<HealthComponent>();
-        _controller = GetComponent<CharacterController>();
         _animator.SetFloat("Speed", 0f);
         _animator.SetBool("IdleWalk", true);
     }
@@ -26,15 +25,15 @@ public class PlayerAnimation : MonoBehaviour
 
     void Animation()
     {
-        Vector3 newVelocity = (transform.position - _previousPosition) / Time.deltaTime;
-        _velocity = Vector3.Lerp(_velocity, newVelocity, 0.015f); 
+        Vector3 _newVelocity = (transform.position - _previousPosition) / Time.deltaTime;
+        _velocity = Vector3.Lerp(_velocity, _newVelocity, 0.015f); 
 
         _previousPosition = transform.position;
 
         Debug.Log(_velocity.normalized.magnitude); 
 
-        float speed = _velocity.magnitude;
-        _animator.SetFloat("Speed", speed);
+        float _speed = _velocity.magnitude;
+        _animator.SetFloat("Speed", _speed);
 
         if (_healthComponent.Health <= 0)
         {
