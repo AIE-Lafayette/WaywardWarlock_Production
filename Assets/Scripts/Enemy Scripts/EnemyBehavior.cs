@@ -76,7 +76,7 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Vector3 direction = _target.transform.position - transform.position;
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = targetRotation;
+                transform.GetChild(0).rotation = targetRotation;
                
             }
         }
