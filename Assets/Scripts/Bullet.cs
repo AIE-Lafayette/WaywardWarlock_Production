@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float _iceBulletDecay;
 
+    private TrailRenderer _trail;
+
     public Vector3 SetDirection { set { _direction = value; } }
     public ShotType ShotType { get { return _bulletType; } set { _bulletType = value; } }
     public VisualEffect Effect { get { return _effect; } }
@@ -30,6 +32,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _effect = GetComponentInChildren<VisualEffect>();
+        _trail = GetComponentInChildren<TrailRenderer>();
     }
     public void ResetIceTimer()
     {
