@@ -2606,10 +2606,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1739080979}
     - target: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
-      propertyPath: _timeDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8952592767441661855, guid: 692731f62e57b514cb3b1ec32c4805eb, type: 3}
       propertyPath: _playerPosition
       value: 
       objectReference: {fileID: 0}
@@ -2804,10 +2800,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8943433731019047974, guid: b5b97a86bfda3a74eb381c1004cf17ac, type: 3}
-      propertyPath: _waveDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943433731019047974, guid: b5b97a86bfda3a74eb381c1004cf17ac, type: 3}
       propertyPath: _playerObject
       value: 
       objectReference: {fileID: 1739080979}
@@ -2815,10 +2807,6 @@ PrefabInstance:
       propertyPath: _spawnManager
       value: 
       objectReference: {fileID: 1081460163}
-    - target: {fileID: 8943433731019047974, guid: b5b97a86bfda3a74eb381c1004cf17ac, type: 3}
-      propertyPath: _incrementAmount
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8943433731019047974, guid: b5b97a86bfda3a74eb381c1004cf17ac, type: 3}
       propertyPath: _specialKillAmount
       value: 2
