@@ -12,17 +12,19 @@ public class PlayerAnimation : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _healthComponent = GetComponent<HealthComponent>();
         _controller = GetComponent<CharacterController>();
-        _animator.SetFloat("Speed", _controller.velocity.normalized.magnitude);
+        _animator.SetFloat("Speed", 0f);
+        _animator.SetBool("IdleWalk", true);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Animation();   
     }
 
     void Animation()
     {
-    
+        
+       
          
         
 

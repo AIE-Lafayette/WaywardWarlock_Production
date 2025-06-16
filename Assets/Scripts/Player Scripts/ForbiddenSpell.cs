@@ -17,9 +17,9 @@ public class ForbiddenSpell : MonoBehaviour
 
     public void SpecialAttack()
     {
-        _forbiddenSpell.Invoke();
        if(GameManager.instance.KillCount >= GameManager.instance.SpecialKillAmount)
        {
+        _forbiddenSpell.Invoke();
             foreach (EnemyBehavior enemy in EnemyPooler.instance.ActiveList)
             {
                 enemy.SpecialDeath();
