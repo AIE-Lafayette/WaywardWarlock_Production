@@ -47,7 +47,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1553164430476411918}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
@@ -75,7 +75,9 @@ MonoBehaviour:
   _damage: 1
   _itemDrop: {fileID: 1617426950848616429, guid: 9e62a75fd9dce654ab318b5557ce6268, type: 3}
   _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  _turnSpeed: 10
   _isLightningGolem: 1
+  _placementOffset: {x: 0, y: 20, z: 0}
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:

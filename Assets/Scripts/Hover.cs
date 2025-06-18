@@ -7,6 +7,11 @@ public class Hover : MonoBehaviour
 {
     [SerializeField]
     float _rotationSpeed = 30;
+    [SerializeField]
+    float _strength = 0.5f;
+    [SerializeField]
+    float _speed = 1f;
+    Vector3 _startPosition;
     Transform _mesh;
     Vector3 _center;
     Tween _heightTween;
@@ -16,23 +21,21 @@ public class Hover : MonoBehaviour
     {
         _center = GetComponentInChildren<Renderer>().bounds.center;
         _mesh = transform.GetChild(1);
-        
-        if(_mesh)
-        {
-            
-            _heightTween = _mesh.DOMoveY(1, .5f).SetEase(Ease.InOutSine).SetLoops(-1,LoopType.Yoyo);
-        }
+        _startPosition = _mesh.transform.position;
+        _mesh.transform.position = transform.position;
+    }
+
+    void HeightChange()
+    {
+        float newY = _startPosition.y + Mathf.Sin(Time.time * _speed) * _strength;
+        _mesh.transform.position = new Vector3(_startPosition.x, newY, _startPosition.z);
     }
 
     private void Update()
     {
-
+        HeightChange();
         _mesh.RotateAround(_center, new Vector3(0, 1, 0), _rotationSpeed * Time.deltaTime);
         
     }
 
-    private void OnDestroy()
-    {
-        _heightTween.Kill(false);
-    }
 }

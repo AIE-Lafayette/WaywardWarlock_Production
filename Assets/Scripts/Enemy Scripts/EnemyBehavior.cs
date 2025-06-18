@@ -22,6 +22,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private bool _isLightningGolem;
 
+    Vector3 _placementOffset;
+
     public bool IsLightningGolem { get { return _isLightningGolem; } }
 
     public UnityEvent OnEnemyDeath;
@@ -49,7 +51,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        
+        _placementOffset = new Vector3(0, 1, 0);
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
@@ -144,7 +146,18 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(_itemDrop)
         {
-            Instantiate(_itemDrop, transform.position, Quaternion.identity);
+            Ray ray = new Ray(transform.position, -transform.up);
+            if(Physics.Raycast(ray, out RaycastHit hit, 10))
+            {
+                Collider _ground = hit.collider.gameObject.GetComponent<Collider>();
+                if(_ground != null)
+                {
+                    Instantiate(_itemDrop, hit.point + _placementOffset, Quaternion.identity);
+
+                }
+            }
+            else
+                Instantiate(_itemDrop, transform.position, Quaternion.identity);
         }
     }
 
