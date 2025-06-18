@@ -30,8 +30,6 @@ public class PlayerAnimation : MonoBehaviour
 
         _previousPosition = transform.position;
 
-        Debug.Log(_velocity.normalized.magnitude); 
-
         float _speed = _velocity.magnitude;
         _animator.SetFloat("Speed", _speed);
 

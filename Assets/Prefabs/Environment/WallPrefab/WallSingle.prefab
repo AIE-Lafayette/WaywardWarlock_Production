@@ -66,6 +66,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStrait
       objectReference: {fileID: 0}
+    - target: {fileID: 3912691541633688281, guid: 59332bb078e67c54890564d7c2fa2c85, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6220626189651403055, guid: 59332bb078e67c54890564d7c2fa2c85, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -126,7 +130,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.992
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3912691541633688281, guid: 59332bb078e67c54890564d7c2fa2c85, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8264669466335790888, guid: 59332bb078e67c54890564d7c2fa2c85, type: 3}
     m_AddedGameObjects:
