@@ -72,6 +72,15 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
+
+        if(_navMesh.isOnNavMesh)
+        {
+
+        }
+        else
+        {
+            Debug.Log("Off the NavMesh!");
+        }
         if(_target != null)
         {
             _navMesh.SetDestination(_target.transform.position);

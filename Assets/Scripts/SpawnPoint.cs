@@ -20,7 +20,7 @@ public class SpawnPoint : MonoBehaviour
     }
 
     Vector3 GetNavMesh()
-     {
+    {
         Ray ray = new Ray(transform.position, -transform.up);
         if (Physics.Raycast(ray, out RaycastHit rayhit, 60))
         {
@@ -31,13 +31,13 @@ public class SpawnPoint : MonoBehaviour
             }
         }
         return transform.localPosition;
-     }
+    }
 
     void SetEnemy(GameObject player)
     {
         _navMesh = golem.GetComponent<NavMeshAgent>();
         _navMesh.enabled = false;
-        golem.transform.position = GetNavMesh();
+        _navMesh.Warp(transform.position);
         _navMesh.enabled = true;
         golem.SetTarget = player;
         EnemyPooler.instance.ActiveList.Add(golem);
