@@ -24,15 +24,17 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: b922d379abcf84e469dbe99a1f1ffcb7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -53,22 +55,22 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 0
+    - _Blend: 2
     - _CastShadows: 1
     - _Cull: 2
-    - _DstBlend: 0
+    - _DstBlend: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Ripple_Density: 30
-    - _Ripple_Slimness: 7
+    - _Ripple_Density: 5
+    - _Ripple_Slimness: 10
     - _Ripple_Speed: 0.5
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _Wave_Speed: 0.5
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _Wave_Speed: 0.01
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Base_Color: {r: 0, g: 0.28235295, b: 0.08549707, a: 1}
-    - _Ripple_Color: {r: 0.048237503, g: 0.78431374, b: 0, a: 1}
+    - _Base_Color: {r: 0.05490196, g: 0.13333334, b: 0.27058825, a: 0}
+    - _Ripple_Color: {r: 0.4009434, g: 1, b: 0.9294076, a: 1}
   m_BuildTextureStacks: []
