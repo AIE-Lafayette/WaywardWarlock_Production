@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         _forbiddenSpell = GetComponent<ForbiddenSpell>();
         _playerController = GetComponent<CharacterController>();
         _meshTransform = transform.GetChild(0);
+        
     }
     public void OnMove(InputAction.CallbackContext context)
     {

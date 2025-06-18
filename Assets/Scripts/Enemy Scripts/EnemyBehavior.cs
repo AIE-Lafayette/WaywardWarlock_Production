@@ -17,7 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _itemDrop;
     [SerializeField]
     private VisualEffect _forbiddenSpellEffect;
-
+    [SerializeField]
+    private float _turnSpeed =10f;
     [SerializeField]
     private bool _isLightningGolem;
 
@@ -74,10 +75,13 @@ public class EnemyBehavior : MonoBehaviour
             _navMesh.SetDestination(_target.transform.position);
             if(_health.Health != 0)
             {
-                Vector3 direction = _target.transform.position - transform.position;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = targetRotation;
-               
+
+                Vector3 flatVelocity = new Vector3(_navMesh.velocity.x, 0f, _navMesh.velocity.z);
+                if(flatVelocity.sqrMagnitude > 0.001f)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(flatVelocity);
+                    transform.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed);
+                }
             }
         }
     }
