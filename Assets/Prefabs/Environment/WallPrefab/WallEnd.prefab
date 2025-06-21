@@ -64,8 +64,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.886434, y: 1, z: 0.5605625}
-  m_Center: {x: -2.8354452, y: 5.24, z: -0.21971875}
+  m_Size: {x: 5.886434, y: 5.1918054, z: 0.6653342}
+  m_Center: {x: -2.8354452, y: 3.1859028, z: -0.27210462}
 --- !u!65 &1177846488726569560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,8 +85,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.64125645, y: 1.1067324, z: 5.0193505}
-  m_Center: {x: -0.21228105, y: 5.1931653, z: 2.5893958}
+  m_Size: {x: 0.64125645, y: 5.199141, z: 5.0439453}
+  m_Center: {x: -0.21228105, y: 3.1817572, z: 2.5770984}
 --- !u!65 &3228621282616406078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.64125645, y: 1.1067324, z: 5.0193505}
-  m_Center: {x: -5.43, y: 5.1931653, z: 2.5893958}
+  m_Size: {x: 0.64125633, y: 5.171563, z: 5.042717}
+  m_Center: {x: -5.43, y: 3.16075, z: 2.5777125}
 --- !u!1001 &427385457758063018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,7 +160,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -222,7 +223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1810583112611215797, guid: fa98bf96d9b7c0941ad702b81042645e, type: 3}
+    - {fileID: 6247683464817351185, guid: fa98bf96d9b7c0941ad702b81042645e, type: 3}
+    - {fileID: 4002826561207991109, guid: fa98bf96d9b7c0941ad702b81042645e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2018747625104984237, guid: fa98bf96d9b7c0941ad702b81042645e, type: 3}
@@ -287,7 +291,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularWallDoubleWithMoss_pf (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1356442801606612436, guid: c8e8b7ac4e2f68a41b14f425214c47a8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -349,7 +354,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -477,7 +483,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -539,7 +546,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -601,7 +609,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -663,7 +672,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -725,7 +735,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -787,7 +798,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -849,7 +861,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleModularWall_pf (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4906567907821434374, guid: ad4023f58b1510948b202d4284a83a3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

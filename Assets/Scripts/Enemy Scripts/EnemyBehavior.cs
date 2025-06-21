@@ -22,6 +22,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private bool _isLightningGolem;
 
+    Coroutine _updateTarget;
+
     Vector3 _placementOffset;
 
     public bool IsLightningGolem { get { return _isLightningGolem; } }
@@ -51,6 +53,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(UpdateTarget());
         _placementOffset = new Vector3(0, 1, 0);
         if (!_navMesh)
         {
@@ -69,21 +72,19 @@ public class EnemyBehavior : MonoBehaviour
         }
         
     }
-
-    private void Update()
+    IEnumerator UpdateTarget()
     {
-
-        if(_navMesh.isOnNavMesh)
-        {
-
-        }
-        else
-        {
-            Debug.Log("Off the NavMesh!");
-        }
-        if(_target != null)
+        while(_health.Health != 0)
         {
             _navMesh.SetDestination(_target.transform.position);
+            yield return new WaitForSeconds(.5f);
+        }
+    }
+    private void Update()
+    {
+        if(_target != null)
+        {
+            
             if(_health.Health != 0)
             {
 

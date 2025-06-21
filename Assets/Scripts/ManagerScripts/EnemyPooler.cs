@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Pool;
 
 public class EnemyPooler : MonoBehaviour
@@ -16,6 +17,8 @@ public class EnemyPooler : MonoBehaviour
     private EnemyBehavior _iceGolemPrefab;
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
+
+    private NavMeshAgent _agent;
     public static EnemyPooler instance { get; private set; }
     private List<EnemyBehavior> _activeList;
 
@@ -130,6 +133,9 @@ public class EnemyPooler : MonoBehaviour
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
+        _agent = pooledObject.GetComponent<NavMeshAgent>();
+        _agent.enabled = false;
+        
     }
 
     private void OnDestroyPoolObject(EnemyBehavior pooledObject)

@@ -36,7 +36,6 @@ public class SpawnPoint : MonoBehaviour
     void SetEnemy(GameObject player)
     {
         _navMesh = golem.GetComponent<NavMeshAgent>();
-        _navMesh.enabled = false;
         _navMesh.Warp(transform.position);
         _navMesh.enabled = true;
         golem.SetTarget = player;
