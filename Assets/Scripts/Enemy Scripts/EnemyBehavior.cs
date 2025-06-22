@@ -76,16 +76,23 @@ public class EnemyBehavior : MonoBehaviour
     {
         while(_health.Health != 0)
         {
-            _navMesh.SetDestination(_target.transform.position);
-            yield return new WaitForSeconds(.5f);
+
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(_target.transform.position,out hit,2,NavMesh.AllAreas))
+            {
+                _navMesh.SetDestination(hit.position);
+                yield return new WaitForSeconds(.5f);
+            }
+            
         }
     }
     private void Update()
     {
-        if(_target != null)
+        if (!_navMesh.isOnNavMesh) Debug.Log("Agent is off navmesh");
+        if (_target != null)
         {
             
-            if(_health.Health != 0)
+            if(!_killed)
             {
 
                 Vector3 flatVelocity = new Vector3(_navMesh.velocity.x, 0f, _navMesh.velocity.z);
@@ -105,7 +112,9 @@ public class EnemyBehavior : MonoBehaviour
             _killed = true;
             GameManager.instance.AddKill();
             EnemyPooler.instance.ActiveList.Remove(this);
-            OnEnemyDeath.Invoke();
+            _health.ResetHealth();
+            DropItem();
+            Return();
         }
         else
         {

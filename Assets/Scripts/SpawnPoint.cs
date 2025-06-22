@@ -13,33 +13,29 @@ public class SpawnPoint : MonoBehaviour
     public float DistanceToPlayer { get { return _distanceToPlayer; } set { _distanceToPlayer = value; } }
 
     private float _distanceToPlayer;
+    float _maxDistance = 10;
+    Vector3 _spawnPosition;
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(transform.position,1.5f);
     }
-
-    Vector3 GetNavMesh()
-    {
-        Ray ray = new Ray(transform.position, -transform.up);
-        if (Physics.Raycast(ray, out RaycastHit rayhit, 60))
-        {
-            TerrainCollider _mesh = rayhit.collider.gameObject.GetComponent<TerrainCollider>();
-            if (_mesh != null)
-            {
-                return rayhit.point;
-            }
-        }
-        return transform.localPosition;
-    }
+  
 
     void SetEnemy(GameObject player)
     {
         _navMesh = golem.GetComponent<NavMeshAgent>();
-        _navMesh.Warp(transform.position);
-        _navMesh.enabled = true;
-        golem.SetTarget = player;
-        EnemyPooler.instance.ActiveList.Add(golem);
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, _maxDistance, NavMesh.AllAreas))
+        {
+            _spawnPosition = hit.position;
+            _navMesh.enabled = false;
+            _navMesh.Warp(_spawnPosition);
+            _navMesh.enabled = true;
+            golem.SetTarget = player;
+            EnemyPooler.instance.ActiveList.Add(golem);
+        }
+       
     }
 
     public void Spawn(EnemyType type,GameObject player)

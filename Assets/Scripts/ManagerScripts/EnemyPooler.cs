@@ -18,7 +18,6 @@ public class EnemyPooler : MonoBehaviour
     [SerializeField]
     private EnemyBehavior _lightningGolemPrefab;
 
-    private NavMeshAgent _agent;
     public static EnemyPooler instance { get; private set; }
     private List<EnemyBehavior> _activeList;
 
@@ -127,14 +126,16 @@ public class EnemyPooler : MonoBehaviour
     {
         pooledObject.gameObject.SetActive(true);
         pooledObject.IsKilled = false;
-        
+        var agent = pooledObject.GetComponent<NavMeshAgent>();
+        agent.enabled = true;
+
     }
 
     private void OnRelease(EnemyBehavior pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
-        _agent = pooledObject.GetComponent<NavMeshAgent>();
-        _agent.enabled = false;
+        var agent = pooledObject.GetComponent<NavMeshAgent>();
+        agent.enabled = false;
         
     }
 
