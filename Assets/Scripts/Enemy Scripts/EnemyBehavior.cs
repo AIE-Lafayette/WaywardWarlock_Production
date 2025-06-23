@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -54,7 +53,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
        
-        _placementOffset = new Vector3(0, 1, 0);
+        _placementOffset = new Vector3(0, 2, 0);
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
