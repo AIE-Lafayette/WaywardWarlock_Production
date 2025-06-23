@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 
 public class ForbiddenSpell : MonoBehaviour
 {
-    public UnityEvent _forbiddenSpell;
+    
     void SpawnSpecial(EnemyBehavior enemy)
     {
        SpecialSpell spell = EffectsPool.instance.BeamPool.Get();
@@ -19,7 +19,7 @@ public class ForbiddenSpell : MonoBehaviour
     {
        if(GameManager.instance.KillCount >= GameManager.instance.SpecialKillAmount)
        {
-        _forbiddenSpell.Invoke();
+        
             foreach (EnemyBehavior enemy in EnemyPooler.instance.ActiveList)
             {
                 enemy.SpecialDeath();

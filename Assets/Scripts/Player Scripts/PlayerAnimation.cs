@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    [SerializeField]
+    private float _lerpValue;
+
     Animator _animator;
     HealthComponent _healthComponent;
-   
-    public Vector3 _velocity;
-    public Vector3 _previousPosition;
+
+    private Vector3 _velocity;
+    private Vector3 _previousPosition;
 
     void Start()
     {
@@ -26,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
     void Animation()
     {
         Vector3 _newVelocity = (transform.position - _previousPosition) / Time.deltaTime;
-        _velocity = Vector3.Lerp(_velocity, _newVelocity, 0.015f); 
+        _velocity = Vector3.Lerp(_velocity, _newVelocity, _lerpValue); 
 
         _previousPosition = transform.position;
 
