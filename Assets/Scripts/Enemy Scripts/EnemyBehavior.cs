@@ -53,7 +53,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(UpdateTarget());
+       
         _placementOffset = new Vector3(0, 1, 0);
         if (!_navMesh)
         {
@@ -72,29 +72,19 @@ public class EnemyBehavior : MonoBehaviour
         }
         
     }
-    IEnumerator UpdateTarget()
-    {
-        while(_health.Health != 0)
-        {
-
-            NavMeshHit hit;
-            if(NavMesh.SamplePosition(_target.transform.position,out hit,2,NavMesh.AllAreas))
-            {
-                _navMesh.SetDestination(hit.position);
-                yield return new WaitForSeconds(.5f);
-            }
-            
-        }
-    }
     private void Update()
     {
-        if (!_navMesh.isOnNavMesh) Debug.Log("Agent is off navmesh");
+
         if (_target != null)
         {
             
             if(!_killed)
             {
-
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(_target.transform.position, out hit, 2, NavMesh.AllAreas))
+                {
+                    _navMesh.SetDestination(hit.position);
+                }
                 Vector3 flatVelocity = new Vector3(_navMesh.velocity.x, 0f, _navMesh.velocity.z);
                 if(flatVelocity.sqrMagnitude > 0.001f)
                 {
