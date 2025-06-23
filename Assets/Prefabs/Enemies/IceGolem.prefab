@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: _itemDrop
       value: 
       objectReference: {fileID: 2610279631357280732, guid: f3c2bac60474e3a47b9531d2449160da, type: 3}
+    - target: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+      propertyPath: _placementOffset.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4354882864643779751, guid: 175365176b63be347ae1c6a785aef310, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

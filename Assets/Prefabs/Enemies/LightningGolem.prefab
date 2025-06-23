@@ -45,9 +45,9 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553164430476411918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
@@ -56,7 +56,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -75,6 +75,7 @@ MonoBehaviour:
   _damage: 1
   _itemDrop: {fileID: 1617426950848616429, guid: 9e62a75fd9dce654ab318b5557ce6268, type: 3}
   _forbiddenSpellEffect: {fileID: 2751512710035367949, guid: c6bfa37a83522f2439ee959e9164764d, type: 3}
+  _turnSpeed: 10
   _isLightningGolem: 1
   OnEnemyDeath:
     m_PersistentCalls:
@@ -93,7 +94,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
-        m_MethodName: Return
+        m_MethodName: DropItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -105,7 +106,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: -2427024598347010082}
         m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
-        m_MethodName: DropItem
+        m_MethodName: Return
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,7 +167,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &-3879489996913193619
 MonoBehaviour:

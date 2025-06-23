@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 60
+  _strength: 0.5
+  _speed: 4
 --- !u!114 &-4102065722751176165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeTillDelete: 5
+  _delay: 5
 --- !u!1 &6616637150460786182
 GameObject:
   m_ObjectHideFlags: 0

@@ -109,6 +109,28 @@ public class PlayerAttack : MonoBehaviour
             bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
         }
     }
+    Vector3 GetNavMesh()
+    {
+        Ray ray = new Ray(_bulletOffset.transform.position, -transform.up);
+        if (Physics.Raycast(ray, out RaycastHit rayhit, 60))
+        {
+            Collider _mesh = rayhit.collider.gameObject.GetComponent<Collider>();
+            if (_mesh != null)
+            {
+                return rayhit.point;
+            }
+        }
+        return _bulletOffset.transform.localPosition;
+    }
+    void ShootIceBullet(Bullet bullet)
+    {
+        bullet.transform.position = _bulletOffset.transform.position;
+        Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+        bullet.transform.position = GetNavMesh();
+        Direction.y = 0;
+        bullet.SetDirection = Direction;
+        bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
+    }
 
     void ShootLightningBullet(Bullet bullet)
     {
@@ -140,8 +162,8 @@ public class PlayerAttack : MonoBehaviour
                 }
             case ShotType.ICE:
                 {
-                    ShootBullet(BulletPool.instance.IceBulletPool.Get());
-                  break;
+                    ShootIceBullet(BulletPool.instance.IceBulletPool.Get());
+                    break;
                 }
             case ShotType.FIRE:
                 {
