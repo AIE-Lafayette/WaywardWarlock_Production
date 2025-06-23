@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -15,12 +17,22 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _itemDrop;
     [SerializeField]
     private VisualEffect _forbiddenSpellEffect;
+    [SerializeField]
+    private float _turnSpeed =10f;
+    [SerializeField]
+    private bool _isLightningGolem;
+
+    Coroutine _updateTarget;
+
+    Vector3 _placementOffset;
+
+    public bool IsLightningGolem { get { return _isLightningGolem; } }
 
     public UnityEvent OnEnemyDeath;
     public GameObject SetTarget { set { _target = value; } }
     public ObjectPool<EnemyBehavior> Pool { set { _pool = value; } }
     public bool IsKilled { get { return _killed; } set { _killed = value; } }
-    
+
     private HealthComponent _health;
     private GameObject _target;
     private NavMeshAgent _navMesh;
@@ -41,7 +53,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        
+       
+        _placementOffset = new Vector3(0, 1, 0);
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
@@ -59,15 +72,25 @@ public class EnemyBehavior : MonoBehaviour
         }
         
     }
-
     private void Update()
     {
-        if(_target != null)
+
+        if (_target != null)
         {
-            _navMesh.SetDestination(_target.transform.position);
-            if(_health.Health != 0)
+            
+            if(!_killed)
             {
-                _navMesh.transform.LookAt(_target.transform);
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(_target.transform.position, out hit, 2, NavMesh.AllAreas))
+                {
+                    _navMesh.SetDestination(hit.position);
+                }
+                Vector3 flatVelocity = new Vector3(_navMesh.velocity.x, 0f, _navMesh.velocity.z);
+                if(flatVelocity.sqrMagnitude > 0.001f)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(flatVelocity);
+                    transform.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed);
+                }
             }
         }
     }
@@ -79,7 +102,9 @@ public class EnemyBehavior : MonoBehaviour
             _killed = true;
             GameManager.instance.AddKill();
             EnemyPooler.instance.ActiveList.Remove(this);
-            OnEnemyDeath.Invoke();
+            _health.ResetHealth();
+            DropItem();
+            Return();
         }
         else
         {
@@ -92,11 +117,11 @@ public class EnemyBehavior : MonoBehaviour
     public void SpecialDeath()
     {
         _navMesh.isStopped = true;
-        Instantiate(_forbiddenSpellEffect,transform.position,Quaternion.identity);
+        EffectsPool.instance.BeamPool.Get().transform.position = transform.position;
         OnEnemyDeath.Invoke();
 
     }
-    void HitPlayer(Collision collision)
+    void HitPlayer(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -108,31 +133,41 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        HitPlayer(collision);
+        HitPlayer(other);
     }
-    private void OnCollisionStay(Collision collision)
+
+    private void OnTriggerStay(Collider other)
     {
-        if(!_navMesh.isStopped)
+        if (!_navMesh.isStopped)
         {
             _timer += Time.deltaTime;
-            if(_timer > _delay)
+            if (_timer > _delay)
             {
                 _timer -= _delay;
-                HitPlayer(collision);
+                HitPlayer(other);
             }
         }
     }
-
-
     public void DropItem()
     {
         if(_itemDrop)
         {
-            Instantiate(_itemDrop, transform.position, Quaternion.identity);
-        }
+            Ray ray = new Ray(transform.position, -transform.up);
+            if(Physics.Raycast(ray, out RaycastHit hit, 10))
+            {
+                Collider _ground = hit.collider.gameObject.GetComponent<Collider>();
+                if(_ground != null)
+                {
+                    Instantiate(_itemDrop, hit.point + _placementOffset, Quaternion.identity);
 
+                }
+            }
+            else
+                Instantiate(_itemDrop, transform.position, Quaternion.identity);
+        }
     }
 
     public void Return()

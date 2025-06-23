@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPointList: []
-  _playerPosition: {fileID: 0}
+  _player: {fileID: 0}
+  _spawnPointLimit: 3
+  _timeDelay: 3

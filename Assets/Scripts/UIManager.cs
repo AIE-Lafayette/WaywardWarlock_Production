@@ -29,12 +29,35 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider _spellDecayBar;
 
+    [SerializeField]
+    private GameObject _spellBarObject;
+
+    [SerializeField]
+    private GameObject _pauseUI;
+
+    public void TogglePauseUI(bool toggle)
+    {
+        _pauseUI.gameObject.SetActive(toggle);
+    }
 
 
+    public static UIManager instance { get; private set; }
     
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     public void SetKillCountText()
     {
-        _killCountText.text = _gameManager.TotalKillCount.ToString();
+        _killCountText.text = "Score: " + _gameManager.TotalKillCount.ToString();
     }
     // Start is called before the first frame update
     void Start()
@@ -62,9 +85,10 @@ public class UIManager : MonoBehaviour
     {
         if(_playerAttack.SpecialActive)
         {
-            if(!_spellDecayBar.gameObject.activeSelf)
+            if(!_spellBarObject.activeSelf)
             {
-                _spellDecayBar.gameObject.SetActive(true);
+
+                _spellBarObject.gameObject.SetActive(true);
                 _spellDecayBar.maxValue = _playerAttack.SpecialTimeLeft;
                 _spellDecayBar.value = _playerAttack.SpecialTimeLeft;
             }
@@ -75,16 +99,17 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if(_spellDecayBar.gameObject.activeSelf)
+            if(_spellBarObject.activeSelf)
             {
-                _spellDecayBar.gameObject.SetActive(false);
+                _spellBarObject.gameObject.SetActive(false);
             }
         }
 
+        
         int minutes = Mathf.FloorToInt(GameManager.instance.TimeElapsed / 60);
         int seconds = Mathf.FloorToInt(GameManager.instance.TimeElapsed % 60);
 
-        _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
         _healthBar.value = _playerHealth.Health;
         _specialBar.value = _gameManager.KillCount;
     }

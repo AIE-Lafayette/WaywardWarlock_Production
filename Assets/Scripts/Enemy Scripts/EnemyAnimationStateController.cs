@@ -58,12 +58,13 @@ public class EnemyAnimationStateController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-       if(collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if(_animator.GetBool("Attack") == false)
+            if (_animator.GetBool("Attack") == false)
                 _animator.SetTrigger("Attack");
         }
     }
+
 }

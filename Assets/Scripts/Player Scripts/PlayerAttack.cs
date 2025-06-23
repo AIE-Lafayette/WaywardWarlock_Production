@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject _meshObject;
 
+    
+
     public float SpecialTimeLeft { get { return _specialTimeLeft; } }
     public bool SpecialActive { get { return _specialActive; } }
     
@@ -61,12 +63,20 @@ public class PlayerAttack : MonoBehaviour
        }
    
     }
-
-    
-
-
-
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollectible item = other.gameObject.GetComponent<ICollectible>();
+        if (item != null)
+        {
+            if (!_specialActive)
+            {
+                SetShotType = item.BulletType;
+                _delay = item.Delay;
+                _specialTimeLeft = item.Time;
+                Destroy(other.gameObject);
+            }
+        }
+    }
     private void OnCollisionStay(Collision collision)
     {
         //checks first if special is active or not
@@ -88,12 +98,56 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!_isDead)
         {
-
+            bullet.transform.position = _bulletOffset.transform.position;
+            Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+            if(bullet.ShotType == ShotType.ICE)
+            {
+                bullet.transform.position = new Vector3(bullet.transform.position.x, 0.2f, bullet.transform.position.z);
+            }
+            Direction.y = 0;
+            bullet.SetDirection = Direction;
+            bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
+        }
+    }
+    Vector3 GetNavMesh()
+    {
+        Ray ray = new Ray(_bulletOffset.transform.position, -transform.up);
+        if (Physics.Raycast(ray, out RaycastHit rayhit, 60))
+        {
+            Collider _mesh = rayhit.collider.gameObject.GetComponent<Collider>();
+            if (_mesh != null)
+            {
+                return rayhit.point;
+            }
+        }
+        return _bulletOffset.transform.localPosition;
+    }
+    void ShootIceBullet(Bullet bullet)
+    {
         bullet.transform.position = _bulletOffset.transform.position;
         Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+        bullet.transform.position = GetNavMesh();
         Direction.y = 0;
         bullet.SetDirection = Direction;
+        bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
+    }
+
+    void ShootLightningBullet(Bullet bullet)
+    {
+        if (!_isDead)
+        {
+            bullet.transform.position = _bulletOffset.transform.position;
+            Vector3 Direction = (_bulletOffset.transform.position - transform.position).normalized;
+            if (bullet.ShotType == ShotType.ICE)
+            {
+                bullet.transform.position = new Vector3(bullet.transform.position.x, 0.2f, bullet.transform.position.z);
+            }
+            Direction.y = 0;
+            bullet.SetDirection = Direction;
+            bullet.transform.GetChild(0).rotation = _meshObject.transform.rotation;
         }
+
+
     }
     
     void Shoot()
@@ -105,11 +159,11 @@ public class PlayerAttack : MonoBehaviour
 
                     ShootBullet(BulletPool.instance.BasicBulletPool.Get());     
                      break;
-                 }
+                }
             case ShotType.ICE:
                 {
-                    ShootBullet(BulletPool.instance.IceBulletPool.Get());
-                  break;
+                    ShootIceBullet(BulletPool.instance.IceBulletPool.Get());
+                    break;
                 }
             case ShotType.FIRE:
                 {
@@ -132,8 +186,6 @@ public class PlayerAttack : MonoBehaviour
     {
         _isDead = true;
     }
-
-    
 }
 
 

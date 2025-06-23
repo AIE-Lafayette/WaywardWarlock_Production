@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7c6fda2a789647840f0d4643d9e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _specialKillAmount: 150
+  _playerObject: {fileID: 0}
   _spawnManager: {fileID: 0}
   _maxEnemiesOnScreen: 50
-  _waveDelay: 5
-  _incrementAmount: 8
+  _waveDelay: 1
+  _incrementAmount: 5

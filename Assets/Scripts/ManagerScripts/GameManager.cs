@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _incrementAmount = 5;
     public int SpecialKillAmount { get { return _specialKillAmount; } }
+
+    public bool GamePaused { get { return _gamePaused; } set { _gamePaused = value; } }
     public int KillCount 
     {
         get 
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public float TimeElapsed { get { return _timeElapsed; } }
 
-    
+    bool _gamePaused;
     private Queue<EnemyType> _spawnList;
     public static GameManager instance;
     int _amountToSpawn = 10;
@@ -73,7 +75,13 @@ public class GameManager : MonoBehaviour
         _spawnManager.SetSpawnList = _spawnList;
        
     }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        GamePaused = false;
+        UIManager.instance.TogglePauseUI(false);
 
+    }
     public void AddToTotalKill()
     {
         _totalKillCount += 1;
