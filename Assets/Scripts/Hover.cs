@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class Hover : MonoBehaviour
 {
@@ -14,7 +13,6 @@ public class Hover : MonoBehaviour
     Vector3 _startPosition;
     Transform _mesh;
     Vector3 _center;
-    Tween _heightTween;
 
     // Start is called before the first frame update
     void Start()
