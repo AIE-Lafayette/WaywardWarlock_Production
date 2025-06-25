@@ -1209,6 +1209,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &14320106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3898762235266597761, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+  m_PrefabInstance: {fileID: 14320101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &14320107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8889231027924939859, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+  m_PrefabInstance: {fileID: 14320101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25357218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,11 +3898,11 @@ PrefabInstance:
     - target: {fileID: 1392927266343313732, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 14320107}
     - target: {fileID: 1392927266343313732, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 14320106}
     - target: {fileID: 1392927266343313732, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
@@ -3905,6 +3915,10 @@ PrefabInstance:
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[7].m_Target
       value: 
       objectReference: {fileID: 1479480061}
+    - target: {fileID: 1392927266343313732, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218450933699985572, guid: 6fbee281cf6ecaa4294f89a4a8acd16e, type: 3}
       propertyPath: m_Name
       value: Player_PF
