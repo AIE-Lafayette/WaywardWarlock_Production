@@ -47,4 +47,4 @@ MonoBehaviour:
   _basicBullet: {fileID: 3770539764678703077, guid: 838aa53eaa11e4b4783176cb50ea26c4, type: 3}
   _fireBullet: {fileID: 7387425635600264659, guid: 7adc0314181b956428568352d65ee66f, type: 3}
   _lightningBullet: {fileID: 5262024932742466712, guid: ced2cc3870b15e543932d439e185b89f, type: 3}
-  _iceBullet: {fileID: 3368921467294204276, guid: 80fefccf8def44847acd60f3b20d9a41, type: 3}
+  _iceBullet: {fileID: 3368921467294204276, guid: 46d13d6fb2574e94c9ca594fcd11b36b, type: 3}
