@@ -20,6 +20,8 @@ public class EnemyBehavior : MonoBehaviour
     private float _turnSpeed =10f;
     [SerializeField]
     private bool _isLightningGolem;
+    [SerializeField]
+    private GameObject _hitbox;
 
     Coroutine _updateTarget;
 
@@ -53,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
        
-        _placementOffset = new Vector3(0, 2, 0);
+        _placementOffset = new Vector3(0, 1, 0);
         if (!_navMesh)
         {
             Debug.LogError("EnemyBehavior: No instance of NavMeshAgent Component!");
@@ -93,6 +95,22 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
     }
+    public void TurnOnHitBox()
+    {
+        CapsuleCollider[] colliders = _hitbox.GetComponents<CapsuleCollider>();
+        foreach (CapsuleCollider collider in colliders)
+        {
+            collider.enabled = true;
+        }
+    }    
+    void TurnOffHitbox()
+    {
+        CapsuleCollider[] colliders = _hitbox.GetComponents<CapsuleCollider>();
+        foreach (CapsuleCollider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+    }
     public void Death()
     {
         if (_pool != null)
@@ -102,6 +120,7 @@ public class EnemyBehavior : MonoBehaviour
             GameManager.instance.AddKill();
             EnemyPooler.instance.ActiveList.Remove(this);
             _health.ResetHealth();
+            TurnOffHitbox();
             DropItem();
             Return();
         }
@@ -154,18 +173,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(_itemDrop)
         {
-            Ray ray = new Ray(transform.position, -transform.up);
-            if(Physics.Raycast(ray, out RaycastHit hit, 10))
-            {
-                Collider _ground = hit.collider.gameObject.GetComponent<Collider>();
-                if(_ground != null)
-                {
-                    Instantiate(_itemDrop, hit.point + _placementOffset, Quaternion.identity);
-
-                }
-            }
-            else
-                Instantiate(_itemDrop, transform.position, Quaternion.identity);
+           Instantiate(_itemDrop, transform.position + _placementOffset, Quaternion.identity);
         }
     }
 

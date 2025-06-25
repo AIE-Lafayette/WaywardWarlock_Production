@@ -21,6 +21,10 @@ PrefabInstance:
       value: FireGolem
       objectReference: {fileID: 0}
     - target: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+      propertyPath: _hitbox
+      value: 
+      objectReference: {fileID: 7259606902095235150}
+    - target: {fileID: 3310657896831591438, guid: 175365176b63be347ae1c6a785aef310, type: 3}
       propertyPath: _itemDrop
       value: 
       objectReference: {fileID: 2822164784440643385, guid: 41e2e8c7bc5f74f4d958ef2e9c1a12b8, type: 3}
@@ -85,3 +89,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+--- !u!1 &7259606902095235150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7746043486256829041, guid: 175365176b63be347ae1c6a785aef310, type: 3}
+  m_PrefabInstance: {fileID: 1134968133779282495}
+  m_PrefabAsset: {fileID: 0}

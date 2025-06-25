@@ -126,6 +126,7 @@ public class EnemyPooler : MonoBehaviour
     {
         pooledObject.gameObject.SetActive(true);
         pooledObject.IsKilled = false;
+        pooledObject.TurnOnHitBox();
         var agent = pooledObject.GetComponent<NavMeshAgent>();
         agent.enabled = true;
 
