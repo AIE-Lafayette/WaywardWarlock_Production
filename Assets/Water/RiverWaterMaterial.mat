@@ -61,16 +61,16 @@ Material:
     - _DstBlend: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Ripple_Density: 5
-    - _Ripple_Slimness: 10
-    - _Ripple_Speed: 0.5
+    - _Ripple_Density: 7.04
+    - _Ripple_Slimness: 4.28
+    - _Ripple_Speed: 1
     - _SrcBlend: 5
     - _Surface: 1
-    - _Wave_Speed: 0.01
+    - _Wave_Speed: 0.1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Base_Color: {r: 0.05490196, g: 0.13333334, b: 0.27058825, a: 0}
-    - _Ripple_Color: {r: 0.4009434, g: 1, b: 0.9294076, a: 1}
+    - _Base_Color: {r: 0, g: 0.09605485, b: 0.26415092, a: 0}
+    - _Ripple_Color: {r: 0.34082413, g: 0.6509434, b: 0.61445874, a: 1}
   m_BuildTextureStacks: []
