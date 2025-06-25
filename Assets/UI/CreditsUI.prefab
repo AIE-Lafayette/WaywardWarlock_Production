@@ -285,7 +285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.020000001, y: 0}
   m_AnchorMax: {x: 1, y: 0.97451144}
-  m_AnchoredPosition: {x: -4.000061, y: 7.5}
+  m_AnchoredPosition: {x: -4, y: 7.5}
   m_SizeDelta: {x: 8, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8023550265098159792
@@ -686,10 +686,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits\nArtists\nMac Donovan- Chracter Design\nJack Fruge- VFX\nLandon
-    Copeland - Character Rigging and Animation\nAiden Walton- Environment \nSam Dickerson
-    - UI and Foliage\nProgrammers\nJoe Guillory - AI and enemy behavior\nChase Scully-
-    Player Mechanics\n"
+  m_text: "Credits\nArtists\nMac Donovan- Chracter Design, Texturing, and Rigging\nJack
+    Fruge- VFX and Lighting\nLandon Copeland - Character Modeling, Texturing, and
+    Animation\nAiden Walton- Environment \nSam Dickerson - UI and Foliage\nProgrammers\nJoe
+    Guillory - AI and enemy behavior\nChase Scully- Player Mechanics\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0de7c2fb76f68a0488e4d416fc70abfb, type: 2}
   m_sharedMaterial: {fileID: -3767743140976340987, guid: 0de7c2fb76f68a0488e4d416fc70abfb, type: 2}
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.1
+  m_fontSize: 47
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 52.082153, z: 0, w: 61.268875}
+  m_margin: {x: 67.812256, y: 52.082153, z: 97.19766, w: 61.268875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
