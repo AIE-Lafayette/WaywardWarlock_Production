@@ -686,7 +686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits\nArtists\nMac Donovan- Chracter Design, Texturing, and Rigging\nJack
+  m_text: "Credits\nArtists\nMac Donovan- Character Design, Texturing, and Rigging\nJack
     Fruge- VFX and Lighting\nLandon Copeland - Character Modeling, Texturing, and
     Animation\nAiden Walton- Environment \nSam Dickerson - UI and Foliage\nProgrammers\nJoe
     Guillory - AI and Enemy Behavior\nChase Scully- Player Mechanics\nSpecial Thanks\nDonald
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.7
+  m_fontSize: 26.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
