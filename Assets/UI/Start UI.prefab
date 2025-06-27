@@ -375,11 +375,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 514316530517539952}
-  m_Father: {fileID: 2001355218991641401}
+  m_Father: {fileID: 3376414487423002568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -180}
+  m_AnchoredPosition: {x: 0, y: -192.91833}
   m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2844248654006920874
@@ -508,11 +508,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2025363180043025854}
-  m_Father: {fileID: 2001355218991641401}
+  m_Father: {fileID: 3376414487423002568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -90}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2353820080092066196
@@ -1000,11 +1000,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1837837661024779793}
-  m_Father: {fileID: 2001355218991641401}
+  m_Father: {fileID: 3376414487423002568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -270}
+  m_AnchoredPosition: {x: 0, y: -282.91833}
   m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7499094190561908548
@@ -1135,6 +1135,9 @@ RectTransform:
   - {fileID: 4764097016855924643}
   - {fileID: 4972715298621730631}
   - {fileID: 3679631017955630189}
+  - {fileID: 4867130504860732334}
+  - {fileID: 3763129756890567273}
+  - {fileID: 9023841091497008088}
   m_Father: {fileID: 2001355218991641401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1209,9 +1212,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3376414487423002568}
-  - {fileID: 4867130504860732334}
-  - {fileID: 3763129756890567273}
-  - {fileID: 9023841091497008088}
   - {fileID: 3731182284399935674}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

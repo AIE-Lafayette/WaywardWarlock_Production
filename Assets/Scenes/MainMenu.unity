@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 742578344164003254, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 863128685325291108, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
       propertyPath: m_SizeDelta.x
       value: 59.3877
@@ -748,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 2265434037799281280, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387589458941268844, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2387589458941268844, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -952,6 +960,18 @@ PrefabInstance:
     - target: {fileID: 4766239821918360465, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitApplication
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791247861651676420, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791247861651676420, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791247861651676420, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4912575172223224048, guid: 0051ce60b2d649d46b73e050c4b05dfa, type: 3}
       propertyPath: m_SizeDelta.x

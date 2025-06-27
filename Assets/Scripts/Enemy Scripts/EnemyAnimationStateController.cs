@@ -10,12 +10,11 @@ public class EnemyAnimationStateController : MonoBehaviour
     NavMeshAgent _agent;
     HealthComponent _healthComponent;
     EnemyBehavior _enemyBehavior;
-    Collider _collider;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        _collider = GetComponentInChildren<Collider>();
         _enemyBehavior = GetComponent<EnemyBehavior>();
         _animator = GetComponentInChildren<Animator>();
         _agent = GetComponent<NavMeshAgent>();
@@ -42,13 +41,11 @@ public class EnemyAnimationStateController : MonoBehaviour
             if (_animator.GetBool("Death") == false)
                 _animator.SetBool("Death", true);
             _agent.isStopped = true;
-            _collider.enabled = false;
 
+            _enemyBehavior.TurnOffHitbox();
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("GolemDeath") && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                _collider.enabled = true;
                 _enemyBehavior.Death();
-
             }
         }
         else

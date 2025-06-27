@@ -103,7 +103,7 @@ public class EnemyBehavior : MonoBehaviour
             collider.enabled = true;
         }
     }    
-    void TurnOffHitbox()
+    public void TurnOffHitbox()
     {
         CapsuleCollider[] colliders = _hitbox.GetComponents<CapsuleCollider>();
         foreach (CapsuleCollider collider in colliders)
